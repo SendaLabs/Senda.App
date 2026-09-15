@@ -1,9 +1,14 @@
+import { ForestShapes } from "~/components/21st/elegant-shape";
 import { Shell } from "~/components/landing/shell";
 
 export function Trust() {
   return (
-    <section id="confianza" className="bg-forest py-24 text-cream md:py-32">
-      <Shell>
+    <section
+      id="confianza"
+      className="relative isolate overflow-hidden bg-forest py-24 text-cream md:py-32"
+    >
+      <ForestShapes />
+      <Shell className="relative z-10">
         <h2 className="editorial-display max-w-[16ch] text-4xl md:text-6xl">
           El riel es Stellar. La experiencia no.
         </h2>

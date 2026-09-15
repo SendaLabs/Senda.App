@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { ForestShapes } from "~/components/21st/elegant-shape";
 import { QuoteCard } from "~/components/landing/quote-card";
 import { Shell } from "~/components/landing/shell";
 import { Button } from "~/components/ui/button";
@@ -11,15 +12,16 @@ export function Hero() {
       id="top"
       className="relative isolate min-h-[100dvh] overflow-hidden bg-forest text-cream"
     >
+      <ForestShapes />
       <Image
         src="/images/TEST.png"
         alt=""
         width={1600}
         height={900}
         priority
-        className="pointer-events-none absolute -right-16 top-24 w-[72%] max-w-4xl opacity-80 motion-safe:animate-[senda-path_1.1s_cubic-bezier(.22,1,.36,1)_both] md:right-0 md:top-16 md:w-[58%]"
+        className="pointer-events-none absolute -right-16 top-24 z-[1] w-[72%] max-w-4xl opacity-80 motion-safe:animate-[senda-path_1.1s_cubic-bezier(.22,1,.36,1)_both] md:right-0 md:top-16 md:w-[58%]"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/92 to-forest/55" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-forest via-forest/92 to-forest/55" />
 
       <Shell className="relative z-10 grid min-h-[100dvh] items-center gap-10 py-10 pt-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:py-16">
         <div className="motion-safe:animate-[senda-rise_0.9s_cubic-bezier(.22,1,.36,1)_both]">
