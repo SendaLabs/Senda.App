@@ -24,6 +24,7 @@
   "registries": {
     "@magicui": "https://magicui.design/r/{name}",
     "@launchui": "https://www.launchuicomponents.com/r/{name}.json",
-    "@kokonutui": "https://kokonutui.com/r/{name}.json"
+    "@kokonutui": "https://kokonutui.com/r/{name}.json",
+    "@7ovr": "https://7ovr.com/r/{name}.json"
   }
 }
