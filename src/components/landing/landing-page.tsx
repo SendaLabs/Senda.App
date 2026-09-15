@@ -9,6 +9,7 @@ import { MercadoPago } from "~/components/landing/mercado-pago";
 import { PromoBar } from "~/components/landing/promo-bar";
 import { ReceiveRail } from "~/components/landing/receive-rail";
 import { Roadmap } from "~/components/landing/roadmap";
+import { Scenarios } from "~/components/landing/scenarios";
 import { Team } from "~/components/landing/team";
 import { Trust } from "~/components/landing/trust";
 import { WhatsAppFlow } from "~/components/landing/whatsapp-flow";
@@ -31,6 +32,7 @@ export function LandingPage() {
         <HowItWorks />
         <WhySenda />
         <WhatsAppFlow />
+        <Scenarios />
         <Compare />
         <Trust />
         <MercadoPago />

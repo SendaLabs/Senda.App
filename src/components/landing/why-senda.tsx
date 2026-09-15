@@ -1,80 +1,84 @@
 import {
-  MessageCircle,
   EyeOff,
-  Zap,
-  Wallet,
   Globe,
+  MessageCircle,
   Users,
+  Wallet,
+  Zap,
 } from "lucide-react";
 
+import { BentoGrid, type BentoItem } from "~/components/21st/bento-grid";
 import { Shell } from "~/components/landing/shell";
-import { BentoCard, BentoGrid } from "~/components/ui/bento-grid";
 import { site } from "~/lib/site";
 
-const tiles = [
+const tiles: BentoItem[] = [
   {
-    name: "Todo desde WhatsApp",
+    title: "Todo desde WhatsApp",
     description:
       "Como Félix, el envío vive en el chat. Sin filas y sin una app más en el teléfono.",
-    Icon: MessageCircle,
-    className: "md:col-span-2 bg-white",
+    icon: <MessageCircle className="size-4 text-forest" />,
+    status: "Canal",
+    tags: ["WhatsApp", "B2C"],
+    meta: "sin app",
+    cta: "Empezar →",
     href: site.startHref,
-    cta: "Abrir el chat",
-    background: (
-      <div className="absolute -right-8 -top-10 size-56 rounded-full bg-cream-deep" />
-    ),
+    colSpan: 2,
+    hasPersistentHover: true,
   },
   {
-    name: "Blockchain invisible",
+    title: "Blockchain invisible",
     description:
       "Mandás plata. Ellos reciben pesos. Nadie en la familia tiene que saber qué es una wallet.",
-    Icon: EyeOff,
-    className: "md:col-span-1 bg-forest text-cream [&_h3]:text-cream [&_p]:text-cream/80 [&_svg]:text-cream [&_a]:text-cream",
+    icon: <EyeOff className="size-4 text-forest" />,
+    status: "Diseño",
+    tags: ["Invisible"],
+    meta: "bajo el capó",
+    cta: "Ver cómo viaja →",
     href: "#confianza",
-    cta: "Ver cómo viaja",
-    background: null,
   },
   {
-    name: "Stellar, por debajo",
+    title: "Stellar, por debajo",
     description:
       "Transferencias rápidas y comisiones mínimas. Las stablecoins son el caño, no la pantalla.",
-    Icon: Zap,
-    className: "md:col-span-1 bg-cream-deep",
+    icon: <Zap className="size-4 text-forest" />,
+    status: "Riel",
+    tags: ["Stellar"],
+    meta: "segundos",
+    cta: "Por qué Stellar →",
     href: "#confianza",
-    cta: "Por qué Stellar",
-    background: null,
   },
   {
-    name: "Cobra en Mercado Pago",
+    title: "Cobra en Mercado Pago",
     description:
       "El último tramo es el que ya usan. Alias, CVU, pesos. Familiar de punta a punta.",
-    Icon: Wallet,
-    className: "md:col-span-2 bg-white",
+    icon: <Wallet className="size-4 text-forest" />,
+    status: "Destino",
+    tags: ["ARS", "MP"],
+    meta: "alias o CVU",
+    cta: "Cómo cobran →",
     href: "#mercado-pago",
-    cta: "Cómo cobran",
-    background: (
-      <div className="absolute bottom-0 right-0 h-32 w-48 bg-cream-deep/80" />
-    ),
+    colSpan: 2,
   },
   {
-    name: "Un producto B2C simple",
+    title: "Un producto B2C simple",
     description:
       "Una persona manda. Otra cobra. Sin onboarding de empresa ni API.",
-    Icon: Users,
-    className: "md:col-span-1 bg-white",
+    icon: <Users className="size-4 text-forest" />,
+    status: "B2C",
+    tags: ["Personas"],
+    cta: "Empezar →",
     href: site.startHref,
-    cta: "Empezar",
-    background: null,
   },
   {
-    name: "El hueco que dejan los grandes",
+    title: "El hueco que dejan los grandes",
     description:
       "Western Union, Remitly y Wise cubren mal este tramo: sucursal, app extra, o un destino que no es Mercado Pago.",
-    Icon: Globe,
-    className: "md:col-span-2 bg-cream-deep",
+    icon: <Globe className="size-4 text-forest" />,
+    status: "Mercado",
+    tags: ["Competencia"],
+    cta: "Comparar →",
     href: "#comparar",
-    cta: "Comparar",
-    background: null,
+    colSpan: 2,
   },
 ];
 
@@ -85,20 +89,7 @@ export function WhySenda() {
         <h2 className="editorial-display max-w-[14ch] text-4xl text-forest md:text-5xl">
           Hecho para mandar a casa, no para explicar cripto
         </h2>
-        <BentoGrid className="mt-12 auto-rows-auto md:auto-rows-[20rem]">
-          {tiles.map((tile) => (
-            <BentoCard
-              key={tile.name}
-              name={tile.name}
-              description={tile.description}
-              Icon={tile.Icon}
-              className={tile.className}
-              href={tile.href}
-              cta={tile.cta}
-              background={tile.background}
-            />
-          ))}
-        </BentoGrid>
+        <BentoGrid className="mt-12" items={tiles} />
       </Shell>
     </section>
   );
