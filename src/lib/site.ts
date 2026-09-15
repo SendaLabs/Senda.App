@@ -1,0 +1,47 @@
+export const site = {
+  name: "Senda",
+  email: "hello@senda.org",
+  mailto: "mailto:hello@senda.org?subject=Quiero%20enviar%20plata%20a%20Argentina",
+  github: "https://github.com/SendaLabs",
+  linkedin: "https://www.linkedin.com/company/senda-labs",
+  x: "https://x.com/senda_app",
+  challenge: "https://argentinabuilderchallenge.netlify.app/reglamento",
+  startHref: "#empezar",
+  howHref: "#como-funciona",
+  exampleUsdToArs: 1350,
+  exampleFeeLabel: "incluida",
+} as const;
+
+export const navItems = [
+  { href: "#como-funciona", label: "Cómo funciona" },
+  { href: "#por-que-senda", label: "Por qué Senda" },
+  { href: "#mercado-pago", label: "Mercado Pago" },
+  { href: "#equipo", label: "Equipo" },
+  { href: "#preguntas", label: "Preguntas" },
+] as const;
+
+export const team = [
+  {
+    name: "Emilio Alfaro",
+    role: "Co-Founder & CPO",
+    image: "/images/P_Emilio.svg",
+    telegram: "https://t.me/ml0aa",
+    x: "https://x.com/eml0aa",
+  },
+  {
+    name: "Delfina Corradini",
+    role: "Co-Founder & CEO",
+    image: "/images/P_Delfina.svg",
+    telegram: "https://t.me/Delficorradini",
+    x: "https://x.com/Delfiicorradini",
+    linkedin:
+      "https://www.linkedin.com/in/delfina-luna-corradini-668795224/",
+  },
+  {
+    name: "Nicolas Bustelo",
+    role: "Co-Founder & CTO",
+    image: "/images/P_Nicolas.png.svg",
+    telegram: "https://t.me/nicobustelo",
+    x: "https://x.com/nicobustelo__",
+  },
+] as const;
