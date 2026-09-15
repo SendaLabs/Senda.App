@@ -1,0 +1,189 @@
+/**
+ * 21st.dev community — kokonutd FAQ
+ * Source: https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/faq.tsx
+ * Listing: https://21st.dev/@kokonutd/faq
+ * License: MIT (kokonut-labs/kokonutui)
+ */
+"use client";
+
+import * as React from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, Mail } from "lucide-react";
+
+import { Button } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
+
+interface FaqSectionProps extends React.HTMLAttributes<HTMLElement> {
+  title: string;
+  description?: string;
+  items: {
+    question: string;
+    answer: string;
+  }[];
+  contactInfo?: {
+    title: string;
+    description: string;
+    buttonText: string;
+    href?: string;
+    onContact?: () => void;
+  };
+}
+
+const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
+  (
+    { className, title, description, items, contactInfo, ...props },
+    ref,
+  ) => {
+    return (
+      <section
+        ref={ref}
+        className={cn("w-full bg-cream py-20 md:py-28", className)}
+        {...props}
+      >
+        <div className="mx-auto w-full max-w-[1440px] px-5 md:px-8 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mx-auto mb-12 max-w-2xl text-center"
+          >
+            <h2 className="editorial-display mb-3 text-4xl text-forest md:text-5xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="text-base leading-relaxed text-forest/75">
+                {description}
+              </p>
+            ) : null}
+          </motion.div>
+
+          <div className="mx-auto max-w-2xl space-y-2">
+            {items.map((item, index) => (
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+                index={index}
+              />
+            ))}
+          </div>
+
+          {contactInfo ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mx-auto mt-12 max-w-md rounded-2xl bg-white p-6 text-center"
+            >
+              <div className="mb-4 inline-flex items-center justify-center rounded-full bg-cream-deep p-1.5">
+                <Mail className="size-4 text-forest" />
+              </div>
+              <p className="mb-1 text-sm font-medium text-forest">
+                {contactInfo.title}
+              </p>
+              <p className="mb-4 text-xs leading-relaxed text-forest/70">
+                {contactInfo.description}
+              </p>
+              {contactInfo.href ? (
+                <Button variant="senda" size="sm" asChild>
+                  <a href={contactInfo.href}>{contactInfo.buttonText}</a>
+                </Button>
+              ) : (
+                <Button variant="senda" size="sm" onClick={contactInfo.onContact}>
+                  {contactInfo.buttonText}
+                </Button>
+              )}
+            </motion.div>
+          ) : null}
+        </div>
+      </section>
+    );
+  },
+);
+FaqSection.displayName = "FaqSection";
+
+const FaqItem = React.forwardRef<
+  HTMLDivElement,
+  {
+    question: string;
+    answer: string;
+    index: number;
+  }
+>((props, ref) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const { question, answer, index } = props;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2, delay: index * 0.1 }}
+      className={cn(
+        "group rounded-xl border border-stone/80 transition-all duration-200 ease-in-out",
+        isOpen ? "bg-white" : "bg-cream-deep/50 hover:bg-white",
+      )}
+    >
+      <Button
+        type="button"
+        variant="ghost"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
+        className="h-auto w-full justify-between whitespace-normal rounded-xl px-6 py-4 text-left hover:bg-transparent"
+      >
+        <h3
+          className={cn(
+            "text-left text-base font-medium text-forest/75 transition-colors duration-200",
+            isOpen && "text-forest",
+          )}
+        >
+          {question}
+        </h3>
+        <motion.div
+          animate={{
+            rotate: isOpen ? 180 : 0,
+            scale: isOpen ? 1.1 : 1,
+          }}
+          transition={{ duration: 0.2 }}
+          className={cn(
+            "shrink-0 rounded-full p-0.5 transition-colors duration-200",
+            isOpen ? "text-forest" : "text-forest/50",
+          )}
+        >
+          <ChevronDown className="size-4" />
+        </motion.div>
+      </Button>
+      <AnimatePresence initial={false}>
+        {isOpen ? (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+              transition: { duration: 0.2, ease: "easeOut" },
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              transition: { duration: 0.2, ease: "easeIn" },
+            }}
+          >
+            <div className="px-6 pb-4 pt-2">
+              <motion.p
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                className="text-sm leading-relaxed text-charcoal/75"
+              >
+                {answer}
+              </motion.p>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </motion.div>
+  );
+});
+FaqItem.displayName = "FaqItem";
+
+export { FaqSection };
