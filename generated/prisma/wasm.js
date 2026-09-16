@@ -164,7 +164,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Nico Bustelo\\Desktop\\Software\\Senda.App\\generated\\prisma",
+      "value": "C:\\Users\\delfi\\Senda.App\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -178,12 +178,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Nico Bustelo\\Desktop\\Software\\Senda.App\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\delfi\\Senda.App\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.19.3",

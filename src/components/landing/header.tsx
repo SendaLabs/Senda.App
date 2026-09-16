@@ -17,7 +17,7 @@ import { navItems, site } from "~/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-stone/70 bg-white">
+    <header className="border-stone/70 sticky top-0 z-50 -mb-[4.5rem] rounded-b-2xl border bg-white shadow-sm">
       <div className="mx-auto flex h-[4.5rem] w-full max-w-[1440px] items-center justify-between gap-4 px-5 md:px-8 lg:px-12">
         <Link href="#top" className="shrink-0" aria-label="Senda, inicio">
           <Image
@@ -38,7 +38,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[0.95rem] text-charcoal underline-offset-4 hover:underline"
+              className="text-charcoal text-[0.95rem] underline-offset-4 hover:underline"
             >
               {item.label}
             </a>
@@ -46,7 +46,12 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="senda" size="cta" asChild className="hidden sm:inline-flex">
+          <Button
+            variant="senda"
+            size="cta"
+            asChild
+            className="hidden sm:inline-flex"
+          >
             <a href={site.startHref}>Empezar envío</a>
           </Button>
 
@@ -70,7 +75,7 @@ export function SiteHeader() {
                   <SheetClose asChild key={item.href}>
                     <a
                       href={item.href}
-                      className="rounded-xl px-3 py-3 text-lg text-forest"
+                      className="text-forest rounded-xl px-3 py-3 text-lg"
                     >
                       {item.label}
                     </a>
