@@ -6,7 +6,6 @@ import { SiteHeader } from "~/components/landing/header";
 import { Hero } from "~/components/landing/hero";
 import { HowItWorks } from "~/components/landing/how-it-works";
 import { MercadoPago } from "~/components/landing/mercado-pago";
-import { PromoBar } from "~/components/landing/promo-bar";
 import { ReceiveRail } from "~/components/landing/receive-rail";
 import { Roadmap } from "~/components/landing/roadmap";
 import { Scenarios } from "~/components/landing/scenarios";
@@ -20,11 +19,10 @@ export function LandingPage() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:bg-cream focus:px-3 focus:py-2 focus:text-forest"
+        className="focus:bg-cream focus:text-forest sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[80] focus:px-3 focus:py-2"
       >
         Saltar al contenido
       </a>
-      <PromoBar />
       <SiteHeader />
       <main id="main">
         <Hero />

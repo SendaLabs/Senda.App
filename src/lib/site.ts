@@ -1,9 +1,11 @@
 export const site = {
   name: "Senda",
   email: "hello@senda.org",
-  mailto: "mailto:hello@senda.org?subject=Quiero%20enviar%20plata%20a%20Argentina",
+  mailto:
+    "mailto:hello@senda.org?subject=Quiero%20enviar%20plata%20a%20Argentina",
   github: "https://github.com/SendaLabs",
   linkedin: "https://www.linkedin.com/company/senda-labs",
+  instagram: "https://www.instagram.com/withsenda/",
   x: "https://x.com/senda_app",
   challenge: "https://argentinabuilderchallenge.netlify.app/reglamento",
   startHref: "#empezar",
@@ -15,9 +17,8 @@ export const site = {
 export const navItems = [
   { href: "#como-funciona", label: "Cómo funciona" },
   { href: "#por-que-senda", label: "Por qué Senda" },
-  { href: "#mercado-pago", label: "Mercado Pago" },
-  { href: "#equipo", label: "Equipo" },
-  { href: "#preguntas", label: "Preguntas" },
+  { href: "#equipo", label: "Quiénes somos" },
+  { href: "#preguntas", label: "Contacto" },
 ] as const;
 
 export const team = [
@@ -27,6 +28,7 @@ export const team = [
     image: "/images/P_Emilio.svg",
     telegram: "https://t.me/ml0aa",
     x: "https://x.com/eml0aa",
+    linkedin: "https://www.linkedin.com/in/emilio-alfaro/",
   },
   {
     name: "Delfina Corradini",
@@ -34,8 +36,7 @@ export const team = [
     image: "/images/P_Delfina.svg",
     telegram: "https://t.me/Delficorradini",
     x: "https://x.com/Delfiicorradini",
-    linkedin:
-      "https://www.linkedin.com/in/delfina-luna-corradini-668795224/",
+    linkedin: "https://www.linkedin.com/in/delfina-luna-corradini-668795224/",
   },
   {
     name: "Nicolas Bustelo",
@@ -43,5 +44,6 @@ export const team = [
     image: "/images/P_Nicolas.png.svg",
     telegram: "https://t.me/nicobustelo",
     x: "https://x.com/nicobustelo__",
+    linkedin: "https://ar.linkedin.com/in/nicolas-bustelo",
   },
 ] as const;
