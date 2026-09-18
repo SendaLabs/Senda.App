@@ -58,7 +58,7 @@ function BentoGrid({ items, className }: BentoGridProps) {
                     "bg-forest/5 transition-colors duration-300 group-hover:bg-forest/10",
                   )}
                 >
-                  {item.status ?? "Activo"}
+                  {item.status ?? "Active"}
                 </span>
               </div>
 

@@ -1,31 +1,33 @@
 import Image from "next/image";
 import { Send } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 import { Shell } from "~/components/landing/shell";
 import { team } from "~/lib/site";
 
-export function Team() {
+export async function Team() {
+  const t = await getTranslations("team");
+
   return (
     <section id="equipo" className="bg-white py-10 md:py-12">
       <Shell className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-start">
         <div>
           <div className="mx-auto max-w-3xl text-center">
             <p className="team-statement text-charcoal font-serif text-2xl leading-[1.08] md:text-3xl">
-              La tecnología no es un fin, sino una
+              {t("statement1Before")}
               <br className="hidden md:block" />{" "}
-              <strong className="text-forest font-bold">herramienta</strong>{" "}
-              para facilitar y{" "}
-              <strong className="text-forest font-bold">mejorar la vida</strong>
-              <br className="hidden md:block" /> de las personas.
+              <strong className="text-forest font-bold">{t("tool")}</strong>{" "}
+              {t("statement1Mid")}{" "}
+              <strong className="text-forest font-bold">{t("improve")}</strong>
+              <br className="hidden md:block" /> {t("statement1After")}
             </p>
             <p className="text-charcoal mt-4 font-serif text-2xl leading-[1.08] md:text-3xl">
-              Su verdadero impacto surge cuando ponemos el
-              <br className="hidden md:block" /> foco en ellas.
+              {t("statement2")}
             </p>
           </div>
 
           <p className="text-forest/70 mt-10 text-center text-xs font-medium tracking-[0.24em]">
-            NUESTRO EQUIPO
+            {t("label")}
           </p>
 
           <ul className="mx-auto mt-5 grid max-w-xl gap-5 sm:grid-cols-3">
@@ -33,34 +35,35 @@ export function Team() {
               <li key={person.name} className="text-center">
                 <Image
                   src={person.image}
-                  alt={`Retrato ilustrado de ${person.name}`}
+                  alt={t("portraitAlt", { name: person.name })}
                   width={320}
                   height={400}
                   unoptimized
                   className="border-charcoal/60 bg-cream-deep aspect-[4/5] w-full rounded-md border object-cover object-top"
+                  sizes="(max-width: 640px) 80vw, 180px"
                 />
                 <p className="text-forest mt-2 text-sm">{person.name}</p>
                 <p className="text-forest/60 mt-0.5 text-xs">{person.role}</p>
                 <p className="mt-2 flex justify-center gap-1.5">
                   <a
                     href={person.telegram}
-                    aria-label={`${person.name} en Telegram`}
-                    className="border-forest/60 text-forest hover:bg-forest flex size-6 items-center justify-center rounded-full border hover:text-white"
+                    aria-label={t("onTelegram", { name: person.name })}
+                    className="border-forest/60 text-forest hover:bg-forest flex size-11 items-center justify-center rounded-full border hover:text-white md:size-6"
                   >
                     <Send className="size-3.5" />
                   </a>
                   <a
                     href={person.x}
-                    aria-label={`${person.name} en X`}
-                    className="border-forest/60 text-forest hover:bg-forest flex size-6 items-center justify-center rounded-full border hover:text-white"
+                    aria-label={t("onX", { name: person.name })}
+                    className="border-forest/60 text-forest hover:bg-forest flex size-11 items-center justify-center rounded-full border hover:text-white md:size-6"
                   >
                     <span className="text-xs font-semibold">X</span>
                   </a>
                   {"linkedin" in person && person.linkedin ? (
                     <a
                       href={person.linkedin}
-                      aria-label={`${person.name} en LinkedIn`}
-                      className="border-forest/60 text-forest hover:bg-forest flex size-6 items-center justify-center rounded-full border hover:text-white"
+                      aria-label={t("onLinkedin", { name: person.name })}
+                      className="border-forest/60 text-forest hover:bg-forest flex size-11 items-center justify-center rounded-full border hover:text-white md:size-6"
                     >
                       <svg
                         viewBox="0 0 24 24"
@@ -81,18 +84,19 @@ export function Team() {
           <div className="relative mx-auto aspect-[420/520] w-full max-w-sm lg:max-w-none">
             <Image
               src="/maps/latin-america.svg"
-              alt="Mapa de América Latina, con Senda entre Costa Rica y Argentina"
+              alt={t("mapAlt")}
               fill
               unoptimized
+              sizes="(max-width: 1024px) 80vw, 420px"
               className="object-contain"
             />
             <span className="bg-forest absolute top-[31%] left-[40%] size-3 rounded-full" />
             <span className="text-charcoal/70 absolute top-[27%] left-[43%] text-xs">
-              Costa Rica
+              {t("costaRica")}
             </span>
             <span className="bg-forest absolute top-[74%] left-[59%] size-3 rounded-full" />
             <span className="text-charcoal/70 absolute top-[71%] left-[38%] text-xs">
-              Argentina
+              {t("argentina")}
             </span>
           </div>
         </div>

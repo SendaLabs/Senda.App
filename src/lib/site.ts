@@ -1,8 +1,8 @@
 export const site = {
   name: "Senda",
-  email: "hello@senda.org",
+  email: "sendanetwork@gmail.com",
   mailto:
-    "mailto:hello@senda.org?subject=Quiero%20enviar%20plata%20a%20Argentina",
+    "mailto:sendanetwork@gmail.com?subject=Quiero%20enviar%20plata%20a%20Argentina",
   github: "https://github.com/SendaLabs",
   linkedin: "https://www.linkedin.com/company/senda-labs",
   instagram: "https://www.instagram.com/withsenda/",
@@ -15,10 +15,10 @@ export const site = {
 } as const;
 
 export const navItems = [
-  { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#por-que-senda", label: "Por qué Senda" },
-  { href: "#equipo", label: "Quiénes somos" },
-  { href: "#preguntas", label: "Contacto" },
+  { href: "#como-funciona", key: "how" },
+  { href: "#por-que-senda", key: "why" },
+  { href: "#equipo", key: "team" },
+  { href: "#preguntas", key: "contact" },
 ] as const;
 
 export const team = [

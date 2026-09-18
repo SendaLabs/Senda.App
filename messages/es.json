@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "title": "Senda — Mandá plata a casa por WhatsApp",
+    "description": "Remesas a Argentina desde cualquier país. Todo por WhatsApp. Ellos cobran en Mercado Pago. Stellar viaja por debajo."
+  },
+  "a11y": {
+    "skip": "Saltar al contenido"
+  },
+  "nav": {
+    "aria": "Principal",
+    "ariaMobile": "Móvil",
+    "home": "Senda, inicio",
+    "how": "Cómo funciona",
+    "why": "Por qué Senda",
+    "team": "Quiénes somos",
+    "contact": "Contacto",
+    "start": "Empezar envío",
+    "openMenu": "Abrir menú",
+    "menu": "Menú",
+    "language": "Idioma"
+  },
+  "hero": {
+    "title": "Mandá plata a casa.",
+    "line": "Ellos cobran en Mercado Pago.",
+    "sub": "Desde cualquier país, por WhatsApp. Sin app nueva.",
+    "start": "Empezar envío",
+    "how": "Cómo funciona"
+  },
+  "quote": {
+    "eyebrow": "Cotización de ejemplo",
+    "destination": "Destino",
+    "destinationValue": "Argentina, Mercado Pago",
+    "amount": "¿Cuánto querés enviar?",
+    "receive": "Ellos reciben",
+    "fee": "Comisión",
+    "feeValue": "incluida",
+    "arrives": "Llega",
+    "arrivesValue": "en minutos",
+    "start": "Empezar envío",
+    "disclaimer": "Tipo de cambio ilustrativo (1 USD = {rate} ARS). El valor se confirma en el chat."
+  },
+  "receiveRail": {
+    "label": "Orígenes hacia Argentina",
+    "line": "Cualquiera en el mundo puede mandar a Argentina. Hoy.",
+    "chip": "{city} → Mercado Pago"
+  },
+  "how": {
+    "eyebrow": "Cómo funciona",
+    "title": "Recibí remesas en cuatro pasos",
+    "description": "WhatsApp de un lado. Mercado Pago del otro. Stellar viaja por debajo.",
+    "start": "Empezar envío",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Escribí en WhatsApp",
+        "copy": "Iniciá la conversación con Senda."
+      },
+      {
+        "number": "2",
+        "title": "Elegí qué necesitás",
+        "copy": "Indicá el monto y a quién querés enviar."
+      },
+      {
+        "number": "3",
+        "title": "Confirmá el pago",
+        "copy": "Seguí las instrucciones y listo."
+      },
+      {
+        "number": "4",
+        "title": "Recibí el envío",
+        "copy": "Tu familiar recibe pesos en Mercado Pago."
+      }
+    ]
+  },
+  "why": {
+    "title": "Hecho para mandar a casa, no para explicar cripto",
+    "tiles": [
+      {
+        "title": "Todo desde WhatsApp",
+        "description": "Como Félix, el envío vive en el chat. Sin filas y sin una app más en el teléfono.",
+        "status": "Canal",
+        "tags": ["WhatsApp", "B2C"],
+        "meta": "sin app",
+        "cta": "Empezar →"
+      },
+      {
+        "title": "Blockchain invisible",
+        "description": "Mandás plata. Ellos reciben pesos. Nadie en la familia tiene que saber qué es una wallet.",
+        "status": "Diseño",
+        "tags": ["Invisible"],
+        "meta": "bajo el capó",
+        "cta": "Ver cómo viaja →"
+      },
+      {
+        "title": "Stellar, por debajo",
+        "description": "Transferencias rápidas y comisiones mínimas. Las stablecoins son el caño, no la pantalla.",
+        "status": "Riel",
+        "tags": ["Stellar"],
+        "meta": "segundos",
+        "cta": "Por qué Stellar →"
+      },
+      {
+        "title": "Cobra en Mercado Pago",
+        "description": "El último tramo es el que ya usan. Alias, CVU, pesos. Familiar de punta a punta.",
+        "status": "Destino",
+        "tags": ["ARS", "MP"],
+        "meta": "alias o CVU",
+        "cta": "Cómo cobran →"
+      },
+      {
+        "title": "Un producto B2C simple",
+        "description": "Una persona manda. Otra cobra. Sin onboarding de empresa ni API.",
+        "status": "B2C",
+        "tags": ["Personas"],
+        "cta": "Empezar →"
+      },
+      {
+        "title": "El hueco que dejan los grandes",
+        "description": "Western Union, Remitly y Wise cubren mal este tramo: sucursal, app extra, o un destino que no es Mercado Pago.",
+        "status": "Mercado",
+        "tags": ["Competencia"],
+        "cta": "Comparar →"
+      }
+    ]
+  },
+  "chat": {
+    "title": "El chat es el producto",
+    "lead": "Mandás desde WhatsApp. Ellos ven un crédito en Mercado Pago. Ejemplo de conversación, no una captura real.",
+    "sender": "Quien envía",
+    "receiver": "Quien recibe",
+    "typing": "Senda está escribiendo",
+    "mp": "Mercado Pago",
+    "received": "Transferencia recibida, Senda",
+    "note": "No abre una wallet. No descarga Senda. No toca una stablecoin.",
+    "messages": [
+      { "side": "in", "text": "Hola Senda, quiero mandar 200 USD a mi hermana en Córdoba." },
+      { "side": "out", "text": "Perfecto. ¿Alias o CVU de Mercado Pago?" },
+      { "side": "in", "text": "luna.mendez.mp" },
+      { "side": "out", "text": "200 USD → 270.000 ARS de ejemplo. Comisión incluida. ¿Confirmás?" },
+      { "side": "in", "text": "Sí, adelante." },
+      { "side": "out", "text": "Enviado. Ella ya tiene los pesos en Mercado Pago." }
+    ]
+  },
+  "compare": {
+    "title": "Frente a bancos y redes clásicas",
+    "lead": "Rangos típicos del mercado, no una tarifa auditada de Senda. El precio exacto se ve en el chat.",
+    "bank": "Banco o Western Union",
+    "senda": "Senda",
+    "rows": [
+      {
+        "label": "Dónde lo hacés",
+        "bank": "Sucursal o una app más",
+        "senda": "WhatsApp, el que ya usás"
+      },
+      {
+        "label": "Cuánto tarda",
+        "bank": "Horas o días hábiles",
+        "senda": "Minutos, en la mayoría de los casos"
+      },
+      {
+        "label": "Comisión",
+        "bank": "Alta y a veces escondida",
+        "senda": "Mínima, confirmada antes de pagar"
+      },
+      {
+        "label": "Cómo cobran",
+        "bank": "Efectivo o cuenta que hay que explicar",
+        "senda": "Mercado Pago, como siempre"
+      },
+      {
+        "label": "Qué ve la familia",
+        "bank": "Un ticket o una app rara",
+        "senda": "Pesos. Nada de blockchain."
+      }
+    ]
+  },
+  "trust": {
+    "title": "El riel es Stellar. La experiencia no.",
+    "line": "La blockchain no es el producto.",
+    "left": "Stellar mueve el valor en segundos, con comisiones mínimas. Las stablecoins viajan como infraestructura: rápidas, estables, y fuera de la vista.",
+    "right": "Quien recibe no crea cuenta en Senda, no firma una transacción y no aprende una red. Ve pesos en Mercado Pago. Eso es el diseño."
+  },
+  "rails": {
+    "title": "El mundo manda a Argentina. Por los rieles de siempre.",
+    "subtitle": "Cada arco es un corredor de envío hacia Mercado Pago en Argentina."
+  },
+  "team": {
+    "statement1Before": "La tecnología no es un fin, sino una",
+    "tool": "herramienta",
+    "statement1Mid": "para facilitar y",
+    "improve": "mejorar la vida",
+    "statement1After": "de las personas.",
+    "statement2": "Su verdadero impacto surge cuando ponemos el foco en ellas.",
+    "label": "NUESTRO EQUIPO",
+    "portraitAlt": "Retrato ilustrado de {name}",
+    "onTelegram": "{name} en Telegram",
+    "onX": "{name} en X",
+    "onLinkedin": "{name} en LinkedIn",
+    "mapAlt": "Mapa de América Latina, con Senda entre Costa Rica y Argentina",
+    "costaRica": "Costa Rica",
+    "argentina": "Argentina"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "description": "Encontrá acá las respuestas a las dudas más comunes sobre Senda.",
+    "contactTitle": "Si no encontrás\nlo que buscás, escribinos",
+    "contactDescription": "Estamos para ayudarte con tu envío.",
+    "contactButton": "Escribir a Senda",
+    "items": [
+      {
+        "question": "¿Hace falta bajar una app?",
+        "answer": "No. Escribís por WhatsApp, como si le hablaras a un conocido. El destinatario cobra en Mercado Pago."
+      },
+      {
+        "question": "¿Qué hace Stellar acá?",
+        "answer": "Mueve el valor rápido y barato, por debajo. Es infraestructura. La pantalla es el chat y el crédito en pesos."
+      },
+      {
+        "question": "¿Puedo mandar desde cualquier país?",
+        "answer": "Esa es la idea del producto: cualquiera en el mundo manda a Argentina. El corredor que abrimos primero es ese."
+      },
+      {
+        "question": "¿Cuánto tarda y cuánto sale?",
+        "answer": "La mayoría de los envíos se resuelve en minutos. La comisión se muestra antes de confirmar. En esta página los números son de ejemplo."
+      },
+      {
+        "question": "¿Por qué no alcanza con Western Union o Wise?",
+        "answer": "Cubren el mundo, pero el último tramo argentino sigue siendo fricción: sucursal, app extra, o un destino que no es el que la familia ya usa."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Escribile a Senda",
+    "description": "Estamos en piloto. Contanos desde dónde mandás y a qué alias llega. Te respondemos por mail y armamos el envío por WhatsApp.",
+    "primary": "Escribir a Senda",
+    "secondary": "Ver los pasos",
+    "note": "{email}"
+  },
+  "footer": {
+    "github": "Senda en GitHub",
+    "linkedin": "Senda en LinkedIn",
+    "x": "Senda en X",
+    "instagram": "Senda en Instagram",
+    "company": "Company",
+    "about": "Acerca de",
+    "team": "Quiénes somos",
+    "contact": "Contacto",
+    "resources": "Resources",
+    "how": "Cómo funciona",
+    "product": "Product",
+    "media": "Media"
+  }
+}

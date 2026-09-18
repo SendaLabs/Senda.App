@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "title": "Senda — Send money home on WhatsApp",
+    "description": "Remittances to Argentina from any country. All on WhatsApp. They get paid in Mercado Pago. Stellar runs underneath."
+  },
+  "a11y": {
+    "skip": "Skip to content"
+  },
+  "nav": {
+    "aria": "Primary",
+    "ariaMobile": "Mobile",
+    "home": "Senda, home",
+    "how": "How it works",
+    "why": "Why Senda",
+    "team": "Who we are",
+    "contact": "Contact",
+    "start": "Start a transfer",
+    "openMenu": "Open menu",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Send money home.",
+    "line": "They get it in Mercado Pago.",
+    "sub": "From any country, on WhatsApp. No new app.",
+    "start": "Start a transfer",
+    "how": "How it works"
+  },
+  "quote": {
+    "eyebrow": "Sample quote",
+    "destination": "Destination",
+    "destinationValue": "Argentina, Mercado Pago",
+    "amount": "How much do you want to send?",
+    "receive": "They receive",
+    "fee": "Fee",
+    "feeValue": "included",
+    "arrives": "Arrives",
+    "arrivesValue": "in minutes",
+    "start": "Start a transfer",
+    "disclaimer": "Illustrative rate (1 USD = {rate} ARS). The amount is confirmed in the chat."
+  },
+  "receiveRail": {
+    "label": "Origins into Argentina",
+    "line": "Anyone in the world can send to Argentina. Today.",
+    "chip": "{city} → Mercado Pago"
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "Get remittances in four steps",
+    "description": "WhatsApp on one side. Mercado Pago on the other. Stellar travels underneath.",
+    "start": "Start a transfer",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Write on WhatsApp",
+        "copy": "Start the conversation with Senda."
+      },
+      {
+        "number": "2",
+        "title": "Choose what you need",
+        "copy": "Tell us the amount and who should receive it."
+      },
+      {
+        "number": "3",
+        "title": "Confirm the payment",
+        "copy": "Follow the instructions and you are done."
+      },
+      {
+        "number": "4",
+        "title": "The transfer arrives",
+        "copy": "Your family receives pesos in Mercado Pago."
+      }
+    ]
+  },
+  "why": {
+    "title": "Built to send money home, not to explain crypto",
+    "tiles": [
+      {
+        "title": "Everything on WhatsApp",
+        "description": "Like Félix, the transfer lives in chat. No lines, no extra app on the phone.",
+        "status": "Channel",
+        "tags": ["WhatsApp", "B2C"],
+        "meta": "no app",
+        "cta": "Start →"
+      },
+      {
+        "title": "Invisible blockchain",
+        "description": "You send money. They get pesos. Nobody in the family has to know what a wallet is.",
+        "status": "Design",
+        "tags": ["Invisible"],
+        "meta": "under the hood",
+        "cta": "See how it moves →"
+      },
+      {
+        "title": "Stellar, underneath",
+        "description": "Fast transfers and tiny fees. Stablecoins are the pipe, not the screen.",
+        "status": "Rail",
+        "tags": ["Stellar"],
+        "meta": "seconds",
+        "cta": "Why Stellar →"
+      },
+      {
+        "title": "Paid in Mercado Pago",
+        "description": "The last mile is the one they already use. Alias, CVU, pesos. Familiar end to end.",
+        "status": "Destination",
+        "tags": ["ARS", "MP"],
+        "meta": "alias or CVU",
+        "cta": "How they get paid →"
+      },
+      {
+        "title": "A simple B2C product",
+        "description": "One person sends. Another gets paid. No company onboarding, no API.",
+        "status": "B2C",
+        "tags": ["People"],
+        "cta": "Start →"
+      },
+      {
+        "title": "The gap the big players leave",
+        "description": "Western Union, Remitly and Wise cover this last mile poorly: a branch, an extra app, or a destination that is not Mercado Pago.",
+        "status": "Market",
+        "tags": ["Competition"],
+        "cta": "Compare →"
+      }
+    ]
+  },
+  "chat": {
+    "title": "The chat is the product",
+    "lead": "You send from WhatsApp. They see a credit in Mercado Pago. Sample conversation, not a real screenshot.",
+    "sender": "Who sends",
+    "receiver": "Who receives",
+    "typing": "Senda is typing",
+    "mp": "Mercado Pago",
+    "received": "Transfer received, Senda",
+    "note": "No new wallet. No Senda download. No stablecoin on their screen.",
+    "messages": [
+      { "side": "in", "text": "Hi Senda, I want to send 200 USD to my sister in Córdoba." },
+      { "side": "out", "text": "Perfect. Mercado Pago alias or CVU?" },
+      { "side": "in", "text": "luna.mendez.mp" },
+      { "side": "out", "text": "200 USD → 270,000 ARS example. Fee included. Confirm?" },
+      { "side": "in", "text": "Yes, go ahead." },
+      { "side": "out", "text": "Sent. She already has the pesos in Mercado Pago." }
+    ]
+  },
+  "compare": {
+    "title": "Against banks and classic networks",
+    "lead": "Typical market ranges, not an audited Senda fee. The exact price shows up in the chat.",
+    "bank": "Bank or Western Union",
+    "senda": "Senda",
+    "rows": [
+      {
+        "label": "Where you do it",
+        "bank": "A branch or one more app",
+        "senda": "WhatsApp, the one you already use"
+      },
+      {
+        "label": "How long it takes",
+        "bank": "Hours or business days",
+        "senda": "Minutes, in most cases"
+      },
+      {
+        "label": "Fee",
+        "bank": "High, and sometimes hidden",
+        "senda": "Low, confirmed before you pay"
+      },
+      {
+        "label": "How they get paid",
+        "bank": "Cash or an account you have to explain",
+        "senda": "Mercado Pago, as usual"
+      },
+      {
+        "label": "What the family sees",
+        "bank": "A ticket or a strange app",
+        "senda": "Pesos. No blockchain."
+      }
+    ]
+  },
+  "trust": {
+    "title": "The rail is Stellar. The experience is not.",
+    "line": "The blockchain is not the product.",
+    "left": "Stellar moves the value in seconds, with tiny fees. Stablecoins travel as infrastructure: fast, stable, and out of sight.",
+    "right": "The person who receives does not create a Senda account, sign a transaction, or learn a network. They see pesos in Mercado Pago. That is the design."
+  },
+  "rails": {
+    "title": "The world sends to Argentina. On the rails they already use.",
+    "subtitle": "Each arc is a sending corridor to Mercado Pago in Argentina."
+  },
+  "team": {
+    "statement1Before": "Technology is not an end. It is a",
+    "tool": "tool",
+    "statement1Mid": "to make",
+    "improve": "life better",
+    "statement1After": "for people.",
+    "statement2": "Its real impact shows up when we keep the focus on them.",
+    "label": "OUR TEAM",
+    "portraitAlt": "Illustrated portrait of {name}",
+    "onTelegram": "{name} on Telegram",
+    "onX": "{name} on X",
+    "onLinkedin": "{name} on LinkedIn",
+    "mapAlt": "Map of Latin America, with Senda between Costa Rica and Argentina",
+    "costaRica": "Costa Rica",
+    "argentina": "Argentina"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "Find answers here to the most common questions about Senda.",
+    "contactTitle": "If you cannot find\nwhat you need, write to us",
+    "contactDescription": "We are here to help with your transfer.",
+    "contactButton": "Write to Senda",
+    "items": [
+      {
+        "question": "Do I need to download an app?",
+        "answer": "No. You write on WhatsApp, like texting someone you know. The recipient gets paid in Mercado Pago."
+      },
+      {
+        "question": "What does Stellar do here?",
+        "answer": "It moves value fast and cheap, underneath. It is infrastructure. The screen is the chat and the credit in pesos."
+      },
+      {
+        "question": "Can I send from any country?",
+        "answer": "That is the product idea: anyone in the world sends to Argentina. That is the first corridor we open."
+      },
+      {
+        "question": "How long does it take, and what does it cost?",
+        "answer": "Most transfers settle in minutes. The fee is shown before you confirm. Numbers on this page are examples."
+      },
+      {
+        "question": "Why not just use Western Union or Wise?",
+        "answer": "They cover the world, but the Argentine last mile is still friction: a branch, an extra app, or a destination the family does not already use."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Write to Senda",
+    "description": "We are in pilot. Tell us where you send from and which alias it should reach. We reply by email and set up the transfer on WhatsApp.",
+    "primary": "Write to Senda",
+    "secondary": "See the steps",
+    "note": "{email}"
+  },
+  "footer": {
+    "github": "Senda on GitHub",
+    "linkedin": "Senda on LinkedIn",
+    "x": "Senda on X",
+    "instagram": "Senda on Instagram",
+    "company": "Company",
+    "about": "About",
+    "team": "Who we are",
+    "contact": "Contact",
+    "resources": "Resources",
+    "how": "How it works",
+    "product": "Product",
+    "media": "Media"
+  }
+}

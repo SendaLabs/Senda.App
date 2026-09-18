@@ -3,10 +3,20 @@
  * Source: https://7ovr.com/r/how-it-works-1.json
  * Listing: https://21st.dev/@7ovr/how-it-works-1
  * License: MIT-0
- * IconPlaceholder replaced with lucide icons; Base UI `render` not used.
  */
-import { type ReactNode } from "react";
-import { ArrowRight, type LucideIcon } from "lucide-react";
+"use client";
+
+import { type CSSProperties, type ReactNode, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  ArrowDown,
+  ArrowRight,
+  Banknote,
+  CheckCircle2,
+  CreditCard,
+  MessageCircle,
+  type LucideIcon,
+} from "lucide-react";
 
 import { cn } from "~/lib/utils";
 
@@ -14,8 +24,14 @@ export type HowItWorksStep = {
   number: string;
   title: string;
   copy: string;
-  icon: LucideIcon;
 };
+
+const stepIcons: LucideIcon[] = [
+  MessageCircle,
+  Banknote,
+  CreditCard,
+  CheckCircle2,
+];
 
 export function HowItWorks1({
   id,
@@ -34,6 +50,9 @@ export function HowItWorks1({
   action?: ReactNode;
   className?: string;
 }) {
+  const reduce = useReducedMotion() ?? false;
+  const [drawn, setDrawn] = useState(reduce);
+
   return (
     <section
       id={id}
@@ -58,19 +77,40 @@ export function HowItWorks1({
           ) : null}
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-          {steps.map(
-            ({ number, icon: Icon, title: stepTitle, copy }, index) => (
+        <motion.div
+          className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-0"
+          initial={false}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.28 }}
+          onViewportEnter={() => setDrawn(true)}
+        >
+          {steps.map(({ number, title: stepTitle, copy }, index) => {
+            const Icon = stepIcons[index] ?? MessageCircle;
+            return (
               <div key={number} className="relative text-center lg:px-7">
                 {index < steps.length - 1 ? (
                   <ArrowRight
-                    className="text-forest absolute top-7 -right-3 hidden size-5 lg:block"
+                    className="text-forest absolute top-[1.75rem] -right-3 hidden size-5 -translate-y-1/2 lg:block"
                     aria-hidden="true"
                   />
                 ) : null}
-                <div className="border-forest/20 relative mx-auto flex size-14 items-center justify-center rounded-full border bg-white">
-                  <Icon className="text-forest size-6" aria-hidden="true" />
-                  <span className="bg-forest text-cream absolute -top-1 -left-1 flex size-6 items-center justify-center rounded-full text-xs font-semibold">
+                <div className="icon-wrap relative mx-auto size-14">
+                  <Icon
+                    aria-hidden
+                    strokeWidth={1.75}
+                    absoluteStrokeWidth
+                    data-drawn={drawn ? "true" : "false"}
+                    className={cn(
+                      "size-14 text-[#0f3d2e]",
+                      reduce ? undefined : "how-icon-stroke",
+                    )}
+                    style={
+                      {
+                        "--how-icon-delay": `${index * 0.35}s`,
+                      } as CSSProperties
+                    }
+                  />
+                  <span className="bg-forest text-cream absolute -top-[6px] -right-[6px] flex size-6 items-center justify-center rounded-full text-xs font-semibold">
                     {number}
                   </span>
                 </div>
@@ -80,10 +120,16 @@ export function HowItWorks1({
                 <p className="text-charcoal/70 mx-auto mt-2 max-w-[19ch] text-sm leading-relaxed">
                   {copy}
                 </p>
+                {index < steps.length - 1 ? (
+                  <ArrowDown
+                    className="text-forest mx-auto mt-4 block size-5 md:hidden"
+                    aria-hidden="true"
+                  />
+                ) : null}
               </div>
-            ),
-          )}
-        </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

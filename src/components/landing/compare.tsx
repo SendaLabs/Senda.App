@@ -1,46 +1,26 @@
+import { getTranslations } from "next-intl/server";
+
 import { Shell } from "~/components/landing/shell";
 
-const rows = [
-  {
-    label: "Dónde lo hacés",
-    bank: "Sucursal o una app más",
-    senda: "WhatsApp, el que ya usás",
-  },
-  {
-    label: "Cuánto tarda",
-    bank: "Horas o días hábiles",
-    senda: "Minutos, en la mayoría de los casos",
-  },
-  {
-    label: "Comisión",
-    bank: "Alta y a veces escondida",
-    senda: "Mínima, confirmada antes de pagar",
-  },
-  {
-    label: "Cómo cobran",
-    bank: "Efectivo o cuenta que hay que explicar",
-    senda: "Mercado Pago, como siempre",
-  },
-  {
-    label: "Qué ve la familia",
-    bank: "Un ticket o una app rara",
-    senda: "Pesos. Nada de blockchain.",
-  },
-];
+export async function Compare() {
+  const t = await getTranslations("compare");
+  const rows = t.raw("rows") as {
+    label: string;
+    bank: string;
+    senda: string;
+  }[];
 
-export function Compare() {
   return (
     <section id="comparar" className="bg-cream py-20 md:py-28">
       <Shell>
         <h2 className="editorial-display max-w-[16ch] text-4xl text-forest md:text-5xl">
-          Frente a bancos y redes clásicas
+          {t("title")}
         </h2>
         <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-charcoal/80">
-          Rangos típicos del mercado, no una tarifa auditada de Senda. El
-          precio exacto se ve en el chat.
+          {t("lead")}
         </p>
 
-        <div className="mt-12 overflow-x-auto">
+        <div className="mt-12 max-w-full overflow-x-auto">
           <table className="w-full min-w-[36rem] border-collapse text-left">
             <thead>
               <tr className="border-b border-stone">
@@ -48,9 +28,11 @@ export function Compare() {
                   {" "}
                 </th>
                 <th className="py-4 pr-4 text-sm font-medium text-forest/70">
-                  Banco o Western Union
+                  {t("bank")}
                 </th>
-                <th className="py-4 text-sm font-medium text-forest">Senda</th>
+                <th className="py-4 text-sm font-medium text-forest">
+                  {t("senda")}
+                </th>
               </tr>
             </thead>
             <tbody>

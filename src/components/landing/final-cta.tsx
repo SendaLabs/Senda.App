@@ -1,15 +1,19 @@
+import { getTranslations } from "next-intl/server";
+
 import { Cta1 } from "~/components/21st/cta-1";
 import { site } from "~/lib/site";
 
-export function FinalCta() {
+export async function FinalCta() {
+  const t = await getTranslations("cta");
+
   return (
     <Cta1
       id="empezar"
-      title="Escribile a Senda"
-      description="Estamos en piloto. Contanos desde dónde mandás y a qué alias llega. Te respondemos por mail y armamos el envío por WhatsApp."
-      primary={{ href: site.mailto, label: "Escribir a Senda" }}
-      secondary={{ href: site.howHref, label: "Ver los pasos" }}
-      note={`${site.email} · sin número de WhatsApp público todavía`}
+      title={t("title")}
+      description={t("description")}
+      primary={{ href: site.mailto, label: t("primary") }}
+      secondary={{ href: site.howHref, label: t("secondary") }}
+      note={t("note", { email: site.email })}
     />
   );
 }
