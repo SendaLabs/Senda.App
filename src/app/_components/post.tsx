@@ -9,12 +9,7 @@ export function LatestPost() {
 
   const utils = api.useUtils();
   const [name, setName] = useState("");
-  const createPost = api.post.create.useMutation({
-    onSuccess: async () => {
-      await utils.post.invalidate();
-      setName("");
-    },
-  });
+  const createPost = api.post.create.useMutation();
 
   return (
     <div className="w-full max-w-xs">
@@ -24,9 +19,11 @@ export function LatestPost() {
         <p>You have no posts yet.</p>
       )}
       <form
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
-          createPost.mutate({ name });
+          await createPost.mutateAsync({ name });
+          await utils.post.invalidate();
+          setName("");
         }}
         className="flex flex-col gap-2"
       >

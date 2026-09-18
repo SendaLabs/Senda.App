@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { CornerDownRight, Mail } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
@@ -31,7 +31,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
         className={cn("w-full bg-white py-14 md:py-16", className)}
         {...props}
       >
-        <div className="mx-auto grid w-full max-w-[1200px] gap-8 px-5 md:px-8 lg:grid-cols-[minmax(0,38%)_minmax(0,1fr)] lg:gap-20 lg:px-0">
+        <div className="mx-auto grid w-full max-w-[1200px] gap-8 px-5 md:px-8 lg:grid-cols-[minmax(0,38%)_minmax(0,1fr)] lg:gap-20 xl:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
             </h2>
             {description ? (
               <p className="text-forest/75 mt-4 max-w-[32ch] text-[17px] leading-relaxed">
-                Encontrá acá las respuestas a las dudas más comunes sobre Senda.
+                {description}
               </p>
             ) : null}
             {contactInfo ? (
@@ -54,30 +54,13 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
                 className="mt-8 max-w-sm"
               >
                 <div className="relative">
-                  <div className="relative origin-left -rotate-3">
-                    <svg
-                      viewBox="0 0 48 58"
-                      aria-hidden="true"
-                      className="text-forest absolute top-1 left-0 h-14 w-10"
-                    >
-                      <path
-                        d="M43 4C25 5 10 15 8 31c-1 8 2 14 8 18"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M18 49 6 53M18 49l-7-11"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="5"
-                      />
-                    </svg>
-                    <p className="text-forest pl-12 font-serif text-xl leading-[1.05] whitespace-pre-line italic">
+                  <div className="flex items-start gap-2">
+                    <CornerDownRight
+                      aria-hidden
+                      strokeWidth={1.75}
+                      className="text-forest mt-0.5 size-5 shrink-0"
+                    />
+                    <p className="text-forest font-serif text-xl leading-[1.15] whitespace-pre-line italic">
                       {contactInfo.title}
                     </p>
                   </div>

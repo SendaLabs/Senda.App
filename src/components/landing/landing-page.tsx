@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 import { Compare } from "~/components/landing/compare";
 import { FaqSection } from "~/components/landing/faq-section";
 import { FinalCta } from "~/components/landing/final-cta";
@@ -5,41 +7,58 @@ import { SiteFooter } from "~/components/landing/footer";
 import { SiteHeader } from "~/components/landing/header";
 import { Hero } from "~/components/landing/hero";
 import { HowItWorks } from "~/components/landing/how-it-works";
-import { MercadoPago } from "~/components/landing/mercado-pago";
+import { RailsGlobe } from "~/components/landing/rails-globe";
 import { ReceiveRail } from "~/components/landing/receive-rail";
-import { Roadmap } from "~/components/landing/roadmap";
-import { Scenarios } from "~/components/landing/scenarios";
+import { ScrollReveal } from "~/components/landing/scroll-reveal";
 import { Team } from "~/components/landing/team";
 import { Trust } from "~/components/landing/trust";
 import { WhatsAppFlow } from "~/components/landing/whatsapp-flow";
 import { WhySenda } from "~/components/landing/why-senda";
 
-export function LandingPage() {
+export async function LandingPage() {
+  const t = await getTranslations("a11y");
+
   return (
     <>
       <a
         href="#main"
         className="focus:bg-cream focus:text-forest sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[80] focus:px-3 focus:py-2"
       >
-        Saltar al contenido
+        {t("skip")}
       </a>
       <SiteHeader />
       <main id="main">
         <Hero />
-        <ReceiveRail />
+        <ScrollReveal>
+          <ReceiveRail />
+        </ScrollReveal>
         <HowItWorks />
-        <WhySenda />
+        <ScrollReveal>
+          <WhySenda />
+        </ScrollReveal>
         <WhatsAppFlow />
-        <Scenarios />
-        <Compare />
-        <Trust />
-        <MercadoPago />
-        <Roadmap />
-        <Team />
-        <FaqSection />
-        <FinalCta />
+        <ScrollReveal>
+          <Compare />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Trust />
+        </ScrollReveal>
+        <ScrollReveal>
+          <RailsGlobe />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Team />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FaqSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FinalCta />
+        </ScrollReveal>
       </main>
-      <SiteFooter />
+      <ScrollReveal>
+        <SiteFooter />
+      </ScrollReveal>
     </>
   );
 }

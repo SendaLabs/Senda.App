@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 import { Shell } from "~/components/landing/shell";
 import { site } from "~/lib/site";
@@ -61,7 +62,9 @@ function InstagramIcon() {
   );
 }
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const t = await getTranslations("footer");
+
   return (
     <footer className="border-stone text-forest border-t bg-white">
       <Shell className="grid gap-6 py-6 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:gap-7 md:py-7">
@@ -74,60 +77,60 @@ export function SiteFooter() {
             className="h-9 w-auto"
           />
           <div className="mt-4 flex gap-2">
-            <SocialLink href={site.github} label="Senda en GitHub">
+            <SocialLink href={site.github} label={t("github")}>
               <GithubIcon />
             </SocialLink>
-            <SocialLink href={site.linkedin} label="Senda en LinkedIn">
+            <SocialLink href={site.linkedin} label={t("linkedin")}>
               <LinkedinIcon />
             </SocialLink>
-            <SocialLink href={site.x} label="Senda en X">
+            <SocialLink href={site.x} label={t("x")}>
               <span className="text-sm font-semibold">X</span>
             </SocialLink>
-            <SocialLink href={site.instagram} label="Senda en Instagram">
+            <SocialLink href={site.instagram} label={t("instagram")}>
               <InstagramIcon />
             </SocialLink>
           </div>
         </div>
 
         <div>
-          <p className="text-forest text-sm">Company</p>
+          <p className="text-forest text-sm">{t("company")}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <a href="#equipo" className="hover:underline">
-                Acerca de
+                {t("about")}
               </a>
             </li>
             <li>
               <a href="#equipo" className="hover:underline">
-                Quiénes somos
+                {t("team")}
               </a>
             </li>
             <li>
               <a href={site.mailto} className="hover:underline">
-                Contacto
+                {t("contact")}
               </a>
             </li>
           </ul>
         </div>
 
         <div>
-          <p className="text-forest text-sm">Resources</p>
+          <p className="text-forest text-sm">{t("resources")}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <a href="#como-funciona" className="hover:underline">
-                Cómo funciona
+                {t("how")}
               </a>
             </li>
             <li>
               <a href="#top" className="hover:underline">
-                Product
+                {t("product")}
               </a>
             </li>
           </ul>
         </div>
 
         <div>
-          <p className="text-forest text-sm">Media</p>
+          <p className="text-forest text-sm">{t("media")}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <a href={site.github} className="hover:underline">
