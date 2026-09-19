@@ -22,14 +22,14 @@ Felix Pago-like WhatsApp-first remittances, specialized on Argentina. Stellar an
 
 ## Operating Context
 
-Visitor arrives on `/` to understand the offer and act (WhatsApp or email). T3 stack (Next.js, tRPC, Prisma, NextAuth) remains in the repo and must keep compiling. No product checkout in this surface.
+Visitor arrives on `/es` or `/en` to understand the offer and act (WhatsApp or email). T3 stack (Next.js, tRPC, Prisma, NextAuth) remains in the repo and must keep compiling. No product checkout in this surface.
 
 ## Capabilities and Constraints
 
 - Marketing site only. Do not implement transfers, KYC, or chain writes.
 - WhatsApp is the product channel. No new consumer app.
 - Quotes and rates on the page are illustrative unless labeled otherwise.
-- WhatsApp number is not confirmed. Contact fallback: hello@senda.org.
+- WhatsApp number is not confirmed. Contact fallback: sendanetwork@gmail.com.
 - Do not invent customers, volume, licenses, or live FX.
 
 ## Brand Commitments
