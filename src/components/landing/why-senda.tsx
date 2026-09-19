@@ -17,7 +17,7 @@ const hrefs = [
   site.startHref,
   "#confianza",
   "#confianza",
-  "#rieles",
+  "#confianza",
   site.startHref,
   "#comparar",
 ] as const;

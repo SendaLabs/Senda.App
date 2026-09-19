@@ -180,10 +180,6 @@
     "left": "Stellar mueve el valor en segundos, con comisiones mínimas. Las stablecoins viajan como infraestructura: rápidas, estables, y fuera de la vista.",
     "right": "Quien recibe no crea cuenta en Senda, no firma una transacción y no aprende una red. Ve pesos en Mercado Pago. Eso es el diseño."
   },
-  "rails": {
-    "title": "El mundo manda a Argentina. Por los rieles de siempre.",
-    "subtitle": "Cada arco es un corredor de envío hacia Mercado Pago en Argentina."
-  },
   "team": {
     "statement1Before": "La tecnología no es un fin, sino una",
     "tool": "herramienta",
