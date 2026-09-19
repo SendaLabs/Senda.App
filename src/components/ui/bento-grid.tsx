@@ -1,4 +1,8 @@
-import { type ComponentPropsWithoutRef, type ReactNode } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  type ComponentType,
+  type ReactNode,
+} from "react";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
@@ -13,7 +17,7 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   name: string;
   className: string;
   background: ReactNode;
-  Icon: React.ElementType;
+  Icon: ComponentType<{ className?: string }>;
   description: string;
   href: string;
   cta: string;
@@ -45,26 +49,26 @@ const BentoCard = ({
 }: BentoCardProps) => (
   <div
     className={cn(
-      "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-2xl bg-cream md:col-span-3",
+      "group bg-cream relative col-span-1 flex flex-col justify-between overflow-hidden rounded-2xl md:col-span-3",
       className,
     )}
     {...props}
   >
     <div className="pointer-events-none absolute inset-0">{background}</div>
     <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-8">
-      <Icon className="size-8 text-forest" />
+      <Icon className="text-forest size-8" />
       <div className="mt-auto max-w-[36rem]">
-        <h3 className="editorial-display text-2xl text-forest md:text-3xl">
+        <h3 className="editorial-display text-forest text-2xl md:text-3xl">
           {name}
         </h3>
-        <p className="mt-3 max-w-[65ch] text-base leading-relaxed text-forest/80">
+        <p className="text-forest/80 mt-3 max-w-[65ch] text-base leading-relaxed">
           {description}
         </p>
         <Button
           variant="link"
           asChild
           size="sm"
-          className="mt-4 h-auto p-0 text-forest"
+          className="text-forest mt-4 h-auto p-0"
         >
           <a href={href}>
             {cta}

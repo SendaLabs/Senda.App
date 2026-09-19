@@ -11,7 +11,12 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: Request) {
-  const body = await request.json().catch(() => null);
+  let body: unknown = null;
+  try {
+    body = (await request.json()) as unknown;
+  } catch {
+    body = null;
+  }
   const result = contactSchema.safeParse(body);
 
   if (!result.success) {
