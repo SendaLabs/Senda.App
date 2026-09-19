@@ -180,10 +180,6 @@
     "left": "Stellar moves the value in seconds, with tiny fees. Stablecoins travel as infrastructure: fast, stable, and out of sight.",
     "right": "The person who receives does not create a Senda account, sign a transaction, or learn a network. They see pesos in Mercado Pago. That is the design."
   },
-  "rails": {
-    "title": "The world sends to Argentina. On the rails they already use.",
-    "subtitle": "Each arc is a sending corridor to Mercado Pago in Argentina."
-  },
   "team": {
     "statement1Before": "Technology is not an end. It is a",
     "tool": "tool",

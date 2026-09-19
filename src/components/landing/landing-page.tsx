@@ -7,7 +7,6 @@ import { SiteFooter } from "~/components/landing/footer";
 import { SiteHeader } from "~/components/landing/header";
 import { Hero } from "~/components/landing/hero";
 import { HowItWorks } from "~/components/landing/how-it-works";
-import { RailsGlobe } from "~/components/landing/rails-globe";
 import { ReceiveRail } from "~/components/landing/receive-rail";
 import { ScrollReveal } from "~/components/landing/scroll-reveal";
 import { Team } from "~/components/landing/team";
@@ -42,9 +41,6 @@ export async function LandingPage() {
         </ScrollReveal>
         <ScrollReveal>
           <Trust />
-        </ScrollReveal>
-        <ScrollReveal>
-          <RailsGlobe />
         </ScrollReveal>
         <ScrollReveal>
           <Team />
