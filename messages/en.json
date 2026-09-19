@@ -133,12 +133,21 @@
     "received": "Transfer received, Senda",
     "note": "No new wallet. No Senda download. No stablecoin on their screen.",
     "messages": [
-      { "side": "in", "text": "Hi Senda, I want to send 200 USD to my sister in Córdoba." },
+      {
+        "side": "in",
+        "text": "Hi Senda, I want to send 200 USD to my sister in Córdoba."
+      },
       { "side": "out", "text": "Perfect. Mercado Pago alias or CVU?" },
       { "side": "in", "text": "luna.mendez.mp" },
-      { "side": "out", "text": "200 USD → 270,000 ARS example. Fee included. Confirm?" },
+      {
+        "side": "out",
+        "text": "200 USD → 270,000 ARS example. Fee included. Confirm?"
+      },
       { "side": "in", "text": "Yes, go ahead." },
-      { "side": "out", "text": "Sent. She already has the pesos in Mercado Pago." }
+      {
+        "side": "out",
+        "text": "Sent. She already has the pesos in Mercado Pago."
+      }
     ]
   },
   "compare": {
@@ -202,6 +211,14 @@
     "contactTitle": "If you cannot find\nwhat you need, write to us",
     "contactDescription": "We are here to help with your transfer.",
     "contactButton": "Write to Senda",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Message sent. We will get back to you soon.",
+      "error": "We could not send your message. Please try again."
+    },
     "items": [
       {
         "question": "Do I need to download an app?",

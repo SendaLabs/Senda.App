@@ -57,7 +57,7 @@ export function HowItWorks1({
     <section
       id={id}
       className={cn(
-        "text-forest flex w-full items-center justify-center bg-white px-5 py-14 md:px-8 md:py-20",
+        "text-forest flex w-full items-center justify-center bg-white px-5 py-12 md:px-8 md:py-16",
         className,
       )}
     >
@@ -66,19 +66,19 @@ export function HowItWorks1({
           <span className="text-forest/60 text-sm font-medium tracking-widest uppercase">
             {eyebrow}
           </span>
-          <h2 className="editorial-display text-forest mt-3 text-4xl md:text-5xl">
+          <h2 className="editorial-display text-forest mt-3 text-3xl md:text-4xl">
             {title}
           </h2>
           <p className="text-charcoal/75 mt-3 text-base leading-relaxed">
             {description}
           </p>
           {action ? (
-            <div className="mt-6 flex justify-center">{action}</div>
+            <div className="mt-5 flex justify-center">{action}</div>
           ) : null}
         </div>
 
         <motion.div
-          className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-0"
+          className="mt-9 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-7 lg:grid-cols-4 lg:gap-0"
           initial={false}
           whileInView="show"
           viewport={{ once: true, amount: 0.28 }}
@@ -94,14 +94,14 @@ export function HowItWorks1({
                     aria-hidden="true"
                   />
                 ) : null}
-                <div className="icon-wrap relative mx-auto size-14">
+                <div className="icon-wrap relative mx-auto size-12">
                   <Icon
                     aria-hidden
                     strokeWidth={1.75}
                     absoluteStrokeWidth
                     data-drawn={drawn ? "true" : "false"}
                     className={cn(
-                      "size-14 text-[#0f3d2e]",
+                      "size-12 text-[#0f3d2e]",
                       reduce ? undefined : "how-icon-stroke",
                     )}
                     style={
@@ -114,7 +114,7 @@ export function HowItWorks1({
                     {number}
                   </span>
                 </div>
-                <h3 className="text-forest mt-5 text-base font-semibold">
+                <h3 className="text-forest mt-4 text-base font-semibold">
                   {stepTitle}
                 </h3>
                 <p className="text-charcoal/70 mx-auto mt-2 max-w-[19ch] text-sm leading-relaxed">

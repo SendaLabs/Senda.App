@@ -15,7 +15,12 @@ type ChatMessage = { side: "in" | "out"; text: string };
 
 function buildSchedule(messages: ChatMessage[]) {
   return messages.reduce<
-    { side: "in" | "out"; text: string; typingAt: number | null; appearAt: number }[]
+    {
+      side: "in" | "out";
+      text: string;
+      typingAt: number | null;
+      appearAt: number;
+    }[]
   >((acc, message) => {
     const prev = acc.at(-1);
     let cursor = prev ? prev.appearAt + GAP_S : 0;
@@ -39,22 +44,22 @@ export function WhatsAppFlow() {
   const chatEndsAt = (schedule.at(-1)?.appearAt ?? 0) + GAP_S;
 
   return (
-    <section className="bg-cream-deep py-20 md:py-28">
+    <section className="bg-cream-deep py-16 md:py-20">
       <Shell>
-        <h2 className="editorial-display max-w-[16ch] text-4xl text-forest md:text-5xl">
+        <h2 className="editorial-display text-forest max-w-[16ch] text-3xl md:text-4xl">
           {t("title")}
         </h2>
-        <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-charcoal/80">
+        <p className="text-charcoal/80 mt-4 max-w-[60ch] text-base leading-relaxed md:text-lg">
           {t("lead")}
         </p>
 
         <motion.div
-          className="mt-12 grid min-w-0 gap-6 lg:grid-cols-2"
+          className="mt-9 grid min-w-0 gap-5 lg:grid-cols-2"
           viewport={{ once: true, amount: 0.28 }}
           onViewportEnter={() => setInView(true)}
         >
-          <article className="min-w-0 overflow-hidden rounded-2xl bg-forest p-5 text-cream shadow-[0_18px_40px_rgba(10,43,32,0.28)] md:p-7">
-            <p className="text-sm text-cream/70">{t("sender")}</p>
+          <article className="bg-forest text-cream min-w-0 overflow-hidden rounded-2xl p-4 shadow-[0_18px_40px_rgba(10,43,32,0.28)] md:p-6">
+            <p className="text-cream/70 text-sm">{t("sender")}</p>
             <div className="mt-6 space-y-3">
               {schedule.map((message) => (
                 <ChatLine
@@ -90,7 +95,12 @@ function ChatLine({
   started,
   reduce,
 }: {
-  message: { side: "in" | "out"; text: string; typingAt: number | null; appearAt: number };
+  message: {
+    side: "in" | "out";
+    text: string;
+    typingAt: number | null;
+    appearAt: number;
+  };
   started: boolean;
   reduce: boolean;
 }) {
@@ -104,10 +114,7 @@ function ChatLine({
     const timers: number[] = [];
     if (message.typingAt !== null) {
       timers.push(
-        window.setTimeout(
-          () => setPhase("typing"),
-          message.typingAt * 1000,
-        ),
+        window.setTimeout(() => setPhase("typing"), message.typingAt * 1000),
       );
     }
     timers.push(
@@ -126,7 +133,7 @@ function ChatLine({
 
   if (phase === "typing") {
     return (
-      <div className="mr-auto flex min-h-[2.75rem] w-fit max-w-[85%] items-center gap-1 rounded-2xl rounded-tl-sm bg-forest-soft px-4 py-3 shadow-[0_8px_18px_rgba(10,43,32,0.28)]">
+      <div className="bg-forest-soft mr-auto flex min-h-[2.75rem] w-fit max-w-[85%] items-center gap-1 rounded-2xl rounded-tl-sm px-4 py-3 shadow-[0_8px_18px_rgba(10,43,32,0.28)]">
         <TypingDots />
       </div>
     );
@@ -143,8 +150,8 @@ function ChatLine({
       }
       className={
         message.side === "in"
-          ? "ml-auto max-w-[85%] break-words rounded-2xl rounded-tr-sm bg-cream px-4 py-3 text-sm leading-relaxed text-charcoal shadow-[0_8px_18px_rgba(10,43,32,0.14)]"
-          : "mr-auto min-h-[2.75rem] max-w-[85%] break-words rounded-2xl rounded-tl-sm bg-forest-soft px-4 py-3 text-sm leading-relaxed text-cream shadow-[0_8px_18px_rgba(10,43,32,0.32)]"
+          ? "bg-cream text-charcoal ml-auto max-w-[85%] rounded-2xl rounded-tr-sm px-4 py-3 text-sm leading-relaxed break-words shadow-[0_8px_18px_rgba(10,43,32,0.14)]"
+          : "bg-forest-soft text-cream mr-auto min-h-[2.75rem] max-w-[85%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm leading-relaxed break-words shadow-[0_8px_18px_rgba(10,43,32,0.32)]"
       }
     >
       {message.text}
@@ -203,16 +210,20 @@ function ReceiverCard({
       animate={
         visible
           ? { opacity: 1, scale: 1, y: 0 }
-          : { opacity: reduce ? 1 : 0, scale: reduce ? 1 : 0.97, y: reduce ? 0 : 12 }
+          : {
+              opacity: reduce ? 1 : 0,
+              scale: reduce ? 1 : 0.97,
+              y: reduce ? 0 : 12,
+            }
       }
       transition={{ duration: reduce ? 0.2 : 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="min-w-0 rounded-2xl bg-white p-5 shadow-[0_18px_42px_rgba(18,60,54,0.12)] md:p-7"
     >
-      <p className="text-sm text-forest/70">{copy.receiver}</p>
-      <div className="mt-8 rounded-2xl bg-cream p-6 shadow-[0_10px_24px_rgba(18,60,54,0.08)]">
-        <p className="text-sm text-forest/70">{copy.mp}</p>
+      <p className="text-forest/70 text-sm">{copy.receiver}</p>
+      <div className="bg-cream mt-8 rounded-2xl p-6 shadow-[0_10px_24px_rgba(18,60,54,0.08)]">
+        <p className="text-forest/70 text-sm">{copy.mp}</p>
         <div className="mt-3 flex items-center gap-3">
-          <p className="text-4xl tabular-nums tracking-tight text-forest">
+          <p className="text-forest text-4xl tracking-tight tabular-nums">
             <CountUp
               value={AMOUNT_TARGET}
               active={visible}
@@ -222,8 +233,8 @@ function ReceiverCard({
           </p>
           <DrawnCheck active={visible} reduce={reduce} />
         </div>
-        <p className="mt-2 text-base text-charcoal/80">{copy.received}</p>
-        <p className="mt-8 max-w-[40ch] text-sm leading-relaxed text-forest/80">
+        <p className="text-charcoal/80 mt-2 text-base">{copy.received}</p>
+        <p className="text-forest/80 mt-8 max-w-[40ch] text-sm leading-relaxed">
           {copy.note}
         </p>
       </div>
@@ -269,13 +280,7 @@ function CountUp({
   return `+$${amount.toLocaleString(locale)}`;
 }
 
-function DrawnCheck({
-  active,
-  reduce,
-}: {
-  active: boolean;
-  reduce: boolean;
-}) {
+function DrawnCheck({ active, reduce }: { active: boolean; reduce: boolean }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -300,7 +305,11 @@ function DrawnCheck({
         strokeLinejoin="round"
         initial={{ pathLength: reduce ? 1 : 0 }}
         animate={{ pathLength: active || reduce ? 1 : 0 }}
-        transition={{ duration: reduce ? 0.2 : 0.55, delay: reduce ? 0 : 0.15, ease: [0.22, 1, 0.36, 1] }}
+        transition={{
+          duration: reduce ? 0.2 : 0.55,
+          delay: reduce ? 0 : 0.15,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       />
     </svg>
   );
