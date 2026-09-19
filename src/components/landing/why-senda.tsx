@@ -1,11 +1,4 @@
-import {
-  EyeOff,
-  Globe,
-  MessageCircle,
-  Users,
-  Wallet,
-  Zap,
-} from "lucide-react";
+import { EyeOff, Globe, MessageCircle, Users, Wallet, Zap } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { BentoGrid, type BentoItem } from "~/components/21st/bento-grid";
@@ -39,7 +32,7 @@ export async function WhySenda() {
     const Icon = icons[index] ?? MessageCircle;
     return {
       ...tile,
-      icon: <Icon className="size-4 text-forest" />,
+      icon: <Icon className="text-forest size-4" />,
       href: hrefs[index],
       colSpan: colSpans[index],
       hasPersistentHover: persistent[index],
@@ -47,12 +40,12 @@ export async function WhySenda() {
   });
 
   return (
-    <section id="por-que-senda" className="bg-cream py-20 md:py-28">
+    <section id="por-que-senda" className="bg-cream py-16 md:py-20">
       <Shell>
-        <h2 className="editorial-display max-w-[14ch] text-4xl text-forest md:text-5xl">
+        <h2 className="editorial-display text-forest max-w-[14ch] text-3xl md:text-4xl">
           {t("title")}
         </h2>
-        <BentoGrid className="mt-12" items={tiles} />
+        <BentoGrid className="mt-9" items={tiles} />
       </Shell>
     </section>
   );

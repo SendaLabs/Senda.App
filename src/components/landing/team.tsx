@@ -13,7 +13,7 @@ export async function Team() {
       <Shell className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-start">
         <div>
           <div className="mx-auto max-w-3xl text-center">
-            <p className="team-statement text-charcoal font-serif text-2xl leading-[1.08] md:text-3xl">
+            <p className="team-statement text-charcoal text-2xl leading-[1.08] md:text-3xl">
               {t("statement1Before")}
               <br className="hidden md:block" />{" "}
               <strong className="text-forest font-bold">{t("tool")}</strong>{" "}
@@ -21,7 +21,7 @@ export async function Team() {
               <strong className="text-forest font-bold">{t("improve")}</strong>
               <br className="hidden md:block" /> {t("statement1After")}
             </p>
-            <p className="text-charcoal mt-4 font-serif text-2xl leading-[1.08] md:text-3xl">
+            <p className="text-charcoal mt-4 text-2xl leading-[1.08] md:text-3xl">
               {t("statement2")}
             </p>
           </div>

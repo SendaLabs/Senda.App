@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
 import { FaqSection as CommunityFaq } from "~/components/21st/faq-section";
-import { site } from "~/lib/site";
 
 export async function FaqSection() {
   const t = await getTranslations("faq");
@@ -17,7 +16,14 @@ export async function FaqSection() {
         title: t("contactTitle"),
         description: t("contactDescription"),
         buttonText: t("contactButton"),
-        href: site.mailto,
+        form: {
+          nameLabel: t("form.name"),
+          emailLabel: t("form.email"),
+          messageLabel: t("form.message"),
+          submitLabel: t("form.submit"),
+          successMessage: t("form.success"),
+          errorMessage: t("form.error"),
+        },
       }}
     />
   );

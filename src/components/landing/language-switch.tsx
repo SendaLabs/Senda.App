@@ -19,7 +19,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
         href="/"
         locale="es"
         className={cn(
-          "inline-flex min-h-11 min-w-11 items-center justify-center text-charcoal underline-offset-4 hover:underline",
+          "text-charcoal inline-flex min-h-11 min-w-11 items-center justify-center underline-offset-4 hover:underline",
           locale === "es" && "text-forest font-semibold",
         )}
       >
@@ -32,7 +32,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
         href="/"
         locale="en"
         className={cn(
-          "inline-flex min-h-11 min-w-11 items-center justify-center text-charcoal underline-offset-4 hover:underline",
+          "text-charcoal inline-flex min-h-11 min-w-11 items-center justify-center underline-offset-4 hover:underline",
           locale === "en" && "text-forest font-semibold",
         )}
       >

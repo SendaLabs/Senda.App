@@ -133,12 +133,21 @@
     "received": "Transferencia recibida, Senda",
     "note": "No abre una wallet. No descarga Senda. No toca una stablecoin.",
     "messages": [
-      { "side": "in", "text": "Hola Senda, quiero mandar 200 USD a mi hermana en Córdoba." },
+      {
+        "side": "in",
+        "text": "Hola Senda, quiero mandar 200 USD a mi hermana en Córdoba."
+      },
       { "side": "out", "text": "Perfecto. ¿Alias o CVU de Mercado Pago?" },
       { "side": "in", "text": "luna.mendez.mp" },
-      { "side": "out", "text": "200 USD → 270.000 ARS de ejemplo. Comisión incluida. ¿Confirmás?" },
+      {
+        "side": "out",
+        "text": "200 USD → 270.000 ARS de ejemplo. Comisión incluida. ¿Confirmás?"
+      },
       { "side": "in", "text": "Sí, adelante." },
-      { "side": "out", "text": "Enviado. Ella ya tiene los pesos en Mercado Pago." }
+      {
+        "side": "out",
+        "text": "Enviado. Ella ya tiene los pesos en Mercado Pago."
+      }
     ]
   },
   "compare": {
@@ -202,6 +211,14 @@
     "contactTitle": "Si no encontrás\nlo que buscás, escribinos",
     "contactDescription": "Estamos para ayudarte con tu envío.",
     "contactButton": "Escribir a Senda",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "success": "Mensaje enviado. Te responderemos pronto.",
+      "error": "No pudimos enviar tu mensaje. Intentá de nuevo."
+    },
     "items": [
       {
         "question": "¿Hace falta bajar una app?",

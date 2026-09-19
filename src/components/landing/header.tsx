@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -20,9 +21,9 @@ export function SiteHeader() {
   const t = useTranslations("nav");
 
   return (
-    <header className="border-stone/70 sticky top-0 z-50 -mb-[4.5rem] rounded-b-2xl border bg-white shadow-sm">
+    <header className="border-stone/70 sticky top-0 z-50 border-b bg-white">
       <div className="mx-auto flex h-[4.5rem] w-full max-w-[1440px] items-center justify-between gap-4 px-5 md:px-8 lg:px-12">
-        <a href="#top" className="shrink-0" aria-label={t("home")}>
+        <Link href="#top" className="shrink-0" aria-label={t("home")}>
           <Image
             src="/images/logoverde.png"
             alt="Senda"
@@ -32,7 +33,7 @@ export function SiteHeader() {
             sizes="160px"
             priority
           />
-        </a>
+        </Link>
 
         <nav
           aria-label={t("aria")}
@@ -47,11 +48,11 @@ export function SiteHeader() {
               {t(item.key)}
             </a>
           ))}
-          <LanguageSwitch />
         </nav>
 
         <div className="flex items-center gap-2">
           <LanguageSwitch className="lg:hidden" />
+          <LanguageSwitch className="hidden lg:flex" />
           <Button
             variant="senda"
             size="cta"
@@ -66,7 +67,7 @@ export function SiteHeader() {
               <Button
                 variant="ghost"
                 size="icon-lg"
-                className="size-11 lg:hidden"
+                className="lg:hidden"
                 aria-label={t("openMenu")}
               >
                 <Menu className="size-5" />
@@ -76,7 +77,10 @@ export function SiteHeader() {
               <SheetHeader>
                 <SheetTitle className="sr-only">{t("menu")}</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-1 px-4" aria-label={t("ariaMobile")}>
+              <nav
+                className="flex flex-col gap-1 px-4"
+                aria-label={t("ariaMobile")}
+              >
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.href}>
                     <a
@@ -91,7 +95,12 @@ export function SiteHeader() {
                   <LanguageSwitch />
                 </div>
                 <SheetClose asChild>
-                  <Button variant="senda" size="cta" asChild className="mt-4 min-h-11">
+                  <Button
+                    variant="senda"
+                    size="cta"
+                    asChild
+                    className="mt-4 min-h-11"
+                  >
                     <a href={site.startHref}>{t("start")}</a>
                   </Button>
                 </SheetClose>

@@ -7,7 +7,6 @@ import { SiteFooter } from "~/components/landing/footer";
 import { SiteHeader } from "~/components/landing/header";
 import { Hero } from "~/components/landing/hero";
 import { HowItWorks } from "~/components/landing/how-it-works";
-import { ReceiveRail } from "~/components/landing/receive-rail";
 import { ScrollReveal } from "~/components/landing/scroll-reveal";
 import { Team } from "~/components/landing/team";
 import { Trust } from "~/components/landing/trust";
@@ -21,16 +20,13 @@ export async function LandingPage() {
     <>
       <a
         href="#main"
-        className="focus:bg-cream focus:text-forest sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[80] focus:px-3 focus:py-2"
+        className="focus-visible:bg-cream focus-visible:text-forest sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:top-4 focus-visible:left-4 focus-visible:z-[80] focus-visible:px-3 focus-visible:py-2"
       >
         {t("skip")}
       </a>
       <SiteHeader />
       <main id="main">
         <Hero />
-        <ScrollReveal>
-          <ReceiveRail />
-        </ScrollReveal>
         <HowItWorks />
         <ScrollReveal>
           <WhySenda />

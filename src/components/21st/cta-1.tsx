@@ -31,20 +31,25 @@ export function Cta1({
     <section
       id={id}
       className={cn(
-        "flex w-full items-center justify-center bg-forest px-5 py-24 text-cream md:px-8 md:py-32",
+        "bg-forest text-cream flex w-full items-center justify-center px-5 py-20 md:px-8 md:py-24",
         className,
       )}
     >
-      <div className="w-full max-w-3xl rounded-2xl border border-cream/20 bg-forest-soft/40 px-6 py-12 text-center sm:px-12 sm:py-16">
-        <h2 className="editorial-display text-4xl text-cream md:text-6xl">
+      <div className="border-cream/20 bg-forest-soft/40 w-full max-w-3xl rounded-2xl border px-5 py-10 text-center sm:px-10 sm:py-12">
+        <h2 className="editorial-display text-cream text-3xl md:text-5xl">
           {title}
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-cream/85 md:text-lg">
+        <p className="text-cream/85 mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg">
           {description}
         </p>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button variant="cream" size="cta" asChild className="w-full sm:w-auto">
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Button
+            variant="cream"
+            size="cta"
+            asChild
+            className="w-full sm:w-auto"
+          >
             <a href={primary.href}>
               {primary.label}
               <ArrowRight data-icon="inline-end" aria-hidden="true" />
@@ -60,7 +65,7 @@ export function Cta1({
           </Button>
         </div>
 
-        <p className="mt-6 text-xs text-cream/70">{note}</p>
+        <p className="text-cream/70 mt-6 text-xs">{note}</p>
       </div>
     </section>
   );
