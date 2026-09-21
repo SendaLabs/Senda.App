@@ -20,6 +20,7 @@
     "language": "Idioma"
   },
   "hero": {
+    "badge": "Pagos internacionales",
     "title": "Mandá plata a casa.",
     "line": "Ellos cobran en Mercado Pago.",
     "sub": "Desde cualquier país, por WhatsApp. Sin app nueva.",
@@ -153,6 +154,7 @@
   "compare": {
     "title": "Frente a bancos y redes clásicas",
     "lead": "Rangos típicos del mercado, no una tarifa auditada de Senda. El precio exacto se ve en el chat.",
+    "feature": "Característica",
     "bank": "Banco o Western Union",
     "senda": "Senda",
     "rows": [

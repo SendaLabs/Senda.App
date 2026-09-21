@@ -21,7 +21,7 @@ export function SiteHeader() {
   const t = useTranslations("nav");
 
   return (
-    <header className="border-stone/70 sticky top-0 z-50 border-b bg-white">
+    <header className="border-stone/70 sticky top-0 z-50 rounded-b-2xl border-b bg-white">
       <div className="mx-auto flex h-[4.5rem] w-full max-w-[1440px] items-center justify-between gap-4 px-5 md:px-8 lg:px-12">
         <Link href="#top" className="shrink-0" aria-label={t("home")}>
           <Image
