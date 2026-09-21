@@ -74,55 +74,54 @@
     ]
   },
   "why": {
-    "title": "Hecho para mandar a casa, no para explicar cripto",
-    "tiles": [
-      {
-        "title": "Todo desde WhatsApp",
-        "description": "Como Félix, el envío vive en el chat. Sin filas y sin una app más en el teléfono.",
-        "status": "Canal",
-        "tags": ["WhatsApp", "B2C"],
-        "meta": "sin app",
-        "cta": "Empezar →"
+    "badge": "MÁS QUE REMESAS",
+    "title": "Preguntale a Senda lo que necesites.",
+    "title_line1": "Preguntale a Senda",
+    "title_line2": "lo que necesites.",
+    "subtitle": "Desde dudas sobre tu envío hasta información de nuestro ecosistema. Todo lo que necesitás, en un solo chat.",
+    "note_top": "Tu asistente financiero, siempre disponible por WhatsApp. ♡",
+    "note_bottom": "Simple, rápido y seguro. ♡",
+    "cta_faq": "Ver más preguntas frecuentes",
+    "cards": {
+      "remesas": {
+        "tag": "#Remesas",
+        "user": "Quiero enviar $50 USDC a Colombia",
+        "user_time": "09:41",
+        "bot": "Perfecto. Te comparto los datos de la persona:",
+        "recipient_name": "María González",
+        "recipient_alias": "Alias: mari.colombia",
+        "recipient_bank": "Banco: Bancolombia",
+        "bot_time": "09:42"
       },
-      {
-        "title": "Blockchain invisible",
-        "description": "Mandás plata. Ellos reciben pesos. Nadie en la familia tiene que saber qué es una wallet.",
-        "status": "Diseño",
-        "tags": ["Invisible"],
-        "meta": "bajo el capó",
-        "cta": "Ver cómo viaja →"
+      "comisiones": {
+        "tag": "#Comisiones",
+        "user": "¿Cuáles son las comisiones de envío?",
+        "user_time": "10:15",
+        "bot": "Las comisiones varían según el destino, el monto y el método de retiro. En este momento la tarifa para Colombia es de 0.99 USDC por envío.",
+        "bot_time": "10:16"
       },
-      {
-        "title": "Stellar, por debajo",
-        "description": "Transferencias rápidas y comisiones mínimas. Las stablecoins son el caño, no la pantalla.",
-        "status": "Riel",
-        "tags": ["Stellar"],
-        "meta": "segundos",
-        "cta": "Por qué Stellar →"
+      "ahorro": {
+        "tag": "#Ahorro",
+        "user": "¿Cómo puedo activar el ahorro?",
+        "user_time": "11:32",
+        "bot": "Es muy fácil. Escribí \"Ahorrar\" y elegí el monto que querés guardar. Tus USDC empezarán a generar rendimiento automáticamente.",
+        "bot_time": "11:33"
       },
-      {
-        "title": "Cobra en Mercado Pago",
-        "description": "El último tramo es el que ya usan. Alias, CVU, pesos. Familiar de punta a punta.",
-        "status": "Destino",
-        "tags": ["ARS", "MP"],
-        "meta": "alias o CVU",
-        "cta": "Cómo cobran →"
+      "efectivo": {
+        "tag": "#Efectivo",
+        "user": "¿Puedo recibir en efectivo?",
+        "user_time": "14:20",
+        "bot": "Sí, podés retirar en efectivo a través de MoneyGram en los países habilitados. Solo necesitás el código de la operación y tu documento.",
+        "bot_time": "14:21"
       },
-      {
-        "title": "Un producto B2C simple",
-        "description": "Una persona manda. Otra cobra. Sin onboarding de empresa ni API.",
-        "status": "B2C",
-        "tags": ["Personas"],
-        "cta": "Empezar →"
-      },
-      {
-        "title": "El hueco que dejan los grandes",
-        "description": "Western Union, Remitly y Wise cubren mal este tramo: sucursal, app extra, o un destino que no es Mercado Pago.",
-        "status": "Mercado",
-        "tags": ["Competencia"],
-        "cta": "Comparar →"
+      "seguimiento": {
+        "tag": "#Seguimiento",
+        "user": "¿Dónde puedo ver el estado de mi envío?",
+        "user_time": "16:05",
+        "bot": "Podés verlo desde el chat en tiempo real. Si preferís, también te lo enviamos por mail.",
+        "bot_time": "16:06"
       }
-    ]
+    }
   },
   "chat": {
     "title": "El chat es el producto",
