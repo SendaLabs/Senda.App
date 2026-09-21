@@ -4,27 +4,33 @@ Senda es una plataforma de operaciones financieras para pymes de América Latina
 
 ## Qué es Senda
 
-Senda mueve dinero desde WhatsApp hasta pesos gastables en Mercado Pago, liquidando el settlement en Stellar de forma invisible para el usuario. No hay wallets que configurar, ni jerga cripto, ni apps nuevas que instalar: el usuario manda un mensaje y el dinero llega.
+¿Y si pudieras enviar dinero a través de fronteras tan rápido como un mensaje de texto? Senda mueve dinero desde WhatsApp hasta pesos gastables en Mercado Pago, liquidando el settlement en Stellar de forma invisible para el usuario. Sin wallets que configurar, sin apps nuevas, sin jerga cripto: el usuario manda un mensaje y el dinero llega.
 
 ## Problema
 
-Argentina es uno de los mercados de mayor adopción de stablecoins de la región (~US$93.900M en transacciones cripto entre 2022 y 2025, ~94% en stablecoins), pero no tiene todavía un producto consumer-facing nativo de Stellar que use WhatsApp como interfaz. El ecosistema Stellar ya validó ese patrón a escala — pero fuera de Argentina.
+Los freelancers, creadores y trabajadores independientes en América Latina pierden hasta un 10% o más de sus ingresos en comisiones abusivas, demoras de varios días y burocracia bancaria tradicional cuando intentan cobrar desde el exterior hacia sus cuentas locales.
 
-En paralelo, el freelancer o contratista argentino que cobra en dólares o stablecoins del exterior sigue necesitando convertir eso en pesos gastables de forma simple, sin exponerse a jerga cripto ni a fricción fiscal innecesaria.
+Cada vez más profesionales cobran del exterior sin haberse ido del país. Según Bitwage by Paystand, casi el 40% de esos pagos en su plataforma van a profesionales ubicados en Argentina. Un diseñador que trabaja para una startup de Estados Unidos, un desarrollador contratado por una empresa europea, una consultora que presta servicios a clientes internacionales: ese dinero cruza fronteras de una forma muy parecida a una remesa tradicional.
+
+Las stablecoins como USDC resuelven el problema de velocidad y costo, pero obligan al usuario no cripto a lidiar con wallets complejas, frases semilla, redes y gas fees como XLM, lo que frena la adopción masiva. Los canales tradicionales de pago internacional, como las transferencias bancarias o las plataformas intermediarias, son lentos y caros. Y operar con dinero en blockchains públicas expone los datos financieros del usuario a la vista de cualquiera, lo que desalienta su uso cotidiano o comercial serio sin cumplimiento normativo ni privacidad patrimonial.
 
 ## Solución
 
-WhatsApp como interfaz de envío. Liquidación directa en Mercado Pago. Settlement invisible sobre Stellar, con wallets no-custodiales bajo el capó.
+Senda es un chatbot de WhatsApp en español, impulsado por stablecoins USDC sobre la blockchain Stellar, construido para resolver esto. Abstrae la complejidad cripto y la mete dentro de WhatsApp, generando confianza a través de una interfaz familiar mientras usa la blockchain por debajo para la velocidad y el bajo costo. Sin apps nuevas, sin wallets que configurar, sin frases semilla, sin gas fees que manejar: el usuario manda un mensaje y el dinero llega, liquidado directo en Mercado Pago.
 
 El diferenciador técnico es la privacidad de monto: Senda envuelve USDC en un Confidential Token (SDK de OpenZeppelin + verificador UltraHonk de Nethermind, ambos en Developer Preview de Stellar, no aprobados aún para mainnet), de forma que el monto de la transacción no queda expuesto on-chain. En el MVP, remitente y destinatario siguen siendo visibles; ocultar también la contraparte (Stellar Private Payments) queda en el roadmap.
 
 ## Usuario
 
-**Familia recibiendo remesas** — desde España, Italia, Chile o Estados Unidos, liquidado en pesos en Mercado Pago. Es el caso de uso acotado y demoable del hackathon.
-
 **Freelancers y contratistas argentinos** que cobran en USD o stablecoins del exterior y necesitan convertir eso en pesos gastables, sin lenguaje cripto ni wallets que configurar.
 
+**Familia recibiendo remesas** — desde España, Italia, Chile o Estados Unidos, liquidado en pesos en Mercado Pago. Es el caso de uso acotado y demoable del hackathon.
+
 ## Por qué ahora
+
+El objetivo es evolucionar de un servicio de remesas y pagos a un ecosistema financiero completo, integrando tecnología blockchain y stablecoins para ofrecer rapidez, transparencia y valor adicional en cada interacción. El foco no está solo en mover dinero, sino en convertir cada transacción en una oportunidad de generar servicios financieros accesibles, seguros y escalables para los usuarios en Argentina y el exterior.
+
+El futuro de las remesas no debería medirse por el número de transferencias depositadas en cuentas o pagadas directamente en efectivo. Una medida mucho más informativa es la proporción de fondos que permanecen activos dentro de los ecosistemas digitales financieros. Cada remesa digital no es un fin en sí misma, sino el inicio de un círculo virtuoso de inclusión, resiliencia y crecimiento local. La verdadera transformación ocurre cuando el dinero que llega permanece, circula y genera oportunidades.
 
 El ecosistema Stellar ya tiene un caso de éxito que valida este patrón a escala de mercado (WhatsApp → USDC → efectivo local), y ese jugador está expandiendo agresivamente sus corredores en Latinoamérica con capital fresco, sin haber entrado todavía a Argentina. Es una ventana de tiempo: quien construya primero la pieza de infraestructura consumer-facing de Stellar en Argentina se queda con la posición de entrada.
 
@@ -42,7 +48,7 @@ El ecosistema Stellar ya tiene un caso de éxito que valida este patrón a escal
 
 Félix Pago: unicornio (~US$1.400M), Serie C de US$200M (sept. 2026, equity liderado por a16z + deuda de General Catalyst), US$8.000M+ procesados, 11 países. Peanut: ganador de Startup World Cup en Devconnect Argentina 2025.
 
-Fuentes de contexto de mercado (no son prueba de tracción de Senda): DATAPAIS/The Dialogue vía Infobae, ONU-Banco Mundial, INE España, BBVA Research, cobertura de la Serie C de Félix (Crunchbase/LatamList, sept. 2026), sitio de Peanut y cobertura de Startup World Cup Devconnect 2025.
+Fuentes de contexto de mercado (no son prueba de tracción de Senda): DATAPAIS/The Dialogue vía Infobae, ONU-Banco Mundial, INE España, BBVA Research, cobertura de la Serie C de Félix (Crunchbase/LatamList, sept. 2026), sitio de Peanut, cobertura de Startup World Cup Devconnect 2025, Bitwage by Paystand, y el informe "Remesas 2030" (Mastercard x CrossTech).
 
 ## Estado actual del repo
 
