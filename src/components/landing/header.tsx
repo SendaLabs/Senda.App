@@ -59,7 +59,7 @@ export function SiteHeader() {
             asChild
             className="hidden sm:inline-flex"
           >
-            <a href={site.startHref}>{t("start")}</a>
+            <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
           </Button>
 
           <Sheet>
@@ -101,7 +101,7 @@ export function SiteHeader() {
                     asChild
                     className="mt-4 min-h-11"
                   >
-                    <a href={site.startHref}>{t("start")}</a>
+                    <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
                   </Button>
                 </SheetClose>
               </nav>

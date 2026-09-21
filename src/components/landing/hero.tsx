@@ -44,7 +44,7 @@ export async function Hero() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button variant="cream" size="cta" asChild>
-              <a href={site.startHref}>{t("start")}</a>
+              <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
             </Button>
             <Button variant="ghostForest" size="cta" asChild>
               <a href={site.howHref}>{t("how")}</a>
