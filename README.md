@@ -1,110 +1,97 @@
-# Senda (senda-app)
+# Senda
 
-Senda (senda-app) — repo único de Senda: landing de marketing y, a construir en el track Genesis del Argentina Builder Challenge, el producto de remesas a Argentina por WhatsApp con privacidad de monto sobre Stellar.
+Senda es una plataforma de operaciones financieras para pymes de América Latina, con un wedge de entrada en pagos y remesas vía WhatsApp liquidados sobre Stellar. Este repositorio (`senda-app`) contiene la landing de marketing y el producto de remesas a Argentina construido para el Stellar Argentina Builders Challenge (Stellar x BAF). El backend de producto vive en un repositorio separado, `senda-backend`.
 
 ## Qué es Senda
 
-### Problema (brecha de presencia, no “mercado virgen”)
+Senda mueve dinero desde WhatsApp hasta pesos gastables en Mercado Pago, liquidando el settlement en Stellar de forma invisible para el usuario. No hay wallets que configurar, ni jerga cripto, ni apps nuevas que instalar: el usuario manda un mensaje y el dinero llega.
 
-El valor de este track **no** es “descubrimos un problema de remesas argentinas que nadie resolvió”. Ese framing es fácil de refutar: velocidad y costo frente a Western Union ya los atacan productos vivos.
+## Problema
 
-Hoy conviven dos jugadores serios en la misma zona de producto:
+Argentina es uno de los mercados de mayor adopción de stablecoins de la región (~US$93.900M en transacciones cripto entre 2022 y 2025, ~94% en stablecoins), pero no tiene todavía un producto consumer-facing nativo de Stellar que use WhatsApp como interfaz. El ecosistema Stellar ya validó ese patrón a escala — pero fuera de Argentina.
 
-| Jugador | Qué ya demostró | Relación con Argentina / Stellar |
-| --- | --- | --- |
-| **Félix Pago** | Unicornio (~US$1.4B). Serie C de US$200M (sept. 2026; equity liderada por a16z + deuda de General Catalyst). WhatsApp → USDC sobre **Stellar** → efectivo/cuenta local. Reporta US$8B+ procesados y cobertura en **11 países** LATAM. | Roadmap/corredores anunciados: México, Brasil, Colombia, Ecuador, Perú, Centroamérica, etc. **Argentina no figura** en el mapa declarado. Coherente con un TAM de remesas familiares más chico que esos destinos (BBVA Research). |
-| **Peanut** | Ganador Startup World Cup (Devconnect Argentina 2025). Remesas/pagos vía link (WhatsApp/SMS) y QR → **Mercado Pago**, sin DNI para el foráneo. | **Sí opera en Argentina**, pero el settlement corre sobre **Solana / Arbitrum / Base / Tron / Polygon / Ethereum** — no Stellar. |
+En paralelo, el freelancer o contratista argentino que cobra en dólares o stablecoins del exterior sigue necesitando convertir eso en pesos gastables de forma simple, sin exponerse a jerga cripto ni a fricción fiscal innecesaria.
 
-En paralelo, el segmento “freelancer argentino que cobra del exterior” **tampoco** está desatendido: Wise, Payoneer y, del lado crypto, Belo, Lemon Cash, Buenbit, Takenos, etc. La urgencia regulatoria bajó: flexibilización cambiaria del BCRA (p. ej. plazos más largos vía Com. A 8116; eliminación del tope anual de excepción de liquidación para personas humanas vía Com. A 8330 / evolución 2025) y desmantelamiento casi total del cepo para personas físicas desde abril 2025. Cobrar en cripto además arrastra fricción fiscal (ingreso + eventual ganancia por tenencia) que **ningún bot de WhatsApp resuelve**.
+## Solución
 
-**La brecha real para este hackathon:** Argentina es uno de los mercados de mayor adopción de stablecoins de la región (~US$93.900M en transacciones cripto 2022–2025, ~94% stablecoins), y Stellar todavía **no tiene un producto consumer-facing local** con el patrón ya validado por Félix (WhatsApp como interfaz, rail invisible). Félix —caso insignia de Stellar— se expande a vecinos con capital fresco y **aún no entró**. Peanut prueba demanda de last mile Mercado Pago en AR, pero **fuera** del ecosistema Stellar. Senda ataca esa **ventana de presencia**, no un dolor “sin alternativa”.
+WhatsApp como interfaz de envío. Liquidación directa en Mercado Pago. Settlement invisible sobre Stellar, con wallets no-custodiales bajo el capó.
 
-### Solución
+El diferenciador técnico es la privacidad de monto: Senda envuelve USDC en un Confidential Token (SDK de OpenZeppelin + verificador UltraHonk de Nethermind, ambos en Developer Preview de Stellar, no aprobados aún para mainnet), de forma que el monto de la transacción no queda expuesto on-chain. En el MVP, remitente y destinatario siguen siendo visibles; ocultar también la contraparte (Stellar Private Payments) queda en el roadmap.
 
-WhatsApp como interfaz (patrón Félix) + liquidación familiar en **Mercado Pago** (patrón Peanut) + settlement invisible en **Stellar**.
+## Usuario
 
-- Sin apps nuevas. Sin explicar cripto, wallets ni “blockchain” al usuario — solo pago, comprobante, monto y estado.
-- Wallets no-custodiales bajo el capó.
-- **Innovación ≠ la idea de remesa por chat** (eso ya vale US$1.4B en Félix). La apuesta de Senda es **ejecución localizada en Argentina** + un diferenciador técnico que hoy **ni Félix ni Peanut ofrecen de forma visible**: privacidad de **monto** con Confidential Token (OpenZeppelin + verificador UltraHonk de Nethermind; ambos Developer Preview de Stellar, **no aprobados para mainnet**). Sender/recipient siguen visibles en el MVP. Stellar Private Payments (SPP), que ocultaría también la contraparte, queda en roadmap — no se construye en el hackathon.
+**Familia recibiendo remesas** — desde España, Italia, Chile o Estados Unidos, liquidado en pesos en Mercado Pago. Es el caso de uso acotado y demoable del hackathon.
 
-### Usuario (dos segmentos, con tamaño honesto)
+**Freelancers y contratistas argentinos** que cobran en USD o stablecoins del exterior y necesitan convertir eso en pesos gastables, sin lenguaje cripto ni wallets que configurar.
 
-**(a) Familia recibiendo remesas** desde España / Italia / Chile / EE.UU.  
-Corredor real (diáspora → pesos en MP), pero **chico y de bajo crecimiento** frente a México, Centroamérica o RD (BBVA Research / datos de remesas Argentina ~USD 944M en 2025 tras corrección vs. pico 2023). No es el TAM que justifica solo una Serie C; es el caso de uso **acotado y demoable** del hackathon.
+## Por qué ahora
 
-**(b) Freelancers / contratistas argentinos** que cobran en USD o stablecoins del exterior y necesitan pesos gastables.  
-Mercado **más grande en flujo crypto** (misma cifra de adopción de stablecoins), pero **competido** y con **menos fricción BCRA** que hace un año. Senda no “inventa” este segmento: compite por UX (WhatsApp + MP) y por ser la puerta **nativa Stellar**, no por ser la única vía legal al dólar.
+El ecosistema Stellar ya tiene un caso de éxito que valida este patrón a escala de mercado (WhatsApp → USDC → efectivo local), y ese jugador está expandiendo agresivamente sus corredores en Latinoamérica con capital fresco, sin haber entrado todavía a Argentina. Es una ventana de tiempo: quien construya primero la pieza de infraestructura consumer-facing de Stellar en Argentina se queda con la posición de entrada.
 
-### Por qué ahora
+## Competencia rápida
 
-Carrera de **timing**, no de mercado virgen. Félix tiene capital y ritmo para sumar corredores en los próximos **12–18 meses**; si elige Argentina, el primer mover consumer-facing sobre Stellar deja de estar vacío. El deliverable del track es la **pieza de infraestructura/producto correcta en el ecosistema correcto**, aunque el caso de uso del hackathon sea deliberadamente acotado.
-
-### Competencia rápida (respaldo para jurado)
-
-Cifras de costo exactas varían por corredor y promoción — no inventamos fees. Lo que sí se puede contrastar hoy:
-
-| | **Senda** (objetivo) | **Félix Pago** | **Peanut** |
-| --- | --- | --- | --- |
+| | Senda (objetivo) | Félix Pago | Peanut |
+|---|---|---|---|
 | Interfaz | WhatsApp | WhatsApp | Link (WA/SMS/mail) + QR |
-| Last mile en Argentina | Mercado Pago (posicionamiento) | **No opera** (roadmap sin AR) | Mercado Pago / banco AR |
-| Settlement | **Stellar** (invisible) | **Stellar** (USDC) | Solana + EVM (no Stellar) |
-| Privacidad de monto | **Sí** (Confidential Token, MVP / testnet) | No es el wedge público | No es el wedge público |
+| Last mile en Argentina | Mercado Pago | No opera (roadmap sin AR) | Mercado Pago / banco AR |
+| Settlement | Stellar (invisible) | Stellar (USDC) | Solana + EVM (no Stellar) |
+| Privacidad de monto | Sí (Confidential Token, MVP/testnet) | No es el wedge público | No es el wedge público |
 | Cobertura AR | Entrada / piloto | Ausente hoy | Presente |
-| Velocidad percibida | Segundos–minutos (meta de producto) | Instantánea en corredores vivos | Instantánea al reclamar |
-| Costo al usuario | A definir con off-ramp local | Remesa WA competitivas vs. WU | Bajo / $0 en varios flujos QR |
-| Riesgo competitivo | Félix entra a AR | Capital para expandir | Ya local, otro rail |
+| Costo al usuario | A definir con off-ramp local | Remesa WA competitiva vs. WU | Bajo / $0 en varios flujos QR |
+| Riesgo competitivo | — | Capital para expandir a AR | Ya local, otro rail |
 
-Fuentes de contexto de mercado (no son “prueba de tracción de Senda”): DATAPAIS / The Dialogue vía Infobae, ONU–Banco Mundial, INE España, BBVA Research; cobertura de Serie C Félix (Crunchbase / LatamList, sept. 2026); sitio Peanut (`peanut.me`) y cobertura Startup World Cup Devconnect 2025.
+Félix Pago: unicornio (~US$1.400M), Serie C de US$200M (sept. 2026, equity liderado por a16z + deuda de General Catalyst), US$8.000M+ procesados, 11 países. Peanut: ganador de Startup World Cup en Devconnect Argentina 2025.
 
+Fuentes de contexto de mercado (no son prueba de tracción de Senda): DATAPAIS/The Dialogue vía Infobae, ONU-Banco Mundial, INE España, BBVA Research, cobertura de la Serie C de Félix (Crunchbase/LatamList, sept. 2026), sitio de Peanut y cobertura de Startup World Cup Devconnect 2025.
 
 ## Estado actual del repo
 
-Lo único implementado hoy en senda-app es la landing de marketing/pitch. El producto (bot de WhatsApp, wallet no-custodial, Confidential Token, off-ramp) está definido a nivel de producto pero su arquitectura técnica todavía no está resuelta — ver [Arquitectura técnica — PENDIENTE DE DEFINIR](#arquitectura-técnica--pendiente-de-definir) más abajo.
+`senda-app` contiene la landing de marketing/pitch. El backend de producto (bot de WhatsApp, wallet no-custodial, Confidential Token, off-ramp) vive en `senda-backend`.
+
+Contrato Confidential Token deployado en testnet:
+`CDT2MY3QNV2RT2XULQWWXX2JELUWRWNXNKONCYG5MTIGZM7G5S2QNNGB`
+Transacción de deploy: https://stellar.expert/explorer/testnet/tx/73d29efa73a9c3a2c4d28f91a60dda250a5d437d6be77a93b47069660f1da5fe
 
 Todo dato visible en la landing (cotización, chat) es ilustrativo, no conectado a ningún backend real.
 
-## Producto — funcionalidades previstas
+## Producto: funcionalidades previstas
 
-| Funcionalidad | Tipo | Detalle | Estado |
-| --- | --- | --- | --- |
-| Bot de WhatsApp (intake) | Core | Intake del envío por chat | Pendiente de implementación |
-| Wallet no-custodial | Core | Passkey / smart wallet Soroban | Pendiente de implementación |
-| Máquina de estados de transacción | Core | CREADA → PENDIENTE → EN_PROCESO → COMPLETADA / FALLIDA / CANCELADA, con idempotencia | Pendiente de implementación |
-| Wrapper Confidential Token sobre USDC | Core | Oculta el monto; sender/recipient visibles | Pendiente de implementación |
-| Transferencia confidencial | Core | Movimiento del valor con Confidential Token | Pendiente de implementación |
-| Retiro / unwrap a USDC estándar | Core | Salida del wrapper a USDC | Pendiente de implementación |
-| Off-ramp a riel local | Core | Partner ya integrado con Stellar en Argentina (Anclap/Settle — no se construye desde cero) | Pendiente de implementación |
-| Mensajes sin lenguaje cripto | Core | Copy de producto sin jerga de chain | Pendiente de implementación |
-| Alerta proactiva de estado | Stretch | Aviso de avance del envío | Pendiente de implementación |
-| Panel interno de transacciones | Stretch | Vista interna de operaciones | Pendiente de implementación |
+| Funcionalidad | Tipo | Detalle |
+|---|---|---|
+| Bot de WhatsApp (intake) | Core | Intake del envío por chat |
+| Wallet no-custodial | Core | Passkey / smart wallet Soroban |
+| Máquina de estados de transacción | Core | CREADA → PENDIENTE → EN_PROCESO → COMPLETADA / FALLIDA / CANCELADA, con idempotencia |
+| Wrapper Confidential Token sobre USDC | Core | Oculta el monto; remitente y destinatario visibles |
+| Transferencia confidencial | Core | Movimiento del valor con Confidential Token |
+| Retiro / unwrap a USDC estándar | Core | Salida del wrapper a USDC |
+| Off-ramp a riel local | Core | Partner ya integrado con Stellar en Argentina (Anclap/Settle) |
+| Mensajes sin lenguaje cripto | Core | Copy de producto sin jerga de chain |
+| Alerta proactiva de estado | Stretch | Aviso de avance del envío |
+| Panel interno de transacciones | Stretch | Vista interna de operaciones |
 
-## Arquitectura técnica — PENDIENTE DE DEFINIR
+## Arquitectura técnica
 
-La arquitectura de implementación del producto todavía no está definida. Esta sección se completa cuando el equipo defina cada punto:
+- Bot de WhatsApp — proveedor/API, conexión al backend.
+- Wallet no-custodial — passkey vs. smart wallet Soroban, SDK a usar.
+- Contrato Confidential Token — desplegado en testnet (ID y transacción arriba), integración con el SDK de Nethermind/OpenZeppelin.
+- Máquina de estados de transacción — persistencia (Prisma + Postgres del stack actual u otro servicio), sincronización con el estado on-chain.
+- Integración con off-ramp (Anclap/Settle) — acceso a sandbox, contrato de API.
+- Relación entre `senda-backend` y `senda-app` — despliegues separados, comunicación vía API.
 
-- [ ] Bot de WhatsApp — proveedor/API, cómo se conecta al backend
-- [ ] Wallet no-custodial — passkey vs. smart wallet Soroban, SDK a usar
-- [ ] Contrato Confidential Token — despliegue, red (testnet/mainnet), integración con el SDK de Nethermind/OpenZeppelin
-- [ ] Máquina de estados de transacción — dónde vive (¿Prisma + Postgres del stack actual? ¿otro servicio?), cómo se sincroniza con el estado on-chain
-- [ ] Integración con off-ramp (Anclap/Settle) — acceso a sandbox, contrato de API
-- [ ] Relación entre este backend de producto y la landing actual (¿mismo deploy, o separados dentro de senda-app?)
+## Flujos
 
-## Flujos confirmados
-
-Máquina de estados del producto (a construir):
+Máquina de estados del producto:
 
 ```mermaid
 flowchart LR
-  A[Usuario en WhatsApp] -->|Pendiente de construir| B[Bot intake]
-  B --> C[CREADA]
-  C --> D[PENDIENTE]
-  D --> E[EN_PROCESO]
-  E --> F[COMPLETADA]
-  E --> G[FALLIDA]
-  E --> H[CANCELADA]
+  A[CREADA] --> B[PENDIENTE]
+  B --> C[EN_PROCESO]
+  C --> D[COMPLETADA]
+  C --> E[FALLIDA]
+  C --> F[CANCELADA]
 ```
 
-Landing actual (contacto):
+Landing (contacto):
 
 ```mermaid
 flowchart LR
@@ -121,8 +108,9 @@ flowchart LR
 - tRPC
 - NextAuth
 - Tailwind 4
+- next-intl
 
-La landing actual usa Next.js/React/Tailwind/next-intl; Prisma/tRPC/NextAuth están disponibles en el stack pero su rol en el producto final está sujeto a la arquitectura pendiente de definir.
+La landing usa Next.js/React/Tailwind/next-intl. Prisma/tRPC/NextAuth están disponibles en el stack; su rol final depende de cómo se conecte `senda-app` con `senda-backend`.
 
 ## Cómo correr el proyecto
 
@@ -147,15 +135,30 @@ npm run lint
 
 La landing queda en `http://localhost:3000/es` y `http://localhost:3000/en`.
 
-## Roadmap del track Genesis
+## Roadmap del Stellar Argentina Builders Challenge
 
 | Fecha | Checkpoint | Criterio de listo |
-| --- | --- | --- |
+|---|---|---|
 | 20/09 | Checkpoint 1 | Contrato en testnet responde aprobar/rechazar con datos de prueba |
 | 24/09 | Checkpoint 2 | Mensaje real de WhatsApp dispara el flujo completo hasta pago o rechazo |
 | 27/09 | Submission final | Todo estable + pitch deck + demo |
 
-**Riesgos (contexto del track).** Contratos en Developer Preview no auditados (alcance queda en testnet, se comunica así); dependencia de Nethermind/OpenZeppelin vía SDK público; wallet no-custodial (passkey) es superficie nueva para el equipo; off-ramp depende de acceso/sandbox de Anclap/Settle, a confirmar antes del Checkpoint 1.
+Riesgos: contratos en Developer Preview no auditados (alcance en testnet); dependencia del SDK público de Nethermind/OpenZeppelin; wallet no-custodial (passkey) es superficie nueva para el equipo; off-ramp depende de acceso/sandbox de Anclap/Settle, a confirmar antes del Checkpoint 1.
+
+## Roadmap global
+
+1. **Piloto de remesas Argentina** — validar el flujo WhatsApp → Confidential Token → Mercado Pago con datos reales, más allá del demo.
+2. **Extensión de privacidad** — Stellar Private Payments para ocultar también remitente/destinatario, cuando salga de Developer Preview.
+3. **Expansión de corredores** — otros países LATAM con adopción alta de stablecoins y sin cobertura de Stellar consumer-facing.
+4. **Senda Business** — ver sección siguiente.
+
+## Senda Business: pagos para empresas a través de fronteras
+
+La tesis de fondo de Senda es un Financial Operations Platform para pymes de LATAM, con wedge de entrada en Accounts Payable: factura → aprobación → pago → conciliación. El ADN de "fondos por proyecto/presupuesto" (Fund/Project/Budget) es el diferenciador de ontología frente a plataformas tipo Ramp (Company → Department → Employee).
+
+Senda Ledger unifica bancos, stablecoins y tarjetas sin obligar a mover fondos a cripto. El Payment Router decide la mejor ruta de pago (banco, stablecoin, riel local) componiéndose sobre partners de ruteo ya existentes (Bitso Business, CoralCommerce, Eco), no construido desde cero. El Senda Asistente es la capa conversacional (WhatsApp) integrada dentro de Senda para consultas sobre el Senda Ledger real — no asesora sobre inversión ni impuestos.
+
+La infraestructura construida para el hackathon (bot de WhatsApp, wallet no-custodial, settlement invisible sobre Stellar) es la misma pieza que después soporta pagos de negocio a través de fronteras — factura de un proveedor en otro país, pago de un freelancer, conciliación multi-moneda —, no una remesa familiar, pero el mismo riel.
 
 ## Contacto
 
