@@ -21,7 +21,7 @@ export async function HowItWorks() {
       steps={steps}
       action={
         <Button variant="senda" size="cta" asChild>
-          <a href={site.startHref}>{t("start")}</a>
+          <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
         </Button>
       }
     />

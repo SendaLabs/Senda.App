@@ -14,7 +14,7 @@
     "why": "Why Senda",
     "team": "Who we are",
     "contact": "Contact",
-    "start": "Start a transfer",
+    "start": "Start now",
     "openMenu": "Open menu",
     "menu": "Menu",
     "language": "Language"
@@ -24,7 +24,7 @@
     "title": "Send money home.",
     "line": "They get it in Mercado Pago.",
     "sub": "From any country, on WhatsApp. No new app.",
-    "start": "Start a transfer",
+    "start": "Start now",
     "how": "How it works"
   },
   "quote": {
@@ -37,7 +37,7 @@
     "feeValue": "included",
     "arrives": "Arrives",
     "arrivesValue": "in minutes",
-    "start": "Start a transfer",
+    "start": "Start now",
     "disclaimer": "Illustrative rate (1 USD = {rate} ARS). The amount is confirmed in the chat."
   },
   "receiveRail": {
@@ -49,7 +49,7 @@
     "eyebrow": "How it works",
     "title": "Get remittances in four steps",
     "description": "WhatsApp on one side. Mercado Pago on the other. Stellar travels underneath.",
-    "start": "Start a transfer",
+    "start": "Start now",
     "steps": [
       {
         "number": "1",

@@ -22,7 +22,7 @@ export function Cta1({
   id?: string;
   title: string;
   description: string;
-  primary: { href: string; label: string };
+  primary: { href: string; label: string; target?: string };
   secondary: { href: string; label: string };
   note: string;
   className?: string;
@@ -50,7 +50,11 @@ export function Cta1({
             asChild
             className="w-full sm:w-auto"
           >
-            <a href={primary.href}>
+            <a
+              href={primary.href}
+              target={primary.target}
+              rel={primary.target === "_blank" ? "noreferrer" : undefined}
+            >
               {primary.label}
               <ArrowRight data-icon="inline-end" aria-hidden="true" />
             </a>

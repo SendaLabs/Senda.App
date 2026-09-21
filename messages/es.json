@@ -14,7 +14,7 @@
     "why": "Por qué Senda",
     "team": "Quiénes somos",
     "contact": "Contacto",
-    "start": "Empezar envío",
+    "start": "Comenzar ahora",
     "openMenu": "Abrir menú",
     "menu": "Menú",
     "language": "Idioma"
@@ -24,7 +24,7 @@
     "title": "Mandá plata a casa.",
     "line": "Ellos cobran en Mercado Pago.",
     "sub": "Desde cualquier país, por WhatsApp. Sin app nueva.",
-    "start": "Empezar envío",
+    "start": "Comenzar ahora",
     "how": "Cómo funciona"
   },
   "quote": {
@@ -37,7 +37,7 @@
     "feeValue": "incluida",
     "arrives": "Llega",
     "arrivesValue": "en minutos",
-    "start": "Empezar envío",
+    "start": "Comenzar ahora",
     "disclaimer": "Tipo de cambio ilustrativo (1 USD = {rate} ARS). El valor se confirma en el chat."
   },
   "receiveRail": {
@@ -49,7 +49,7 @@
     "eyebrow": "Cómo funciona",
     "title": "Recibí remesas en cuatro pasos",
     "description": "WhatsApp de un lado. Mercado Pago del otro. Stellar viaja por debajo.",
-    "start": "Empezar envío",
+    "start": "Comenzar ahora",
     "steps": [
       {
         "number": "1",

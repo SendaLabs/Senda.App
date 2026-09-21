@@ -11,7 +11,7 @@ export async function FinalCta() {
       id="empezar"
       title={t("title")}
       description={t("description")}
-      primary={{ href: site.mailto, label: t("primary") }}
+      primary={{ href: site.whatsappHref, label: t("primary"), target: "_blank" }}
       secondary={{ href: site.howHref, label: t("secondary") }}
       note={t("note", { email: site.email })}
     />

@@ -24,10 +24,9 @@ export function QuoteCard() {
   return (
     <form
       className="w-full max-w-full rounded-2xl bg-cream p-5 text-charcoal shadow-[0_16px_40px_rgba(18,60,54,0.18)] md:p-7"
-      action={site.startHref}
       onSubmit={(event) => {
         event.preventDefault();
-        window.location.hash = "empezar";
+        window.open(site.whatsappHref, "_blank", "noreferrer");
       }}
     >
       <p className="text-sm text-forest/80">{t("eyebrow")}</p>

@@ -8,7 +8,10 @@ export const site = {
   instagram: "https://www.instagram.com/withsenda/",
   x: "https://x.com/senda_app",
   challenge: "https://argentinabuilderchallenge.netlify.app/reglamento",
-  startHref: "#empezar",
+  whatsappHref:
+    "https://wa.me/15556186469?text=Hola!%20Quiero%20comenzar%20a%20operar%20con%20Senda",
+  startHref:
+    "https://wa.me/15556186469?text=Hola!%20Quiero%20comenzar%20a%20operar%20con%20Senda",
   howHref: "#como-funciona",
   exampleUsdToArs: 1350,
   exampleFeeLabel: "incluida",
