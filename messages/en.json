@@ -20,6 +20,7 @@
     "language": "Language"
   },
   "hero": {
+    "badge": "International payments",
     "title": "Send money home.",
     "line": "They get it in Mercado Pago.",
     "sub": "From any country, on WhatsApp. No new app.",
@@ -153,6 +154,7 @@
   "compare": {
     "title": "Against banks and classic networks",
     "lead": "Typical market ranges, not an audited Senda fee. The exact price shows up in the chat.",
+    "feature": "Feature",
     "bank": "Bank or Western Union",
     "senda": "Senda",
     "rows": [

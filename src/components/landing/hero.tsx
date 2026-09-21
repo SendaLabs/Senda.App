@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Globe2 } from "lucide-react";
 import Image from "next/image";
 
 import { ForestShapes } from "~/components/21st/elegant-shape";
@@ -13,7 +14,7 @@ export async function Hero() {
   return (
     <section
       id="top"
-      className="bg-forest text-cream relative isolate min-h-[92dvh] overflow-hidden"
+      className="bg-forest text-cream relative isolate -mt-[4.5rem] min-h-[92dvh] overflow-hidden pt-[4.5rem]"
     >
       <ForestShapes />
       <Image
@@ -28,6 +29,10 @@ export async function Hero() {
 
       <Shell className="relative z-10 grid min-h-[92dvh] items-center gap-10 py-8 pt-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:py-12">
         <div className="motion-safe:animate-[senda-rise_0.9s_cubic-bezier(.22,1,.36,1)_both]">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#dce5dc] bg-[#f5f7f3] px-3 py-1.5 text-xs font-medium text-forest shadow-[0_8px_20px_rgba(0,0,0,0.12)]">
+            <Globe2 className="size-3.5 text-[#157b5b]" strokeWidth={2.2} aria-hidden />
+            {t("badge")}
+          </div>
           <h1 className="editorial-display text-cream max-w-[12ch] text-4xl md:text-5xl lg:text-6xl">
             {t("title")}
           </h1>
@@ -47,8 +52,10 @@ export async function Hero() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
-          <QuoteCard />
+        <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
+          <div className="relative z-10">
+            <QuoteCard />
+          </div>
         </div>
       </Shell>
     </section>
