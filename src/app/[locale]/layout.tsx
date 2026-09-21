@@ -34,10 +34,13 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    icons: [
-      { rel: "icon", url: "/images/favicon.png" },
-      { rel: "apple-touch-icon", url: "/images/favicon.png" },
-    ],
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48" },
+        { url: "/images/favicon.png", type: "image/png", sizes: "700x700" },
+      ],
+      apple: [{ url: "/images/favicon.png", sizes: "180x180" }],
+    },
   };
 }
 
