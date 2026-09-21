@@ -8,9 +8,11 @@ web
 
 ## Users
 
-Primary: people outside Argentina who need to send money home, and recipients in Argentina who want pesos in Mercado Pago. Secondary: Argentina Builder Challenge judges evaluating a B2C remittance pitch.
+Primary (hackathon / demo): families abroad (Spain, Italy, Chile, US) sending to recipients who want pesos in Mercado Pago — real corridor, small TAM vs Mexico/CA.
 
-Inferred from the implementation brief (parent task). No live interview this session.
+Secondary: Argentine freelancers/contractors cashing out USD or stables to spendable pesos — larger crypto flow, already competitive (Wise, Payoneer, Belo, Lemon, Buenbit, Takenos); BCRA friction lower than a year ago.
+
+Audience: Argentina Builder Challenge judges. Pitch honesty: we are filling Stellar’s consumer-facing gap in Argentina (Felix pattern, localized), not claiming an unsolved remittance desert.
 
 ## Product Purpose
 
@@ -18,7 +20,7 @@ Senda is a B2C remittance product: send money to Argentina from WhatsApp. Recipi
 
 ## Positioning
 
-Felix Pago-like WhatsApp-first remittances, specialized on Argentina. Stellar and stablecoins move value under the hood and stay invisible to the user. Familiar last mile: Mercado Pago. Anyone in the world can send to Argentina now; later corridors receive on their local rails.
+Felix-like WhatsApp-first remittances on Stellar, localized to Argentina before Felix’s declared map includes it. Peanut already proves Mercado Pago last-mile demand in AR on non-Stellar rails. Differentiator vs both: amount privacy via Confidential Token (MVP). Stellar and stablecoins stay invisible to the user.
 
 ## Operating Context
 
