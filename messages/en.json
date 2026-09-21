@@ -74,55 +74,54 @@
     ]
   },
   "why": {
-    "title": "Built to send money home, not to explain crypto",
-    "tiles": [
-      {
-        "title": "Everything on WhatsApp",
-        "description": "Like Félix, the transfer lives in chat. No lines, no extra app on the phone.",
-        "status": "Channel",
-        "tags": ["WhatsApp", "B2C"],
-        "meta": "no app",
-        "cta": "Start →"
+    "badge": "MORE THAN REMITTANCES",
+    "title": "Ask Senda whatever you need.",
+    "title_line1": "Ask Senda",
+    "title_line2": "whatever you need.",
+    "subtitle": "From questions about your transfer to info about our ecosystem. Everything you need, in a single chat.",
+    "note_top": "Your financial assistant, always available on WhatsApp. ♡",
+    "note_bottom": "Simple, fast and safe. ♡",
+    "cta_faq": "See more frequently asked questions",
+    "cards": {
+      "remesas": {
+        "tag": "#Remittances",
+        "user": "I want to send $50 USDC to Colombia",
+        "user_time": "09:41",
+        "bot": "Perfect. Here are the recipient's details:",
+        "recipient_name": "María González",
+        "recipient_alias": "Alias: mari.colombia",
+        "recipient_bank": "Bank: Bancolombia",
+        "bot_time": "09:42"
       },
-      {
-        "title": "Invisible blockchain",
-        "description": "You send money. They get pesos. Nobody in the family has to know what a wallet is.",
-        "status": "Design",
-        "tags": ["Invisible"],
-        "meta": "under the hood",
-        "cta": "See how it moves →"
+      "comisiones": {
+        "tag": "#Fees",
+        "user": "What are the transfer fees?",
+        "user_time": "10:15",
+        "bot": "Fees vary depending on destination, amount and payout method. Currently the fee for Colombia is 0.99 USDC per transfer.",
+        "bot_time": "10:16"
       },
-      {
-        "title": "Stellar, underneath",
-        "description": "Fast transfers and tiny fees. Stablecoins are the pipe, not the screen.",
-        "status": "Rail",
-        "tags": ["Stellar"],
-        "meta": "seconds",
-        "cta": "Why Stellar →"
+      "ahorro": {
+        "tag": "#Savings",
+        "user": "How do I activate savings?",
+        "user_time": "11:32",
+        "bot": "It's super easy. Type \"Save\" and choose the amount you want to keep. Your USDC will start earning yield automatically.",
+        "bot_time": "11:33"
       },
-      {
-        "title": "Paid in Mercado Pago",
-        "description": "The last mile is the one they already use. Alias, CVU, pesos. Familiar end to end.",
-        "status": "Destination",
-        "tags": ["ARS", "MP"],
-        "meta": "alias or CVU",
-        "cta": "How they get paid →"
+      "efectivo": {
+        "tag": "#Cash",
+        "user": "Can I receive cash?",
+        "user_time": "14:20",
+        "bot": "Yes, you can withdraw cash through MoneyGram in supported countries. You only need the transfer code and your ID.",
+        "bot_time": "14:21"
       },
-      {
-        "title": "A simple B2C product",
-        "description": "One person sends. Another gets paid. No company onboarding, no API.",
-        "status": "B2C",
-        "tags": ["People"],
-        "cta": "Start →"
-      },
-      {
-        "title": "The gap the big players leave",
-        "description": "Western Union, Remitly and Wise cover this last mile poorly: a branch, an extra app, or a destination that is not Mercado Pago.",
-        "status": "Market",
-        "tags": ["Competition"],
-        "cta": "Compare →"
+      "seguimiento": {
+        "tag": "#Tracking",
+        "user": "Where can I see my transfer status?",
+        "user_time": "16:05",
+        "bot": "You can view it right in the chat in real time. If you prefer, we can also email it to you.",
+        "bot_time": "16:06"
       }
-    ]
+    }
   },
   "chat": {
     "title": "The chat is the product",
