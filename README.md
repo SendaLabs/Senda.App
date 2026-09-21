@@ -90,20 +90,20 @@ Máquina de estados del producto:
 
 ```mermaid
 flowchart LR
-  A[CREADA] --> B[PENDIENTE]
-  B --> C[EN_PROCESO]
-  C --> D[COMPLETADA]
-  C --> E[FALLIDA]
-  C --> F[CANCELADA]
+  A["CREADA"] --> B["PENDIENTE"]
+  B --> C["EN_PROCESO"]
+  C --> D["COMPLETADA"]
+  C --> E["FALLIDA"]
+  C --> F["CANCELADA"]
 ```
 
 Landing (contacto):
 
 ```mermaid
 flowchart LR
-  A[Usuario] --> B[Landing Next.js /es o /en]
-  B --> C[Formulario de contacto]
-  C --> D[sendanetwork@gmail.com]
+  A["Usuario"] --> B["Landing Next.js /es o /en"]
+  B --> C["Formulario de contacto"]
+  C --> D["sendanetwork@gmail.com"]
 ```
 
 ## Stack
