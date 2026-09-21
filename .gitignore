@@ -47,3 +47,6 @@ yarn-error.log*
 
 # fetched community component dumps
 /tmp-21st
+# Standalone WhatsApp welcome deliverable (local only)
+/whatsapp-welcome-video/
+
