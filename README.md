@@ -377,6 +377,10 @@ Nunca se commitean valores reales. Las variables sin valor por defecto se comple
 
 Riesgos: el Confidential Token previsto depende de SDKs en Developer Preview (alcance en testnet); la custodia SEP-30 y los secretos de vault son superficie nueva para nosotros; el off-ramp a Mercado Pago depende del ancla SEP-24 de test; el efectivo es simulado; el on-ramp y Alfred Pay todavía no están en el backend.
 
+## Documentación
+Pitch (Argentina Builder Challenge): https://docs.google.com/document/d/1Q49nLCfl-VOjWNQluKXtgg08m6D_J819PBCLaIwA4A0/edit?tab=t.0
+Pitch Deck (Argentina Builder Challenge): https://docs.google.com/presentation/d/1do1UYuHVPNFeT5q73hg-zqoBYkwjHBqfkWqDd4CdV1U/edit?usp=sharing
+
 ## Roadmap global
 
 1. **Piloto de remesas Argentina** — validar el flujo WhatsApp → Confidential Token → Mercado Pago con datos reales, más allá del demo.
