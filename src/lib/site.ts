@@ -1,3 +1,9 @@
+import {
+  getMarketingStartHref,
+  WAITLIST_PATH,
+  WHATSAPP_START_URL,
+} from "~/lib/marketing-cta";
+
 export const site = {
   name: "Senda",
   email: "sendanetwork@gmail.com",
@@ -8,14 +14,19 @@ export const site = {
   instagram: "https://www.instagram.com/withsenda/",
   x: "https://x.com/senda_app",
   challenge: "https://argentinabuilderchallenge.netlify.app/reglamento",
-  whatsappHref:
-    "https://wa.me/15556186469?text=Hola!%20Quiero%20comenzar%20a%20operar%20con%20Senda",
-  startHref:
-    "https://wa.me/15556186469?text=Hola!%20Quiero%20comenzar%20a%20operar%20con%20Senda",
+  whatsappHref: WHATSAPP_START_URL,
+  /** @deprecated Prefer getStartHref() so the env CTA switch applies. */
+  startHref: WHATSAPP_START_URL,
+  waitlistPath: WAITLIST_PATH,
   howHref: "#como-funciona",
   exampleUsdToArs: 1350,
   exampleFeeLabel: "incluida",
 } as const;
+
+/** Primary marketing CTA destination (waitlist or product). */
+export function getStartHref(): string {
+  return getMarketingStartHref();
+}
 
 export const navItems = [
   { href: "#como-funciona", key: "how" },

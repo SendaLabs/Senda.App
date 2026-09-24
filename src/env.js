@@ -27,7 +27,16 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    /**
+     * Marketing primary CTA destination.
+     * - "waitlist" (default): Empezar CTAs → /lista-de-espera
+     * - "product": Empezar CTAs → PRODUCT_START_URL (WhatsApp / #empezar)
+     */
+    NEXT_PUBLIC_MARKETING_CTA_MODE: z
+      .enum(["waitlist", "product"])
+      .default("waitlist"),
+    /** Used when MARKETING_CTA_MODE=product. e.g. https://wa.me/... or #empezar */
+    NEXT_PUBLIC_PRODUCT_START_URL: z.string().optional(),
   },
 
   /**
@@ -42,6 +51,9 @@ export const env = createEnv({
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     RESEND_FROM_EMAIL: process.env.RESEND_FROM_EMAIL,
     NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_MARKETING_CTA_MODE:
+      process.env.NEXT_PUBLIC_MARKETING_CTA_MODE,
+    NEXT_PUBLIC_PRODUCT_START_URL: process.env.NEXT_PUBLIC_PRODUCT_START_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
