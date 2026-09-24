@@ -114,8 +114,12 @@ flowchart LR
 ### Piezas
 
 - **Bot de WhatsApp:** WhatsApp Cloud API (versión `v22.0` por defecto). El backend expone `GET /webhook` para la verificación de Meta y `POST /webhook` para los mensajes, que se validan con la firma `X-Hub-Signature-256` usando el App Secret de Meta. También sirve `GET /health` y `GET /media/welcome.mp4`.
-- **Custodia:** cada número de WhatsApp se asocia a una cuenta Stellar por custodia invisible SEP-30 (passkey lógica derivada del teléfono). Si `USE_PRIVY_WALLETS=true`, esa cuenta pasa a una wallet MPC de Privy; si Privy falla o el flag está apagado, seguimos con la custodia local.
-- **USDC y contrato Soroban:** transferencias y saldo van por el SAC de USDC. `SendaContract` (`STELLAR_CONTRACT_ID`) registra `credit` / `balance` cuando está configurado. El Confidential Token (OpenZeppelin / Nethermind) es el diferenciador previsto; no está deployado en este backend.
+- **Wallet:**
+  - Diseño: no-custodial (passkey / smart wallet Soroban).
+  - Hoy: custodia invisible SEP-30; Privy MPC solo si `USE_PRIVY_WALLETS=true`.
+- **Confidential Token:**
+  - Diseño: envoltura de USDC con Confidential Token (OpenZeppelin + verificador UltraHonk de Nethermind).
+  - Hoy: el contrato propio del backend es `SendaContract` (`ping` / `credit` / `balance`) vía `STELLAR_CONTRACT_ID`; no hay Confidential Token integrado en senda-backend.
 - **Persistencia:** el bot escribe JSON en el directorio de datos (`senda-db.json`, sesiones, órdenes de retiro). Prisma existe como referencia (`DATABASE_URL` por defecto `file:../data/senda.db`) y no está activo. Los mensajes de WhatsApp se deduplican por id; los créditos usan un claim idempotente.
 - **Off-ramp:** Mercado Pago vía SEP-10 + SEP-24 (ancla de test). El efectivo (MoneyGram, Western Union, comercio) es una orden simulada que bloquea USDC en el vault de retiro. Alfred Pay es la pasarela prevista, no un cliente en el código.
 - **Relación entre senda-backend y Senda.App:** despliegues separados. La landing no llama al backend.
@@ -124,59 +128,58 @@ flowchart LR
 
 ### Máquina de estados del producto
 
-La máquina prevista del producto es CREADA → PENDIENTE → EN_PROCESO → COMPLETADA / FALLIDA / CANCELADA. Hoy no la persistimos con esos nombres. El bot usa pasos de conversación y estados de retiro:
+Diseño: CREADA → PENDIENTE → EN_PROCESO → COMPLETADA / FALLIDA / CANCELADA, con idempotencia.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> AWAITING_MENU_OPTION
-    AWAITING_MENU_OPTION --> AWAITING_USD_AMOUNT
-    AWAITING_MENU_OPTION --> AWAITING_WITHDRAW_AMOUNT
-    AWAITING_MENU_OPTION --> AWAITING_WITHDRAW_PARTNER
-    AWAITING_MENU_OPTION --> AWAITING_MP_AMOUNT
-    AWAITING_MENU_OPTION --> AWAITING_YIELD_SUPPLY_AMOUNT
-    AWAITING_MENU_OPTION --> AWAITING_YIELD_WITHDRAW_AMOUNT
-    AWAITING_USD_AMOUNT --> AWAITING_MENU_OPTION
-    AWAITING_WITHDRAW_AMOUNT --> AWAITING_WITHDRAW_PARTNER
-    AWAITING_WITHDRAW_AMOUNT --> AWAITING_MENU_OPTION
-    AWAITING_WITHDRAW_PARTNER --> AWAITING_MENU_OPTION
-    AWAITING_MP_AMOUNT --> AWAITING_MENU_OPTION
-    AWAITING_YIELD_SUPPLY_AMOUNT --> AWAITING_MENU_OPTION
-    AWAITING_YIELD_WITHDRAW_AMOUNT --> AWAITING_MENU_OPTION
+    [*] --> CREADA
+    CREADA --> PENDIENTE
+    PENDIENTE --> EN_PROCESO
+    EN_PROCESO --> COMPLETADA
+    EN_PROCESO --> FALLIDA
+    EN_PROCESO --> CANCELADA
+    COMPLETADA --> [*]
+    FALLIDA --> [*]
+    CANCELADA --> [*]
 ```
 
-Retiro en efectivo: `pending_lock` → `pending_pickup` / `needs_reconcile` / `failed` → `completed`. Retiro SEP-24: `pending` o `pending_user_transfer_start`. Reintentar el mismo `message.id` de WhatsApp no duplica el procesamiento; el mismo crédito no se acredita dos veces.
+Cada transición es idempotente: reintentar el mismo mensaje o la misma llamada no duplica la operación.
+
+Hoy: la conversación usa estados `AWAITING_*`; el retiro en efectivo usa `pending_lock` / `pending_pickup` y otros; SEP-24 usa `pending`. La persistencia es `data/senda-db.json`; Prisma en el backend no está activo.
 
 ### Flujo de retiro (Off-Ramp)
 
-Hoy el usuario pide retirar por WhatsApp. Si pide Mercado Pago, abrimos SEP-24 contra el ancla de test y le mandamos el enlace; cuando el ancla pide el USDC, lo transferimos con memo. Si pide efectivo, armamos una orden simulada (MoneyGram, Western Union o comercio Senda) y bloqueamos el USDC en el vault.
+Diseño: retiro de USDC por WhatsApp hasta que los ARS se acreditan en el CVU de Mercado Pago vía la API de Alfred Pay.
 
 ```mermaid
 sequenceDiagram
     actor U as Usuario
     participant W as WhatsApp
     participant B as Backend
-    participant S as Stellar USDC
-    participant A as Ancla SEP-24
-    participant M as Mercado Pago
+    participant S as Stellar (USDC)
+    participant A as Alfred Pay
+    participant M as CVU Mercado Pago
 
-    U->>W: Quiero retirar a Mercado Pago
-    W->>B: POST /webhook
-    B->>B: Interpreta la intención y pide el monto si falta
-    B->>A: SEP-10 y SEP-24 withdraw
-    B->>U: Enlace interactivo del ancla
-    U->>A: Completa el flujo del ancla
-    A-->>B: pending_user_transfer_start
-    B->>S: Transfiere USDC con memo
+    U->>W: Quiero retirar mis dólares
+    W->>B: Webhook con el mensaje
+    B->>B: Interpreta la intención y crea la operación (CREADA)
+    B->>U: Confirma monto y destino en lenguaje simple
+    U->>W: Confirma
+    W->>B: Webhook con la confirmación
+    B->>S: Transfiere el USDC (PENDIENTE)
+    B->>A: Solicita el retiro por la API (EN_PROCESO)
     A->>M: Acredita pesos ARS
-    B->>W: Resultado
-    W->>U: Tu retiro llegó a Mercado Pago
+    A-->>B: Notifica el resultado
+    B->>B: Marca COMPLETADA o FALLIDA
+    B->>W: Comprobante
+    W->>U: Listo, ya tenés tus pesos en Mercado Pago
 ```
 
-El last mile previsto (API de Alfred Pay → CVU de Mercado Pago) no está en senda-backend.
+Hoy: el retiro a Mercado Pago funciona por SEP-24 contra `testanchor.stellar.org`; el retiro en efectivo (MoneyGram / WU / comercio) es simulado; no hay cliente de Alfred Pay.
 
 ### Flujo de ingreso (On-Ramp)
 
-El on-ramp (pesos por transferencia tradicional → USDC en Stellar) está previsto y no tiene intención ni servicio en senda-backend. El diseño de producto es este:
+Diseño: transferencia de pesos convertida automáticamente a USDC sobre Stellar, vía Alfred Pay.
 
 ```mermaid
 sequenceDiagram
@@ -184,10 +187,10 @@ sequenceDiagram
     participant W as WhatsApp
     participant B as Backend
     participant A as Alfred Pay
-    participant S as Stellar USDC
+    participant S as Stellar (USDC)
 
     U->>W: Quiero cargar pesos
-    W->>B: POST /webhook
+    W->>B: Webhook con el mensaje
     B->>A: Solicita los datos de transferencia
     B->>U: Envía las instrucciones de la transferencia
     U->>A: Transfiere ARS por transferencia bancaria
@@ -197,35 +200,43 @@ sequenceDiagram
     W->>U: Ya tenés tu saldo disponible
 ```
 
+Hoy: no hay on-ramp implementado.
+
 ### Flujo de rendimientos
 
-Hoy el rendimiento corre sobre el pool Blend de testnet (`BLEND_POOL_ID`): el usuario puede poner USDC a rendir, consultar la posición y sacar. No abrimos deuda; usamos `SupplyCollateral` / `WithdrawCollateral`.
+Diseño: contratos Soroban que generan intereses pasivos en dólares digitales, comunicados al usuario en lenguaje simple.
 
 ```mermaid
 sequenceDiagram
     actor U as Usuario
     participant W as WhatsApp
     participant B as Backend
-    participant C as Blend testnet
+    participant C as Contrato Soroban
 
     U->>W: Quiero que mi saldo genere intereses
-    W->>B: POST /webhook
-    B->>C: Deposita USDC en el pool
-    C-->>C: Acumula valor sobre el colateral
+    W->>B: Webhook con el mensaje
+    B->>C: Deposita USDC en el contrato
+    C-->>C: Acumula intereses sobre el saldo depositado
     U->>W: Cuánto llevo ganado
-    W->>B: POST /webhook
-    B->>C: Lee la posición
+    W->>B: Webhook con la consulta
+    B->>C: Lee el saldo y los intereses
     B->>W: Respuesta en lenguaje simple
     W->>U: Saldo e intereses en dólares
 ```
 
 Comunicación al usuario: los intereses se informan en dólares y sin términos técnicos (nada de pools, APY, gas ni contratos). El usuario ve cuánto tiene y cuánto ganó, y puede retirar cuando quiera con el flujo de retiro.
 
+Hoy: el rendimiento funciona contra un pool de Blend en testnet (`SupplyCollateral` / `WithdrawCollateral`).
+
 ### Arquitectura de IA y voz
 
 **Motor de intenciones.** Cada mensaje de texto pasa por `intent.service.ts`, que clasifica lenguaje natural en español y decide la acción: saldo, enviar USDC, retiro en efectivo, retiro a Mercado Pago, rendimiento (poner, consultar, sacar) o menú. Si falta un dato (por ejemplo el monto o la red de efectivo), el bot lo pide en la misma conversación antes de ejecutar.
 
 **Pipeline de notas de voz.**
+
+Diseño: Whisper ejecutado de forma local.
+
+Hoy: la transcripción funciona con Whisper (whisper-1) a través de la API de OpenAI, y requiere `OPENAI_API_KEY`.
 
 ```mermaid
 flowchart LR
