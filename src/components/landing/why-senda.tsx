@@ -4,10 +4,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, MessageSquare, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Shell } from "~/components/landing/shell";
-import { site } from "~/lib/site";
+import {
+  getMarketingStartHref,
+  isInternalMarketingPath,
+} from "~/lib/marketing-cta";
 
 // Double checkmark icon for WhatsApp messages
 function DoubleCheck() {
@@ -43,7 +46,11 @@ function ColombiaFlag() {
 
 export function WhySenda() {
   const t = useTranslations("why");
+  const locale = useLocale();
   const reduce = useReducedMotion() ?? false;
+  const startHref = getMarketingStartHref();
+  const startExternal = !isInternalMarketingPath(startHref);
+  const startTarget = startExternal ? startHref : `/${locale}${startHref}`;
 
   return (
     <section
@@ -130,9 +137,9 @@ export function WhySenda() {
 
             {/* 3D WhatsApp Button with clean floating movement */}
             <motion.a
-              href={site.startHref}
-              target="_blank"
-              rel="noreferrer"
+              href={startTarget}
+              target={startExternal ? "_blank" : undefined}
+              rel={startExternal ? "noreferrer" : undefined}
               className="group relative z-20 flex cursor-pointer items-center justify-center transition-transform hover:scale-105 active:scale-95"
               aria-label="Abrir Senda en WhatsApp"
               animate={reduce ? undefined : { y: [-4, 4, -4] }}

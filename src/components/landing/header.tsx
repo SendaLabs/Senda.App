@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { LanguageSwitch } from "~/components/landing/language-switch";
+import { StartCtaLink } from "~/components/landing/start-cta-link";
 import { Button } from "~/components/ui/button";
 import {
   Sheet,
@@ -15,7 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "~/components/ui/sheet";
-import { navItems, site } from "~/lib/site";
+import { navItems } from "~/lib/site";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
@@ -23,7 +23,7 @@ export function SiteHeader() {
   return (
     <header className="border-stone/70 sticky top-0 z-50 rounded-b-2xl border-b bg-white">
       <div className="mx-auto flex h-[4.5rem] w-full max-w-[1440px] items-center justify-between gap-4 px-5 md:px-8 lg:px-12">
-        <Link href="#top" className="shrink-0" aria-label={t("home")}>
+        <a href="#top" className="shrink-0" aria-label={t("home")}>
           <Image
             src="/images/logoverde.png"
             alt="Senda"
@@ -33,7 +33,7 @@ export function SiteHeader() {
             sizes="160px"
             priority
           />
-        </Link>
+        </a>
 
         <nav
           aria-label={t("aria")}
@@ -59,7 +59,7 @@ export function SiteHeader() {
             asChild
             className="hidden sm:inline-flex"
           >
-            <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
+            <StartCtaLink>{t("start")}</StartCtaLink>
           </Button>
 
           <Sheet>
@@ -101,7 +101,7 @@ export function SiteHeader() {
                     asChild
                     className="mt-4 min-h-11"
                   >
-                    <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
+                    <StartCtaLink>{t("start")}</StartCtaLink>
                   </Button>
                 </SheetClose>
               </nav>
