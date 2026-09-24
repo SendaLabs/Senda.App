@@ -31,9 +31,9 @@ export async function POST(request: Request) {
   }
 
   const email = normalizeEmail(parsed.data.email);
-  const name = parsed.data.name?.trim() || null;
-  const locale = parsed.data.locale?.trim() || null;
-  const source = parsed.data.source?.trim() || null;
+  const name = parsed.data.name?.trim() ?? null;
+  const locale = parsed.data.locale?.trim() ?? null;
+  const source = parsed.data.source?.trim() ?? null;
 
   try {
     const existing = await db.waitlistSignup.findUnique({
