@@ -31,7 +31,7 @@ export function getMarketingCtaMode(): MarketingCtaMode {
 export function getMarketingStartHref(): string {
   if (readMode() === "product") {
     const product =
-      process.env.NEXT_PUBLIC_PRODUCT_START_URL?.trim() ||
+      process.env.NEXT_PUBLIC_PRODUCT_START_URL?.trim() ??
       PRODUCT_START_FALLBACK;
     return product;
   }

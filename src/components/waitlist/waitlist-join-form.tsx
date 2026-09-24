@@ -19,28 +19,22 @@ async function submitWaitlist(payload: {
   locale: string;
   source: string;
 }): Promise<JoinResponse> {
-  const response = await fetch("/api/waitlist", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-
-  let data: JoinResponse | null = null;
   try {
-    data = (await response.json()) as JoinResponse;
+    const response = await fetch("/api/waitlist", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = (await response.json()) as JoinResponse;
+    if (data && typeof data === "object" && "ok" in data) {
+      return data;
+    }
+
+    return { ok: false, error: "network", code: String(response.status) };
   } catch {
-    data = null;
+    return { ok: false, error: "network" };
   }
-
-  if (!response.ok || !data) {
-    return {
-      ok: false,
-      error: "network",
-      code: String(response.status),
-    };
-  }
-
-  return data;
 }
 
 export function WaitlistJoinForm({ variant }: { variant: "hero" | "band" }) {
