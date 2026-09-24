@@ -38,6 +38,11 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model WaitlistSignup
+ * 
+ */
+export type WaitlistSignup = $Result.DefaultSelection<Prisma.$WaitlistSignupPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -206,6 +211,16 @@ export class PrismaClient<
     * ```
     */
   get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.waitlistSignup`: Exposes CRUD operations for the **WaitlistSignup** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WaitlistSignups
+    * const waitlistSignups = await prisma.waitlistSignup.findMany()
+    * ```
+    */
+  get waitlistSignup(): Prisma.WaitlistSignupDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -651,7 +666,8 @@ export namespace Prisma {
     Account: 'Account',
     Session: 'Session',
     User: 'User',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    WaitlistSignup: 'WaitlistSignup'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,7 +686,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "post" | "account" | "session" | "user" | "verificationToken"
+      modelProps: "post" | "account" | "session" | "user" | "verificationToken" | "waitlistSignup"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1044,6 +1060,80 @@ export namespace Prisma {
           }
         }
       }
+      WaitlistSignup: {
+        payload: Prisma.$WaitlistSignupPayload<ExtArgs>
+        fields: Prisma.WaitlistSignupFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WaitlistSignupFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WaitlistSignupFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>
+          }
+          findFirst: {
+            args: Prisma.WaitlistSignupFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WaitlistSignupFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>
+          }
+          findMany: {
+            args: Prisma.WaitlistSignupFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>[]
+          }
+          create: {
+            args: Prisma.WaitlistSignupCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>
+          }
+          createMany: {
+            args: Prisma.WaitlistSignupCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WaitlistSignupCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>[]
+          }
+          delete: {
+            args: Prisma.WaitlistSignupDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>
+          }
+          update: {
+            args: Prisma.WaitlistSignupUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>
+          }
+          deleteMany: {
+            args: Prisma.WaitlistSignupDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WaitlistSignupUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WaitlistSignupUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>[]
+          }
+          upsert: {
+            args: Prisma.WaitlistSignupUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WaitlistSignupPayload>
+          }
+          aggregate: {
+            args: Prisma.WaitlistSignupAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWaitlistSignup>
+          }
+          groupBy: {
+            args: Prisma.WaitlistSignupGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WaitlistSignupGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WaitlistSignupCountArgs<ExtArgs>
+            result: $Utils.Optional<WaitlistSignupCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1145,6 +1235,7 @@ export namespace Prisma {
     session?: SessionOmit
     user?: UserOmit
     verificationToken?: VerificationTokenOmit
+    waitlistSignup?: WaitlistSignupOmit
   }
 
   /* Types for Logging */
@@ -6696,6 +6787,1025 @@ export namespace Prisma {
 
 
   /**
+   * Model WaitlistSignup
+   */
+
+  export type AggregateWaitlistSignup = {
+    _count: WaitlistSignupCountAggregateOutputType | null
+    _min: WaitlistSignupMinAggregateOutputType | null
+    _max: WaitlistSignupMaxAggregateOutputType | null
+  }
+
+  export type WaitlistSignupMinAggregateOutputType = {
+    id: string | null
+    email: string | null
+    name: string | null
+    locale: string | null
+    source: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WaitlistSignupMaxAggregateOutputType = {
+    id: string | null
+    email: string | null
+    name: string | null
+    locale: string | null
+    source: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WaitlistSignupCountAggregateOutputType = {
+    id: number
+    email: number
+    name: number
+    locale: number
+    source: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type WaitlistSignupMinAggregateInputType = {
+    id?: true
+    email?: true
+    name?: true
+    locale?: true
+    source?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WaitlistSignupMaxAggregateInputType = {
+    id?: true
+    email?: true
+    name?: true
+    locale?: true
+    source?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WaitlistSignupCountAggregateInputType = {
+    id?: true
+    email?: true
+    name?: true
+    locale?: true
+    source?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type WaitlistSignupAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WaitlistSignup to aggregate.
+     */
+    where?: WaitlistSignupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WaitlistSignups to fetch.
+     */
+    orderBy?: WaitlistSignupOrderByWithRelationInput | WaitlistSignupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WaitlistSignupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WaitlistSignups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WaitlistSignups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WaitlistSignups
+    **/
+    _count?: true | WaitlistSignupCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WaitlistSignupMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WaitlistSignupMaxAggregateInputType
+  }
+
+  export type GetWaitlistSignupAggregateType<T extends WaitlistSignupAggregateArgs> = {
+        [P in keyof T & keyof AggregateWaitlistSignup]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWaitlistSignup[P]>
+      : GetScalarType<T[P], AggregateWaitlistSignup[P]>
+  }
+
+
+
+
+  export type WaitlistSignupGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WaitlistSignupWhereInput
+    orderBy?: WaitlistSignupOrderByWithAggregationInput | WaitlistSignupOrderByWithAggregationInput[]
+    by: WaitlistSignupScalarFieldEnum[] | WaitlistSignupScalarFieldEnum
+    having?: WaitlistSignupScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WaitlistSignupCountAggregateInputType | true
+    _min?: WaitlistSignupMinAggregateInputType
+    _max?: WaitlistSignupMaxAggregateInputType
+  }
+
+  export type WaitlistSignupGroupByOutputType = {
+    id: string
+    email: string
+    name: string | null
+    locale: string | null
+    source: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: WaitlistSignupCountAggregateOutputType | null
+    _min: WaitlistSignupMinAggregateOutputType | null
+    _max: WaitlistSignupMaxAggregateOutputType | null
+  }
+
+  type GetWaitlistSignupGroupByPayload<T extends WaitlistSignupGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WaitlistSignupGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WaitlistSignupGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WaitlistSignupGroupByOutputType[P]>
+            : GetScalarType<T[P], WaitlistSignupGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WaitlistSignupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    email?: boolean
+    name?: boolean
+    locale?: boolean
+    source?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["waitlistSignup"]>
+
+  export type WaitlistSignupSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    email?: boolean
+    name?: boolean
+    locale?: boolean
+    source?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["waitlistSignup"]>
+
+  export type WaitlistSignupSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    email?: boolean
+    name?: boolean
+    locale?: boolean
+    source?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["waitlistSignup"]>
+
+  export type WaitlistSignupSelectScalar = {
+    id?: boolean
+    email?: boolean
+    name?: boolean
+    locale?: boolean
+    source?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type WaitlistSignupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "locale" | "source" | "createdAt" | "updatedAt", ExtArgs["result"]["waitlistSignup"]>
+
+  export type $WaitlistSignupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WaitlistSignup"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      email: string
+      name: string | null
+      locale: string | null
+      source: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["waitlistSignup"]>
+    composites: {}
+  }
+
+  type WaitlistSignupGetPayload<S extends boolean | null | undefined | WaitlistSignupDefaultArgs> = $Result.GetResult<Prisma.$WaitlistSignupPayload, S>
+
+  type WaitlistSignupCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WaitlistSignupFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WaitlistSignupCountAggregateInputType | true
+    }
+
+  export interface WaitlistSignupDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WaitlistSignup'], meta: { name: 'WaitlistSignup' } }
+    /**
+     * Find zero or one WaitlistSignup that matches the filter.
+     * @param {WaitlistSignupFindUniqueArgs} args - Arguments to find a WaitlistSignup
+     * @example
+     * // Get one WaitlistSignup
+     * const waitlistSignup = await prisma.waitlistSignup.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WaitlistSignupFindUniqueArgs>(args: SelectSubset<T, WaitlistSignupFindUniqueArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WaitlistSignup that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WaitlistSignupFindUniqueOrThrowArgs} args - Arguments to find a WaitlistSignup
+     * @example
+     * // Get one WaitlistSignup
+     * const waitlistSignup = await prisma.waitlistSignup.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WaitlistSignupFindUniqueOrThrowArgs>(args: SelectSubset<T, WaitlistSignupFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WaitlistSignup that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaitlistSignupFindFirstArgs} args - Arguments to find a WaitlistSignup
+     * @example
+     * // Get one WaitlistSignup
+     * const waitlistSignup = await prisma.waitlistSignup.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WaitlistSignupFindFirstArgs>(args?: SelectSubset<T, WaitlistSignupFindFirstArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WaitlistSignup that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaitlistSignupFindFirstOrThrowArgs} args - Arguments to find a WaitlistSignup
+     * @example
+     * // Get one WaitlistSignup
+     * const waitlistSignup = await prisma.waitlistSignup.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WaitlistSignupFindFirstOrThrowArgs>(args?: SelectSubset<T, WaitlistSignupFindFirstOrThrowArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WaitlistSignups that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaitlistSignupFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WaitlistSignups
+     * const waitlistSignups = await prisma.waitlistSignup.findMany()
+     * 
+     * // Get first 10 WaitlistSignups
+     * const waitlistSignups = await prisma.waitlistSignup.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const waitlistSignupWithIdOnly = await prisma.waitlistSignup.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WaitlistSignupFindManyArgs>(args?: SelectSubset<T, WaitlistSignupFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WaitlistSignup.
+     * @param {WaitlistSignupCreateArgs} args - Arguments to create a WaitlistSignup.
+     * @example
+     * // Create one WaitlistSignup
+     * const WaitlistSignup = await prisma.waitlistSignup.create({
+     *   data: {
+     *     // ... data to create a WaitlistSignup
+     *   }
+     * })
+     * 
+     */
+    create<T extends WaitlistSignupCreateArgs>(args: SelectSubset<T, WaitlistSignupCreateArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WaitlistSignups.
+     * @param {WaitlistSignupCreateManyArgs} args - Arguments to create many WaitlistSignups.
+     * @example
+     * // Create many WaitlistSignups
+     * const waitlistSignup = await prisma.waitlistSignup.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WaitlistSignupCreateManyArgs>(args?: SelectSubset<T, WaitlistSignupCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WaitlistSignups and returns the data saved in the database.
+     * @param {WaitlistSignupCreateManyAndReturnArgs} args - Arguments to create many WaitlistSignups.
+     * @example
+     * // Create many WaitlistSignups
+     * const waitlistSignup = await prisma.waitlistSignup.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WaitlistSignups and only return the `id`
+     * const waitlistSignupWithIdOnly = await prisma.waitlistSignup.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WaitlistSignupCreateManyAndReturnArgs>(args?: SelectSubset<T, WaitlistSignupCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WaitlistSignup.
+     * @param {WaitlistSignupDeleteArgs} args - Arguments to delete one WaitlistSignup.
+     * @example
+     * // Delete one WaitlistSignup
+     * const WaitlistSignup = await prisma.waitlistSignup.delete({
+     *   where: {
+     *     // ... filter to delete one WaitlistSignup
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WaitlistSignupDeleteArgs>(args: SelectSubset<T, WaitlistSignupDeleteArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WaitlistSignup.
+     * @param {WaitlistSignupUpdateArgs} args - Arguments to update one WaitlistSignup.
+     * @example
+     * // Update one WaitlistSignup
+     * const waitlistSignup = await prisma.waitlistSignup.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WaitlistSignupUpdateArgs>(args: SelectSubset<T, WaitlistSignupUpdateArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WaitlistSignups.
+     * @param {WaitlistSignupDeleteManyArgs} args - Arguments to filter WaitlistSignups to delete.
+     * @example
+     * // Delete a few WaitlistSignups
+     * const { count } = await prisma.waitlistSignup.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WaitlistSignupDeleteManyArgs>(args?: SelectSubset<T, WaitlistSignupDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WaitlistSignups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaitlistSignupUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WaitlistSignups
+     * const waitlistSignup = await prisma.waitlistSignup.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WaitlistSignupUpdateManyArgs>(args: SelectSubset<T, WaitlistSignupUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WaitlistSignups and returns the data updated in the database.
+     * @param {WaitlistSignupUpdateManyAndReturnArgs} args - Arguments to update many WaitlistSignups.
+     * @example
+     * // Update many WaitlistSignups
+     * const waitlistSignup = await prisma.waitlistSignup.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WaitlistSignups and only return the `id`
+     * const waitlistSignupWithIdOnly = await prisma.waitlistSignup.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WaitlistSignupUpdateManyAndReturnArgs>(args: SelectSubset<T, WaitlistSignupUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WaitlistSignup.
+     * @param {WaitlistSignupUpsertArgs} args - Arguments to update or create a WaitlistSignup.
+     * @example
+     * // Update or create a WaitlistSignup
+     * const waitlistSignup = await prisma.waitlistSignup.upsert({
+     *   create: {
+     *     // ... data to create a WaitlistSignup
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WaitlistSignup we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WaitlistSignupUpsertArgs>(args: SelectSubset<T, WaitlistSignupUpsertArgs<ExtArgs>>): Prisma__WaitlistSignupClient<$Result.GetResult<Prisma.$WaitlistSignupPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WaitlistSignups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaitlistSignupCountArgs} args - Arguments to filter WaitlistSignups to count.
+     * @example
+     * // Count the number of WaitlistSignups
+     * const count = await prisma.waitlistSignup.count({
+     *   where: {
+     *     // ... the filter for the WaitlistSignups we want to count
+     *   }
+     * })
+    **/
+    count<T extends WaitlistSignupCountArgs>(
+      args?: Subset<T, WaitlistSignupCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WaitlistSignupCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WaitlistSignup.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaitlistSignupAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WaitlistSignupAggregateArgs>(args: Subset<T, WaitlistSignupAggregateArgs>): Prisma.PrismaPromise<GetWaitlistSignupAggregateType<T>>
+
+    /**
+     * Group by WaitlistSignup.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WaitlistSignupGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WaitlistSignupGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WaitlistSignupGroupByArgs['orderBy'] }
+        : { orderBy?: WaitlistSignupGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WaitlistSignupGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWaitlistSignupGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WaitlistSignup model
+   */
+  readonly fields: WaitlistSignupFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WaitlistSignup.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WaitlistSignupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WaitlistSignup model
+   */
+  interface WaitlistSignupFieldRefs {
+    readonly id: FieldRef<"WaitlistSignup", 'String'>
+    readonly email: FieldRef<"WaitlistSignup", 'String'>
+    readonly name: FieldRef<"WaitlistSignup", 'String'>
+    readonly locale: FieldRef<"WaitlistSignup", 'String'>
+    readonly source: FieldRef<"WaitlistSignup", 'String'>
+    readonly createdAt: FieldRef<"WaitlistSignup", 'DateTime'>
+    readonly updatedAt: FieldRef<"WaitlistSignup", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WaitlistSignup findUnique
+   */
+  export type WaitlistSignupFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * Filter, which WaitlistSignup to fetch.
+     */
+    where: WaitlistSignupWhereUniqueInput
+  }
+
+  /**
+   * WaitlistSignup findUniqueOrThrow
+   */
+  export type WaitlistSignupFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * Filter, which WaitlistSignup to fetch.
+     */
+    where: WaitlistSignupWhereUniqueInput
+  }
+
+  /**
+   * WaitlistSignup findFirst
+   */
+  export type WaitlistSignupFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * Filter, which WaitlistSignup to fetch.
+     */
+    where?: WaitlistSignupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WaitlistSignups to fetch.
+     */
+    orderBy?: WaitlistSignupOrderByWithRelationInput | WaitlistSignupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WaitlistSignups.
+     */
+    cursor?: WaitlistSignupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WaitlistSignups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WaitlistSignups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WaitlistSignups.
+     */
+    distinct?: WaitlistSignupScalarFieldEnum | WaitlistSignupScalarFieldEnum[]
+  }
+
+  /**
+   * WaitlistSignup findFirstOrThrow
+   */
+  export type WaitlistSignupFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * Filter, which WaitlistSignup to fetch.
+     */
+    where?: WaitlistSignupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WaitlistSignups to fetch.
+     */
+    orderBy?: WaitlistSignupOrderByWithRelationInput | WaitlistSignupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WaitlistSignups.
+     */
+    cursor?: WaitlistSignupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WaitlistSignups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WaitlistSignups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WaitlistSignups.
+     */
+    distinct?: WaitlistSignupScalarFieldEnum | WaitlistSignupScalarFieldEnum[]
+  }
+
+  /**
+   * WaitlistSignup findMany
+   */
+  export type WaitlistSignupFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * Filter, which WaitlistSignups to fetch.
+     */
+    where?: WaitlistSignupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WaitlistSignups to fetch.
+     */
+    orderBy?: WaitlistSignupOrderByWithRelationInput | WaitlistSignupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WaitlistSignups.
+     */
+    cursor?: WaitlistSignupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WaitlistSignups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WaitlistSignups.
+     */
+    skip?: number
+    distinct?: WaitlistSignupScalarFieldEnum | WaitlistSignupScalarFieldEnum[]
+  }
+
+  /**
+   * WaitlistSignup create
+   */
+  export type WaitlistSignupCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * The data needed to create a WaitlistSignup.
+     */
+    data: XOR<WaitlistSignupCreateInput, WaitlistSignupUncheckedCreateInput>
+  }
+
+  /**
+   * WaitlistSignup createMany
+   */
+  export type WaitlistSignupCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WaitlistSignups.
+     */
+    data: WaitlistSignupCreateManyInput | WaitlistSignupCreateManyInput[]
+  }
+
+  /**
+   * WaitlistSignup createManyAndReturn
+   */
+  export type WaitlistSignupCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * The data used to create many WaitlistSignups.
+     */
+    data: WaitlistSignupCreateManyInput | WaitlistSignupCreateManyInput[]
+  }
+
+  /**
+   * WaitlistSignup update
+   */
+  export type WaitlistSignupUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * The data needed to update a WaitlistSignup.
+     */
+    data: XOR<WaitlistSignupUpdateInput, WaitlistSignupUncheckedUpdateInput>
+    /**
+     * Choose, which WaitlistSignup to update.
+     */
+    where: WaitlistSignupWhereUniqueInput
+  }
+
+  /**
+   * WaitlistSignup updateMany
+   */
+  export type WaitlistSignupUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WaitlistSignups.
+     */
+    data: XOR<WaitlistSignupUpdateManyMutationInput, WaitlistSignupUncheckedUpdateManyInput>
+    /**
+     * Filter which WaitlistSignups to update
+     */
+    where?: WaitlistSignupWhereInput
+    /**
+     * Limit how many WaitlistSignups to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WaitlistSignup updateManyAndReturn
+   */
+  export type WaitlistSignupUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * The data used to update WaitlistSignups.
+     */
+    data: XOR<WaitlistSignupUpdateManyMutationInput, WaitlistSignupUncheckedUpdateManyInput>
+    /**
+     * Filter which WaitlistSignups to update
+     */
+    where?: WaitlistSignupWhereInput
+    /**
+     * Limit how many WaitlistSignups to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WaitlistSignup upsert
+   */
+  export type WaitlistSignupUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * The filter to search for the WaitlistSignup to update in case it exists.
+     */
+    where: WaitlistSignupWhereUniqueInput
+    /**
+     * In case the WaitlistSignup found by the `where` argument doesn't exist, create a new WaitlistSignup with this data.
+     */
+    create: XOR<WaitlistSignupCreateInput, WaitlistSignupUncheckedCreateInput>
+    /**
+     * In case the WaitlistSignup was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WaitlistSignupUpdateInput, WaitlistSignupUncheckedUpdateInput>
+  }
+
+  /**
+   * WaitlistSignup delete
+   */
+  export type WaitlistSignupDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+    /**
+     * Filter which WaitlistSignup to delete.
+     */
+    where: WaitlistSignupWhereUniqueInput
+  }
+
+  /**
+   * WaitlistSignup deleteMany
+   */
+  export type WaitlistSignupDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WaitlistSignups to delete
+     */
+    where?: WaitlistSignupWhereInput
+    /**
+     * Limit how many WaitlistSignups to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WaitlistSignup without action
+   */
+  export type WaitlistSignupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WaitlistSignup
+     */
+    select?: WaitlistSignupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WaitlistSignup
+     */
+    omit?: WaitlistSignupOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6764,6 +7874,19 @@ export namespace Prisma {
   };
 
   export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
+
+
+  export const WaitlistSignupScalarFieldEnum: {
+    id: 'id',
+    email: 'email',
+    name: 'name',
+    locale: 'locale',
+    source: 'source',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type WaitlistSignupScalarFieldEnum = (typeof WaitlistSignupScalarFieldEnum)[keyof typeof WaitlistSignupScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7127,6 +8250,68 @@ export namespace Prisma {
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
   }
 
+  export type WaitlistSignupWhereInput = {
+    AND?: WaitlistSignupWhereInput | WaitlistSignupWhereInput[]
+    OR?: WaitlistSignupWhereInput[]
+    NOT?: WaitlistSignupWhereInput | WaitlistSignupWhereInput[]
+    id?: StringFilter<"WaitlistSignup"> | string
+    email?: StringFilter<"WaitlistSignup"> | string
+    name?: StringNullableFilter<"WaitlistSignup"> | string | null
+    locale?: StringNullableFilter<"WaitlistSignup"> | string | null
+    source?: StringNullableFilter<"WaitlistSignup"> | string | null
+    createdAt?: DateTimeFilter<"WaitlistSignup"> | Date | string
+    updatedAt?: DateTimeFilter<"WaitlistSignup"> | Date | string
+  }
+
+  export type WaitlistSignupOrderByWithRelationInput = {
+    id?: SortOrder
+    email?: SortOrder
+    name?: SortOrderInput | SortOrder
+    locale?: SortOrderInput | SortOrder
+    source?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WaitlistSignupWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    email?: string
+    AND?: WaitlistSignupWhereInput | WaitlistSignupWhereInput[]
+    OR?: WaitlistSignupWhereInput[]
+    NOT?: WaitlistSignupWhereInput | WaitlistSignupWhereInput[]
+    name?: StringNullableFilter<"WaitlistSignup"> | string | null
+    locale?: StringNullableFilter<"WaitlistSignup"> | string | null
+    source?: StringNullableFilter<"WaitlistSignup"> | string | null
+    createdAt?: DateTimeFilter<"WaitlistSignup"> | Date | string
+    updatedAt?: DateTimeFilter<"WaitlistSignup"> | Date | string
+  }, "id" | "email">
+
+  export type WaitlistSignupOrderByWithAggregationInput = {
+    id?: SortOrder
+    email?: SortOrder
+    name?: SortOrderInput | SortOrder
+    locale?: SortOrderInput | SortOrder
+    source?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: WaitlistSignupCountOrderByAggregateInput
+    _max?: WaitlistSignupMaxOrderByAggregateInput
+    _min?: WaitlistSignupMinOrderByAggregateInput
+  }
+
+  export type WaitlistSignupScalarWhereWithAggregatesInput = {
+    AND?: WaitlistSignupScalarWhereWithAggregatesInput | WaitlistSignupScalarWhereWithAggregatesInput[]
+    OR?: WaitlistSignupScalarWhereWithAggregatesInput[]
+    NOT?: WaitlistSignupScalarWhereWithAggregatesInput | WaitlistSignupScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"WaitlistSignup"> | string
+    email?: StringWithAggregatesFilter<"WaitlistSignup"> | string
+    name?: StringNullableWithAggregatesFilter<"WaitlistSignup"> | string | null
+    locale?: StringNullableWithAggregatesFilter<"WaitlistSignup"> | string | null
+    source?: StringNullableWithAggregatesFilter<"WaitlistSignup"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"WaitlistSignup"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"WaitlistSignup"> | Date | string
+  }
+
   export type PostCreateInput = {
     name: string
     createdAt?: Date | string
@@ -7446,6 +8631,76 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     token?: StringFieldUpdateOperationsInput | string
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaitlistSignupCreateInput = {
+    id?: string
+    email: string
+    name?: string | null
+    locale?: string | null
+    source?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaitlistSignupUncheckedCreateInput = {
+    id?: string
+    email: string
+    name?: string | null
+    locale?: string | null
+    source?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaitlistSignupUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    locale?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaitlistSignupUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    locale?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaitlistSignupCreateManyInput = {
+    id?: string
+    email: string
+    name?: string | null
+    locale?: string | null
+    source?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WaitlistSignupUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    locale?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WaitlistSignupUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    locale?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7815,6 +9070,36 @@ export namespace Prisma {
     identifier?: SortOrder
     token?: SortOrder
     expires?: SortOrder
+  }
+
+  export type WaitlistSignupCountOrderByAggregateInput = {
+    id?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    locale?: SortOrder
+    source?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WaitlistSignupMaxOrderByAggregateInput = {
+    id?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    locale?: SortOrder
+    source?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WaitlistSignupMinOrderByAggregateInput = {
+    id?: SortOrder
+    email?: SortOrder
+    name?: SortOrder
+    locale?: SortOrder
+    source?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserCreateNestedOneWithoutPostsInput = {
