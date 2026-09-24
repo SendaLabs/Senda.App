@@ -1,8 +1,8 @@
 import { getTranslations } from "next-intl/server";
 
 import { HowItWorks1 } from "~/components/21st/how-it-works-1";
+import { StartCtaLink } from "~/components/landing/start-cta-link";
 import { Button } from "~/components/ui/button";
-import { site } from "~/lib/site";
 
 export async function HowItWorks() {
   const t = await getTranslations("how");
@@ -21,7 +21,7 @@ export async function HowItWorks() {
       steps={steps}
       action={
         <Button variant="senda" size="cta" asChild>
-          <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
+          <StartCtaLink>{t("start")}</StartCtaLink>
         </Button>
       }
     />

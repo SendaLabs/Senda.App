@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ForestShapes } from "~/components/21st/elegant-shape";
 import { QuoteCard } from "~/components/landing/quote-card";
 import { Shell } from "~/components/landing/shell";
+import { StartCtaLink } from "~/components/landing/start-cta-link";
 import { Button } from "~/components/ui/button";
 import { site } from "~/lib/site";
 
@@ -44,7 +45,7 @@ export async function Hero() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button variant="cream" size="cta" asChild>
-              <a href={site.startHref} target="_blank" rel="noreferrer">{t("start")}</a>
+              <StartCtaLink>{t("start")}</StartCtaLink>
             </Button>
             <Button variant="ghostForest" size="cta" asChild>
               <a href={site.howHref}>{t("how")}</a>
