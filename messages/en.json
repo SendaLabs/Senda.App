@@ -250,6 +250,75 @@
     "secondary": "See the steps",
     "note": "{email}"
   },
+  "waitlist": {
+    "meta": {
+      "title": "Senda — Waitlist",
+      "description": "Join the waitlist to hear when Senda launches remittances to Argentina on WhatsApp, with Mercado Pago payout."
+    },
+    "a11y": {
+      "skipForm": "Skip to waitlist form"
+    },
+    "nav": {
+      "home": "Senda, home",
+      "back": "Back to home"
+    },
+    "hero": {
+      "title": "Send a payment link on WhatsApp.",
+      "line": "They get it in Mercado Pago.",
+      "sub": "From anywhere in the world to Argentina. Stellar and stablecoins stay under the hood — you just use chat."
+    },
+    "story": {
+      "title": "The product is that simple",
+      "lead": "The user sends a payment link on WhatsApp anywhere in the world and receives the money in their Mercado Pago account.",
+      "from": "WhatsApp",
+      "via": "Senda",
+      "to": "Mercado Pago",
+      "caption": "Fast, low fees, no new app. Blockchain stays invisible."
+    },
+    "pillars": {
+      "title": "Why Senda",
+      "lead": "A simple B2C product: someone sends, someone receives. No crypto lesson required.",
+      "items": [
+        {
+          "title": "WhatsApp is the channel",
+          "copy": "Like Félix Pago: the transfer lives in the chat you already use. No queues, no extra app."
+        },
+        {
+          "title": "Mercado Pago at the end",
+          "copy": "Family sees pesos in the alias or CVU they already know. Familiar end to end."
+        },
+        {
+          "title": "Invisible rail",
+          "copy": "Stellar moves value in seconds. Stablecoins are infrastructure, not the screen."
+        }
+      ]
+    },
+    "roadmap": {
+      "title": "Argentina first. More countries next.",
+      "copy": "Today anyone in the world can send to Argentina. The roadmap opens more destinations so each family gets paid on their local rail."
+    },
+    "form": {
+      "title": "Join the waitlist",
+      "description": "We will email you when Senda is ready for your first transfer. No spam.",
+      "bandTitle": "Want to be among the first?",
+      "bandDescription": "Leave your email and we will notify you at launch.",
+      "name": "Name (optional)",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "submit": "Notify me at launch",
+      "submitting": "Joining…",
+      "socialProof": "The team is already building the corridor",
+      "privacy": "We only use your email to notify you at launch.",
+      "success": "You are on the list. We will notify you when Senda launches.",
+      "duplicate": "This email is already on the waitlist. We will notify you at launch.",
+      "errors": {
+        "required": "We need an email to add you.",
+        "invalid": "Check the email — it looks invalid.",
+        "generic": "We could not add you. Please try again in a moment."
+      }
+    }
+  },
   "footer": {
     "github": "Senda on GitHub",
     "linkedin": "Senda on LinkedIn",
