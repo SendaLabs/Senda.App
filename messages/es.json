@@ -250,6 +250,75 @@
     "secondary": "Ver los pasos",
     "note": "{email}"
   },
+  "waitlist": {
+    "meta": {
+      "title": "Senda — Lista de espera",
+      "description": "Anotate para enterarte cuando Senda lance remesas a Argentina por WhatsApp, con cobro en Mercado Pago."
+    },
+    "a11y": {
+      "skipForm": "Saltar al formulario de la lista de espera"
+    },
+    "nav": {
+      "home": "Senda, inicio",
+      "back": "Volver al inicio"
+    },
+    "hero": {
+      "title": "Mandá un link por WhatsApp.",
+      "line": "Cobrás en Mercado Pago.",
+      "sub": "Desde cualquier parte del mundo hacia Argentina. Stellar y las stablecoins viajan por debajo: vos solo usás el chat."
+    },
+    "story": {
+      "title": "Así de simple es el producto",
+      "lead": "El usuario envía un link de pago por WhatsApp a cualquier parte del mundo y recibe el dinero en su cuenta de Mercado Pago.",
+      "from": "WhatsApp",
+      "via": "Senda",
+      "to": "Mercado Pago",
+      "caption": "Rápido, comisiones bajas, sin app nueva. La blockchain queda invisible."
+    },
+    "pillars": {
+      "title": "Por qué Senda",
+      "lead": "Un producto B2C simple: alguien manda, alguien cobra. Sin explicar cripto.",
+      "items": [
+        {
+          "title": "WhatsApp es el canal",
+          "copy": "Como Félix Pago: el envío vive en el chat que ya usás. Sin filas y sin otra app."
+        },
+        {
+          "title": "Mercado Pago al final",
+          "copy": "La familia ve pesos en el alias o CVU de siempre. Familiar de punta a punta."
+        },
+        {
+          "title": "Riel invisible",
+          "copy": "Stellar mueve el valor en segundos. Las stablecoins son infraestructura, no la pantalla."
+        }
+      ]
+    },
+    "roadmap": {
+      "title": "Argentina primero. Después, más países.",
+      "copy": "Hoy cualquiera en el mundo puede mandar a Argentina. El roadmap abre más destinos para que cada familia cobre en su riel local."
+    },
+    "form": {
+      "title": "Anotate en la lista de espera",
+      "description": "Te avisamos cuando Senda esté listo para tu primer envío. Sin spam.",
+      "bandTitle": "¿Querés ser de los primeros?",
+      "bandDescription": "Dejá tu mail y te avisamos el día del lanzamiento.",
+      "name": "Nombre (opcional)",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tunombre@email.com",
+      "submit": "Quiero que me avisen",
+      "submitting": "Anotando…",
+      "socialProof": "El equipo ya está construyendo el corredor",
+      "privacy": "Solo usamos tu email para avisarte del lanzamiento.",
+      "success": "Listo. Te vamos a avisar cuando Senda lance.",
+      "duplicate": "Este email ya está en la lista. Te vamos a avisar al lanzar.",
+      "errors": {
+        "required": "Necesitamos un email para anotarte.",
+        "invalid": "Revisá el email: parece inválido.",
+        "generic": "No pudimos anotarte. Probá de nuevo en un momento."
+      }
+    }
+  },
   "footer": {
     "github": "Senda en GitHub",
     "linkedin": "Senda en LinkedIn",
