@@ -13,6 +13,7 @@ export const site = {
   linkedin: "https://www.linkedin.com/company/senda-labs",
   instagram: "https://www.instagram.com/withsenda/",
   x: "https://x.com/senda_app",
+  docs: "https://withsenda.site/docs",
   challenge: "https://argentinabuilderchallenge.netlify.app/reglamento",
   whatsappHref: WHATSAPP_START_URL,
   /** @deprecated Prefer getStartHref() so the env CTA switch applies. */
