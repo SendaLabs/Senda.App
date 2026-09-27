@@ -126,6 +126,16 @@ export async function SiteFooter() {
                 {t("product")}
               </a>
             </li>
+            <li>
+              <a
+                href={site.docs}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                {t("docs")}
+              </a>
+            </li>
           </ul>
         </div>
 
