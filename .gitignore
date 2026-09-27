@@ -18,6 +18,9 @@ db.sqlite
 /out/
 next-env.d.ts
 
+# fumadocs generated collection types
+.source
+
 # production
 /build
 

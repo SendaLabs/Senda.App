@@ -1,0 +1,87 @@
+---
+title: Flujos
+description: Máquina de estados, retiro, ingreso y rendimientos. Diseño previsto frente a lo que corre hoy.
+---
+
+## Máquina de estados del producto
+
+**Diseño:** CREADA → PENDIENTE → EN_PROCESO → COMPLETADA / FALLIDA / CANCELADA, con idempotencia.
+
+```mermaid
+stateDiagram-v2
+  [*] --> CREADA
+  CREADA --> PENDIENTE
+  PENDIENTE --> EN_PROCESO
+  PENDIENTE --> CANCELADA
+  EN_PROCESO --> COMPLETADA
+  EN_PROCESO --> FALLIDA
+  EN_PROCESO --> CANCELADA
+  COMPLETADA --> [*]
+  FALLIDA --> [*]
+  CANCELADA --> [*]
+```
+
+Cada transición es idempotente: reintentar el mismo mensaje o la misma llamada no duplica la operación.
+
+**Hoy:** la conversación usa estados `AWAITING_*`; el retiro en efectivo usa `pending_lock` / `pending_pickup` y otros; SEP-24 usa `pending`. La persistencia es `data/senda-db.json`; Prisma en el backend no está activo.
+
+## Flujo de retiro (off-ramp)
+
+**Diseño:** retiro de USDC por WhatsApp hasta que los ARS se acreditan en el CVU de Mercado Pago vía la API de Alfred Pay.
+
+```mermaid
+sequenceDiagram
+  participant U as Usuario (WhatsApp)
+  participant B as Bot Senda
+  participant S as Stellar (USDC)
+  participant A as Alfred Pay
+  participant MP as Mercado Pago (CVU)
+  U->>B: "retirar a mercado pago"
+  B->>U: Confirma monto y destino
+  B->>S: Envía USDC al off-ramp
+  S->>A: USDC recibido
+  A->>MP: Acredita ARS en el CVU
+  B->>U: Aviso: pesos acreditados
+```
+
+**Hoy:** el retiro a Mercado Pago funciona por SEP-24 contra `testanchor.stellar.org`; el retiro en efectivo (MoneyGram / WU / comercio) es simulado; no hay cliente de Alfred Pay.
+
+## Flujo de ingreso (on-ramp)
+
+**Diseño:** transferencia de pesos convertida automáticamente a USDC sobre Stellar, vía Alfred Pay.
+
+```mermaid
+sequenceDiagram
+  participant U as Usuario
+  participant A as Alfred Pay
+  participant S as Stellar (USDC)
+  participant B as Bot Senda
+  U->>A: Transferencia de pesos
+  A->>S: Convierte a USDC
+  S->>B: USDC acreditado en la wallet
+  B->>U: Aviso de saldo por WhatsApp
+```
+
+**Hoy:** no hay on-ramp implementado.
+
+## Flujo de rendimientos
+
+**Diseño:** contratos Soroban que generan intereses pasivos en dólares digitales, comunicados al usuario en lenguaje simple.
+
+```mermaid
+sequenceDiagram
+  participant U as Usuario (WhatsApp)
+  participant B as Bot Senda
+  participant P as Pool de rendimiento (Soroban)
+  U->>B: "poner 1 a rendir"
+  B->>P: Supply de USDC
+  U->>B: "cuánto tengo rindiendo"
+  B->>P: Consulta posición
+  B->>U: Saldo y ganancia en dólares
+  U->>B: Retirar
+  B->>P: Withdraw de USDC
+```
+
+**Comunicación al usuario:** los intereses se informan en dólares y sin términos técnicos (nada de pools, APY, gas ni contratos). El usuario ve cuánto tiene y cuánto ganó, y puede retirar cuando quiera con el flujo de retiro.
+
+**Hoy:** el rendimiento funciona contra un pool de Blend en testnet (`SupplyCollateral` / `WithdrawCollateral`).

@@ -1,0 +1,61 @@
+---
+title: Cómo correr el proyecto
+description: Setup local de la landing (Senda.App) y del backend (senda-backend).
+---
+
+## Landing (Senda.App)
+
+```bash
+git clone https://github.com/SendaLabs/Senda.App.git
+cd Senda.App
+npm install
+cp .env.example .env    # en Windows (cmd): copy .env.example .env
+npm run dev
+```
+
+`DATABASE_URL` es obligatorio al arrancar (Next valida el entorno al cargar la config) aunque la landing no la use en runtime. En `.env.example` el valor de desarrollo es:
+
+```
+DATABASE_URL=file:./db.sqlite
+```
+
+Otros scripts:
+
+```bash
+npm run build
+npm start
+npm run db:push
+npm run lint
+```
+
+### Rutas locales
+
+| Ruta | Qué es |
+| --- | --- |
+| `http://localhost:3000/es` | Landing en español |
+| `http://localhost:3000/en` | Landing en inglés |
+| `http://localhost:3000/docs` | Esta documentación (fuera del prefix de locale) |
+
+`/docs` corre en el mismo `npm run dev`. No hay script extra.
+
+## Backend (senda-backend)
+
+Requisitos previos:
+
+- Node.js `>= 22.12.0` y npm
+- Rust y Stellar CLI (para compilar y desplegar el contrato Soroban)
+- Una app de Meta con WhatsApp Cloud API (token, ID de número de teléfono, ID de cuenta de negocio y App Secret)
+- Una URL pública para el webhook (por ejemplo el deploy en Render)
+- `OPENAI_API_KEY` si vas a transcribir notas de voz
+
+```bash
+git clone https://github.com/SendaLabs/senda-backend.git
+cd senda-backend
+npm install
+cp .env.example .env    # en Windows (cmd): copy .env.example .env
+npm run dev
+```
+
+Para conectar WhatsApp, configurá el webhook de la app de Meta con `https://<tu-url-publica>/webhook` y el mismo valor que pusiste en `VERIFY_TOKEN`.
+
+Scripts, alta web (`web-setup`) y deploy: [Setup del backend](/docs/backend/setup). Variables: [Variables de entorno](/docs/backend/env).

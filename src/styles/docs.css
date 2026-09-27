@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Senda brand tokens mapped onto Fumadocs (--color-fd-*) */
+
+@theme {
+  --color-fd-background: #f4f1e8;
+  --color-fd-foreground: #171918;
+  --color-fd-muted: #ebe6d8;
+  --color-fd-muted-foreground: #3d5c56;
+  --color-fd-popover: #ffffff;
+  --color-fd-popover-foreground: #171918;
+  --color-fd-card: #ebe6d8;
+  --color-fd-card-foreground: #171918;
+  --color-fd-border: #d9d5ca;
+  --color-fd-primary: #123c36;
+  --color-fd-primary-foreground: #f4f1e8;
+  --color-fd-secondary: #ebe6d8;
+  --color-fd-secondary-foreground: #123c36;
+  --color-fd-accent: #ebe6d8;
+  --color-fd-accent-foreground: #123c36;
+  --color-fd-ring: #123c36;
+}
+
+.dark {
+  --color-fd-background: #0a2b20;
+  --color-fd-foreground: #f4f1e8;
+  --color-fd-muted: #123c36;
+  --color-fd-muted-foreground: #c5d4cf;
+  --color-fd-popover: #123c36;
+  --color-fd-popover-foreground: #f4f1e8;
+  --color-fd-card: #123c36;
+  --color-fd-card-foreground: #f4f1e8;
+  --color-fd-border: #1f4a42;
+  --color-fd-primary: #f4f1e8;
+  --color-fd-primary-foreground: #123c36;
+  --color-fd-secondary: #173f35;
+  --color-fd-secondary-foreground: #f4f1e8;
+  --color-fd-accent: #173f35;
+  --color-fd-accent-foreground: #f4f1e8;
+  --color-fd-ring: #ebe6d8;
+}
+
+.dark #nd-sidebar {
+  --color-fd-muted: #173f35;
+  --color-fd-secondary: #0f3d2e;
+  --color-fd-background: #0a2b20;
+}
+
+/* Isolate docs from the landing cream body rules that fight fd tokens */
+html body {
+  background-color: var(--color-fd-background) !important;
+  color: var(--color-fd-foreground) !important;
+  font-feature-settings: "ss01", "cv11";
+}
+
+html body ::selection {
+  background: #123c36;
+  color: #f4f1e8;
+}
+
+.dark body ::selection {
+  background: #f4f1e8;
+  color: #123c36;
+}
+
+/* Sidebar + nav feel like Senda paper docs */
+#nd-sidebar {
+  background-color: #ebe6d8;
+  border-color: #d9d5ca;
+}
+
+.dark #nd-sidebar {
+  background-color: #0a2b20;
+  border-color: #1f4a42;
+}
+
+#nd-subnav {
+  background-color: color-mix(in srgb, var(--color-fd-background) 88%, transparent);
+  border-color: var(--color-fd-border);
+}
+
+/* Editorial headings — same voice as the landing */
+#nd-page h1,
+.prose h1 {
+  letter-spacing: -0.03em;
+  font-weight: 450;
+  color: #123c36;
+}
+
+.dark #nd-page h1,
+.dark .prose h1 {
+  color: #f4f1e8;
+}
+
+#nd-page h2,
+#nd-page h3,
+.prose h2,
+.prose h3 {
+  color: #123c36;
+  letter-spacing: -0.02em;
+}
+
+.dark #nd-page h2,
+.dark #nd-page h3,
+.dark .prose h2,
+.dark .prose h3 {
+  color: #ebe6d8;
+}
+
+/* Tables read as Senda cards, not generic dark slabs */
+.prose table {
+  border-color: #d9d5ca;
+  overflow: hidden;
+  border-radius: 0.875rem;
+}
+
+.prose thead {
+  background-color: #123c36;
+  color: #f4f1e8;
+}
+
+.prose thead th {
+  color: #f4f1e8;
+  font-weight: 500;
+}
+
+.prose tbody tr {
+  background-color: #ffffff;
+  border-color: #d9d5ca;
+}
+
+.prose tbody tr:nth-child(even) {
+  background-color: #ebe6d8;
+}
+
+.dark .prose thead {
+  background-color: #173f35;
+}
+
+.dark .prose tbody tr {
+  background-color: #0f3d2e;
+  border-color: #1f4a42;
+}
+
+.dark .prose tbody tr:nth-child(even) {
+  background-color: #123c36;
+}
+
+/* Active nav item uses forest, not generic black */
+#nd-sidebar a[data-active="true"] {
+  background-color: color-mix(in srgb, #123c36 12%, transparent);
+  color: #123c36;
+}
+
+.dark #nd-sidebar a[data-active="true"] {
+  background-color: color-mix(in srgb, #f4f1e8 12%, transparent);
+  color: #f4f1e8;
+}
+
+/* Code / callouts sit on cream-deep */
+.prose :not(pre) > code {
+  background-color: #ebe6d8;
+  color: #123c36;
+}
+
+.dark .prose :not(pre) > code {
+  background-color: #173f35;
+  color: #f4f1e8;
+}
