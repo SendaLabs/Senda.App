@@ -1,0 +1,72 @@
+---
+title: Producto
+description: Problema, solución, usuario, por qué ahora, competencia y funcionalidades previstas de Senda.
+---
+
+## Problema
+
+Los freelancers, creadores y trabajadores independientes en América Latina pierden hasta un 10% o más de sus ingresos en comisiones abusivas, demoras de varios días y burocracia bancaria tradicional cuando intentan cobrar desde el exterior hacia sus cuentas locales.
+
+Cada vez más profesionales cobran del exterior sin haberse ido del país. Según Bitwage by Paystand, casi el 40% de esos pagos en su plataforma van a profesionales ubicados en Argentina. Un diseñador que trabaja para una startup de Estados Unidos, un desarrollador contratado por una empresa europea, una consultora que presta servicios a clientes internacionales: ese dinero cruza fronteras de una forma muy parecida a una remesa tradicional.
+
+Las stablecoins como USDC resuelven el problema de velocidad y costo, pero obligan al usuario no cripto a lidiar con wallets complejas, frases semilla, redes y gas fees como XLM, lo que frena la adopción masiva. Los canales tradicionales de pago internacional, como las transferencias bancarias o las plataformas intermediarias, son lentos y caros. Y operar con dinero en blockchains públicas expone los datos financieros del usuario a la vista de cualquiera, lo que desalienta su uso cotidiano o comercial serio sin cumplimiento normativo ni privacidad patrimonial.
+
+## Solución
+
+Construimos un chatbot de WhatsApp en español, impulsado por stablecoins USDC sobre la blockchain Stellar. Abstraemos la complejidad cripto y la metemos dentro de WhatsApp, generando confianza a través de una interfaz familiar mientras usamos la blockchain por debajo para la velocidad y el bajo costo. Sin apps nuevas, sin wallets que configurar, sin frases semilla, sin gas fees que manejar: el usuario manda un mensaje y el dinero llega, liquidado directo en Mercado Pago.
+
+El diferenciador técnico es la **privacidad de monto**: envolvemos USDC en un Confidential Token (SDK de OpenZeppelin + verificador UltraHonk de Nethermind, ambos en Developer Preview de Stellar, no aprobados aún para mainnet), de forma que el monto de la transacción no queda expuesto on-chain. En el MVP, remitente y destinatario siguen siendo visibles; ocultar también la contraparte (Stellar Private Payments) queda en el roadmap.
+
+## Usuario
+
+- **Freelancers y contratistas argentinos** que cobran en USD o stablecoins del exterior y necesitan convertir eso en pesos gastables, sin lenguaje cripto ni wallets que configurar.
+- **Familia recibiendo remesas** desde España, Italia, Chile o Estados Unidos, liquidado en pesos en Mercado Pago. Es el caso de uso acotado y demostrable del MVP.
+
+## Por qué ahora
+
+El objetivo es evolucionar de un servicio de remesas y pagos a un ecosistema financiero completo, integrando blockchain y stablecoins para ofrecer rapidez, transparencia y valor adicional en cada interacción. El foco no está solo en mover dinero, sino en convertir cada transacción en una oportunidad de generar servicios financieros accesibles, seguros y escalables para los usuarios en Argentina y el exterior.
+
+El futuro de las remesas no debería medirse por el número de transferencias depositadas en cuentas o pagadas en efectivo. Una medida mucho más informativa es la proporción de fondos que permanecen activos dentro de los ecosistemas digitales financieros. Cada remesa digital no es un fin en sí misma, sino el inicio de un círculo virtuoso de inclusión, resiliencia y crecimiento local. La verdadera transformación ocurre cuando el dinero que llega permanece, circula y genera oportunidades.
+
+El ecosistema Stellar ya tiene un caso de éxito que valida este patrón a escala de mercado (WhatsApp → USDC → efectivo local), y ese jugador está expandiendo agresivamente sus corredores en Latinoamérica con capital fresco, sin haber entrado todavía a Argentina. Es una ventana de tiempo: quien construya primero la pieza de infraestructura consumer-facing de Stellar en Argentina se queda con la posición de entrada.
+
+## Competencia rápida
+
+|  | Senda (objetivo) | Félix Pago | Peanut |
+| --- | --- | --- | --- |
+| Interfaz | WhatsApp | WhatsApp | Link (WA/SMS/mail) + QR |
+| Last mile en Argentina | Mercado Pago | No opera (roadmap sin AR) | Mercado Pago / banco AR |
+| Settlement | Stellar (invisible) | Stellar (USDC) | Solana + EVM (no Stellar) |
+| Privacidad de monto | Sí (Confidential Token, MVP/testnet) | No es el wedge público | No es el wedge público |
+| Cobertura AR | Entrada / piloto | Ausente hoy | Presente |
+| Costo al usuario | A definir con el off-ramp local | Remesa WA competitiva vs. WU | Bajo / $0 en varios flujos QR |
+| Riesgo competitivo | — | Capital para expandir a AR | Ya local, otro rail |
+
+**Félix Pago:** unicornio (~US$1.400M), Serie C de US$200M (sept. 2026, equity liderado por a16z + deuda de General Catalyst), US$8.000M+ procesados, 11 países.
+
+Fuentes de contexto de mercado (no son prueba de tracción de Senda): DATAPAIS/The Dialogue vía Infobae, ONU-Banco Mundial, INE España, BBVA Research, cobertura de la Serie C de Félix (Crunchbase/LatamList, sept. 2026), sitio de Peanut, Bitwage by Paystand, y el informe "Remesas 2030" (Mastercard x CrossTech).
+
+## Funcionalidades previstas
+
+| Funcionalidad | Tipo | Detalle |
+| --- | --- | --- |
+| Bot de WhatsApp (intake) | Core | Intake del envío por chat, por texto o nota de voz |
+| Wallet no-custodial | Core | Passkey / smart wallet Soroban |
+| Máquina de estados de transacción | Core | CREADA → PENDIENTE → EN_PROCESO → COMPLETADA / FALLIDA / CANCELADA, con idempotencia |
+| Wrapper Confidential Token sobre USDC | Core | Oculta el monto; remitente y destinatario visibles |
+| Transferencia confidencial | Core | Movimiento del valor con Confidential Token |
+| Retiro / unwrap a USDC estándar | Core | Salida del wrapper a USDC |
+| Off-ramp a riel local | Core | Retiro de USDC a pesos en el CVU de Mercado Pago vía la API de Alfred Pay |
+| On-ramp | Core | Ingreso de pesos por transferencia tradicional, convertidos automáticamente a USDC sobre Stellar |
+| Rendimientos | Core | Intereses pasivos en dólares digitales mediante contratos inteligentes de Soroban |
+| Mensajes sin lenguaje cripto | Core | Copy de producto sin jerga de chain |
+| Alerta proactiva de estado | Stretch | Aviso de avance del envío |
+| Panel interno de transacciones | Stretch | Vista interna de operaciones |
+
+### Qué corre hoy
+
+En `senda-backend` ya corren, sobre testnet: intake por WhatsApp (texto y nota de voz), custodia invisible SEP-30 (y wallets MPC de Privy si `USE_PRIVY_WALLETS=true`), acreditación y saldo de USDC, retiro en efectivo simulado, retiro a Mercado Pago por SEP-24, y rendimiento en el pool Blend.
+
+No hay Confidential Token, on-ramp ni integración con Alfred Pay.
+
+La iteración en curso del backend (Privy por defecto, tesorería con Horizon Listener, cobros QR SEP-7) está descrita en [Senda Backend](/docs/backend).

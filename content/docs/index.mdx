@@ -1,0 +1,38 @@
+---
+title: Senda
+description: Plataforma de operaciones financieras para pymes de América Latina, con wedge de entrada en pagos y remesas vía WhatsApp liquidados sobre Stellar.
+---
+
+**Senda** es una plataforma de operaciones financieras para pymes de América Latina, con un wedge de entrada en pagos y remesas vía WhatsApp liquidados sobre Stellar.
+
+Este repositorio ([SendaLabs/Senda.App](https://github.com/SendaLabs/Senda.App)) contiene la landing de marketing y el producto de remesas a Argentina. El backend de producto vive en un repositorio separado, [senda-backend](https://github.com/SendaLabs/senda-backend).
+
+## Qué es Senda
+
+¿Y si pudieras enviar dinero a través de fronteras tan rápido como un mensaje de texto? Movemos dinero desde WhatsApp hasta pesos gastables en Mercado Pago, liquidando el settlement en Stellar de forma invisible para el usuario. Sin wallets que configurar, sin apps nuevas, sin jerga cripto: el usuario manda un mensaje y el dinero llega.
+
+Senda es una billetera conversacional con IA, orientada a la inclusión financiera masiva: el usuario opera con lenguaje natural, por texto o por nota de voz, dentro de WhatsApp.
+
+## En estas docs
+
+- [Cómo correr el proyecto](/docs/getting-started): landing (`Senda.App`) y backend (`senda-backend`).
+- [Producto](/docs/product): problema, solución, usuario, por qué ahora, competencia y funcionalidades.
+- [Arquitectura](/docs/architecture/overview): componentes, [flujos](/docs/architecture/flows) y [IA y voz](/docs/architecture/ai-voice).
+- [Senda Backend](/docs/backend): la iteración actual del bot (Privy, tesorería, Blend, cobros QR), [setup](/docs/backend/setup) y [variables de entorno](/docs/backend/env).
+- [Roadmap](/docs/roadmap): hitos, riesgos y roadmap global.
+- [Senda Business](/docs/business): pagos para empresas a través de fronteras.
+
+## Estado actual del repo
+
+`Senda.App` contiene la landing de marketing/pitch. El backend de producto (bot de WhatsApp, custodia invisible SEP-30, USDC sobre Stellar, retiro y rendimientos) vive en `senda-backend`.
+
+Todo dato visible en la landing (cotización, chat) es ilustrativo, no conectado a ningún backend real. La landing no llama al backend: son despliegues separados.
+
+## Documentación externa
+
+- [Pitch (Argentina Builder Challenge)](https://docs.google.com/document/d/1Q49nLCfl-VOjWNQluKXtgg08m6D_J819PBCLaIwA4A0/edit?tab=t.0)
+- [Pitch Deck (Argentina Builder Challenge)](https://docs.google.com/presentation/d/1do1UYuHVPNFeT5q73hg-zqoBYkwjHBqfkWqDd4CdV1U/edit?usp=sharing)
+
+## Contacto
+
+sendanetwork@gmail.com
