@@ -389,6 +389,13 @@ Antes de la entrega del Argentina Builder Challenge (27/09/2026), personas ajena
 | Acreditaciones de USDC con comprobante on-chain | 2 |
 | Respuestas de formulario | 2 (ambas: "se sintió como una transferencia normal" y "ya lo usaría") |
 
+Wallets creadas:
+- GBROFG7RITQUXRDIYSOVW4YJWQ6BQDNA6JBB4QIJBZC3XANS2VU3MFYE
+- GA6GX64RR7PPWFUQGKVSO7DK3EFSEYNFO3RNP2ABVYL6ZNUX4OXYOIXD
+- GCZBHGRNZEOLDY6TZA6J6KXKQUEKLCM36MSJZBQNBN2FNOVVSYJ7AGJE
+- GDV2DLPYODVENPY7DZHQ6RHKETVMB77PQOPZSMX5XDJYMQX5TP7R45MW
+- GCW5CGJ36GMHXT5FU3G2ZELJZIK43ZAYEPZFAABVRFTKT6R4NHSGH6MZ
+
 | Tester | Flujo probado |
 |---|---|
 | Tester 1 | Consulta de saldo e inicio de envío ("Mandar 10"): el bot pide un destino real (teléfono, CVU, alias o link de cobro) |
@@ -422,6 +429,22 @@ Nuestra tesis de fondo es un Financial Operations Platform para pymes de LATAM, 
 Senda Ledger unifica bancos, stablecoins y tarjetas sin obligar a mover fondos a cripto. El Payment Router decide la mejor ruta de pago (banco, stablecoin, riel local) componiéndose sobre partners de ruteo ya existentes (Bitso Business, CoralCommerce, Eco), sin construirlo desde cero. El Senda Asistente es la capa conversacional (WhatsApp) integrada dentro de Senda para consultas sobre el Senda Ledger real; no asesora sobre inversión ni impuestos.
 
 La infraestructura que estamos construyendo (bot de WhatsApp, wallet, settlement invisible sobre Stellar) es la misma pieza que después soporta pagos de negocio a través de fronteras — factura de un proveedor en otro país, pago de un freelancer, conciliación multi-moneda —, no una remesa familiar, pero el mismo riel.
+
+## Entregables
+
+Argentina Builder Challenge (Stellar × BAF)
+
+| Entregable | Enlace |
+|---|---|
+| Pitch Deck | [Ver presentación](https://docs.google.com/presentation/d/1do1UYuHVPNFeT5q73hg-zqoBYkwjHBqfkWqDd4CdV1U/edit?usp=sharing) |
+| Pitch en español | [Ver en Loom](https://www.loom.com/share/f49dcb2f559e46049c2841b44a46394c) |
+| Pitch en inglés | [Ver en Loom](https://www.loom.com/share/f49dcb2f559e46049c2841b44a46394c) |
+| Demo | _Enlace pendiente_ |
+| Documentación | [withsenda.site/docs](https://withsenda.site/docs) |
+| Landing page | [withsenda.site/es](https://withsenda.site/es) |
+| Evidencia de pruebas con usuarios | [Documento completo con capturas anonimizadas (Google Doc)](https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-cavvZfx8FfrgcsekkwD4/edit?usp=sharing) |
+
+**Redes:** [X @withsenda_](https://x.com/withsenda_) · [Instagram @withsenda](https://www.instagram.com/withsenda/)
 
 ## Contacto
 
