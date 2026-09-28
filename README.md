@@ -439,7 +439,7 @@ Argentina Builder Challenge (Stellar × BAF)
 | Pitch Deck | [Ver presentación](https://docs.google.com/presentation/d/1do1UYuHVPNFeT5q73hg-zqoBYkwjHBqfkWqDd4CdV1U/edit?usp=sharing) |
 | Pitch en español | [Ver en Loom](https://www.loom.com/share/f49dcb2f559e46049c2841b44a46394c) |
 | Pitch en inglés | [Ver en Loom](https://www.loom.com/share/f49dcb2f559e46049c2841b44a46394c) |
-| Demo | _Enlace pendiente_ |
+| Demo |[Drive](https://drive.google.com/file/d/16b2xh-XVnimUs5UVwJ8RRL_bijepgNPM/view?usp=sharing) |
 | Repositorio del backend | [SendaLabs/senda-backend](https://github.com/SendaLabs/senda-backend) |
 | Documentación | [withsenda.site/docs](https://withsenda.site/docs) |
 | Landing page | [withsenda.site/es](https://withsenda.site/es) |
