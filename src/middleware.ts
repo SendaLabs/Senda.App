@@ -5,5 +5,6 @@ import { routing } from "~/i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ["/((?!api|trpc|docs|_next|_vercel|.*\\..*).*)"],
+  // /c/* proxies to the WhatsApp bot — must skip locale redirects.
+  matcher: ["/((?!api|trpc|docs|_next|_vercel|c(?:/|$)|.*\\..*).*)"],
 };
