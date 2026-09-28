@@ -377,9 +377,36 @@ Nunca se commitean valores reales. Las variables sin valor por defecto se comple
 
 Riesgos: el Confidential Token previsto depende de SDKs en Developer Preview (alcance en testnet); la custodia SEP-30 y los secretos de vault son superficie nueva para nosotros; el off-ramp a Mercado Pago depende del ancla SEP-24 de test; el efectivo es simulado; el on-ramp y Alfred Pay todavía no están en el backend.
 
+## Validación con usuarios externos
+
+Antes de la entrega del Argentina Builder Challenge (27/09/2026), personas ajenas al equipo fundador probaron el bot de WhatsApp de Senda sobre Stellar testnet. Los testers están anonimizados (nombres, países y teléfonos omitidos).
+
+| Métrica | Valor |
+|---|---|
+| Testers con flujo documentado | 5 |
+| Cuentas de usuarios registradas (sin cuentas del equipo fundador) | 5 |
+| Wallets creadas durante la prueba (una por cuenta) | 5 |
+| Acreditaciones de USDC con comprobante on-chain | 2 |
+| Respuestas de formulario | 2 (ambas: "se sintió como una transferencia normal" y "ya lo usaría") |
+
+| Tester | Flujo probado |
+|---|---|
+| Tester 1 | Consulta de saldo e inicio de envío ("Mandar 10"): el bot pide un destino real (teléfono, CVU, alias o link de cobro) |
+| Tester 2 | Generación de link y QR de cobro; el QR abre WhatsApp con el mensaje listo para quien paga |
+| Tester 3 | Dos acreditaciones de USDC (10 y 5) con comprobante en stellar.expert; saldo final 13 USDC; el bot propone apartar 2 USDC a ahorro con una estimación referencial |
+| Tester 4 | Envío a un destinatario nuevo: el bot registra el número y pide CVU/alias, link de cobro o que abra cuenta, porque aún no tiene wallet |
+| Tester 5 | Usuario del perfil objetivo (recibe remesas, usa Western Union, sin experiencia previa en cripto): formulario con facilidad 5/5, claridad de cobro 10/10 |
+
+**Verificación on-chain (testnet):** [acreditación de 10 USDC](https://stellar.expert/explorer/testnet/tx/db59b6f995364632fd13ebe365a0e9db5eb918f25e64edb51f60d6c7564aea5c) · [acreditación de 5 USDC](https://stellar.expert/explorer/testnet/tx/dfe844263711a8d49eb2db8b0a7c0177d2607d0145a3e49a0efc690b910ed5b4) · [wallet de un tester](https://stellar.expert/explorer/testnet/account/GA6GX64RR7PPWFUQGKVSO7DK3EFSEYNFO3RNP2ABVYL6ZNUX4OXYOIXD)
+
+**Límites:** muestra chica y cercana al equipo, pensada para validar que el flujo funciona y se entiende, no para conclusiones de mercado. Todo ocurre en testnet; el retiro a Mercado Pago está simulado y la estimación de ahorro es referencial.
+
+Documento completo con capturas anonimizadas: [Google Doc](https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-cavvZfx8FfrgcsekkwD4/edit?usp=sharing)
+
 ## Documentación
 Pitch (Argentina Builder Challenge): https://docs.google.com/document/d/1Q49nLCfl-VOjWNQluKXtgg08m6D_J819PBCLaIwA4A0/edit?tab=t.0
 Pitch Deck (Argentina Builder Challenge): https://docs.google.com/presentation/d/1do1UYuHVPNFeT5q73hg-zqoBYkwjHBqfkWqDd4CdV1U/edit?usp=sharing
+Evidencia de usuarios externos (Argentina Builder Challenge): https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-cavvZfx8FfrgcsekkwD4/edit?usp=sharing
 
 ## Roadmap global
 
