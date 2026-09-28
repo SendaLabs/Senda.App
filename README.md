@@ -397,7 +397,7 @@ Antes de la entrega del Argentina Builder Challenge (27/09/2026), personas ajena
 | Tester 4 | Envío a un destinatario nuevo: el bot registra el número y pide CVU/alias, link de cobro o que abra cuenta, porque aún no tiene wallet |
 | Tester 5 | Usuario del perfil objetivo (recibe remesas, usa Western Union, sin experiencia previa en cripto): formulario con facilidad 5/5, claridad de cobro 10/10 |
 
-**Verificación on-chain (testnet):** [acreditación de 10 USDC](https://stellar.expert/explorer/testnet/tx/db59b6f995364632fd13ebe365a0e9db5eb918f25e64edb51f60d6c7564aea5c) · [acreditación de 5 USDC](https://stellar.expert/explorer/testnet/tx/dfe844263711a8d49eb2db8b0a7c0177d2607d0145a3e49a0efc690b910ed5b4) · [wallet de un tester](https://stellar.expert/explorer/testnet/account/GA6GX64RR7PPWFUQGKVSO7DK3EFSEYNFO3RNP2ABVYL6ZNUX4OXYOIXD)
+**Verificación on-chain (testnet):** [acreditación de 10 USDC](https://stellar.expert/explorer/testnet/tx/db59b6f995364632fd13ebe365a0e9db5eb918f25e64edb51f60d6c7564aea5c) · [acreditación de 5 USDC](https://stellar.expert/explorer/testnet/tx/dfe844263711a8d49eb2db8b0a7c0177d2607d0145a3e49a0efc690b910ed5b4)
 
 **Límites:** muestra chica y cercana al equipo, pensada para validar que el flujo funciona y se entiende, no para conclusiones de mercado. Todo ocurre en testnet; el retiro a Mercado Pago está simulado y la estimación de ahorro es referencial.
 
