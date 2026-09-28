@@ -1,38 +1,61 @@
 # Senda
+> Envía lo que importa. En segundos, estés donde estés.
 
-Senda es una plataforma de operaciones financieras para pymes de América Latina, con un wedge de entrada en pagos y remesas vía WhatsApp liquidados sobre Stellar. Este repositorio (Senda.App) contiene la landing de marketing y el producto de remesas a Argentina. El backend de producto vive en un repositorio separado, [senda-backend](https://github.com/SendaLabs/senda-backend).
+Senda es un agente de IA conversacional en WhatsApp, en español y ingles,self-custodial que abstrae por completo la complejidad de moverse entre pesos argentinos y USDC sobre Stellar. El usuario nunca ve una clave, una dirección ni un hash solo escribe (texto o nota de voz) y la plata se mueve.
 
-## Qué es Senda
-
-¿Y si pudieras enviar dinero a través de fronteras tan rápido como un mensaje de texto? Movemos dinero desde WhatsApp hasta pesos gastables en Mercado Pago, liquidando el settlement en Stellar de forma invisible para el usuario. Sin wallets que configurar, sin apps nuevas, sin jerga cripto: el usuario manda un mensaje y el dinero llega.
-
-Senda es una billetera conversacional con IA, orientada a la inclusión financiera masiva: el usuario opera con lenguaje natural, por texto o por nota de voz, dentro de WhatsApp.
+- Aplicación en vivo: https://withsenda.site/
+- Documentación: https://withsenda.site/docs (Actualizada el 22/09 por lo que aun nos quedo un poco desactualizada a lo actual)
 
 ## Problema
-
 Los freelancers, creadores y trabajadores independientes en América Latina pierden hasta un 10% o más de sus ingresos en comisiones abusivas, demoras de varios días y burocracia bancaria tradicional cuando intentan cobrar desde el exterior hacia sus cuentas locales.
 
 Cada vez más profesionales cobran del exterior sin haberse ido del país. Según Bitwage by Paystand, casi el 40% de esos pagos en su plataforma van a profesionales ubicados en Argentina. Un diseñador que trabaja para una startup de Estados Unidos, un desarrollador contratado por una empresa europea, una consultora que presta servicios a clientes internacionales: ese dinero cruza fronteras de una forma muy parecida a una remesa tradicional.
 
 Las stablecoins como USDC resuelven el problema de velocidad y costo, pero obligan al usuario no cripto a lidiar con wallets complejas, frases semilla, redes y gas fees como XLM, lo que frena la adopción masiva. Los canales tradicionales de pago internacional, como las transferencias bancarias o las plataformas intermediarias, son lentos y caros. Y operar con dinero en blockchains públicas expone los datos financieros del usuario a la vista de cualquiera, lo que desalienta su uso cotidiano o comercial serio sin cumplimiento normativo ni privacidad patrimonial.
 
-## Solución
+# Solucion 
+Nuestra solución es una puerta de entrada financiera diseñada para abrir el Economía global para cualquiera, en cualquier lugar. Hemos construido un chatbot de WhatsApp en español y ingles,self-custodial impulsado por stablecoins USDC sobre la blockchain Stellar, para resolver esto. Abstraemos la complejidad cripto y la metemos dentro de WhatsApp, generando confianza a través de una interfaz familiar mientras usamos la blockchain por debajo para la velocidad y el bajo costo. Sin apps nuevas, sin wallets que configurar, sin frases semilla, sin gas fees que manejar: el usuario manda un mensaje y el dinero llega, liquidado directo en Mercado Pago. Facilitando cobrar pagos de clientes de todo el mundo, y mover dinero a través de fronteras sin fricciones. Desde transferencias globales instantáneas hasta fluidas Gasto local, Queremos ofrecer las herramientas bancarias de primer nivel que necesitas para ganar a nivel global y gastar localmente, Sin concesiones. Ademas el usuario podrá tener la decision de poner su plata a rendir y ahorrar a partir de tan solo 2 dólares, esto hace que en un futuro pueda tener parte de su retiro solo con los rendimientos que le va dando, pudiendo sacar su plata cuando la necesite.
 
-Construimos un chatbot de WhatsApp en español, impulsado por stablecoins USDC sobre la blockchain Stellar, para resolver esto. Abstraemos la complejidad cripto y la metemos dentro de WhatsApp, generando confianza a través de una interfaz familiar mientras usamos la blockchain por debajo para la velocidad y el bajo costo. Sin apps nuevas, sin wallets que configurar, sin frases semilla, sin gas fees que manejar: el usuario manda un mensaje y el dinero llega, liquidado directo en Mercado Pago.
 
-El diferenciador técnico es la privacidad de monto: envolvemos USDC en un Confidential Token (SDK de OpenZeppelin + verificador UltraHonk de Nethermind, ambos en Developer Preview de Stellar, no aprobados aún para mainnet), de forma que el monto de la transacción no queda expuesto on-chain. En el MVP, remitente y destinatario siguen siendo visibles; ocultar también la contraparte (Stellar Private Payments) queda en el roadmap.
+## ¿Qué hace diferente a senda?
 
-## Usuario
+Casi todas las billeteras de *stablecoins* diseñadas para mercados emergentes exigen una de dos
+concesiones: ceder el control de los fondos a la empresa que opera la aplicación, o
+gestionar la conversión a moneda local mediante una integración cerrada y propietaria con un único proveedor,
+lo que deja al usuario sin visibilidad sobre qué sucede con su dinero mientras está en tránsito. Senda elimina ambos problemas. La billetera del usuario está integrada y es de self-custodia: el usuario es el verdadero propietario criptográfico desde el primer mensaje, no simplemente un cliente de un custodio. La conversión ARS↔USDC se ejecuta sobre SEP-24 —el protocolo abierto y estandarizado de Stellar para depósitos y retiros gestionados—, ofreciendo estados de transacción legibles que el agente de IA explica al usuario en tiempo real, en lugar de dejarlo esperando una respuesta de soporte.
 
-Freelancers y contratistas argentinos que cobran en USD o stablecoins del exterior y necesitan convertir eso en pesos gastables, sin lenguaje cripto ni wallets que configurar.
+| | Senda | La mayoría de las billeteras de *stablecoins* basadas en chat |
+|---|---|---|
+| **Custodia** | Una cuenta Stellar por persona, integrada mediante Privy. Senda no almacena la frase semilla; firma utilizando una clave de sesión delegada por el usuario durante el registro. | La empresa controla las claves; custodia centralizada |
+| **Liquidación en moneda fiat** | Protocolo abierto (SEP-24) a través de un *anchor* regulado | API cerrada y propietaria de un único proveedor |
+| **Salida a moneda fiat en Argentina** | Directo al CVU de Mercado Pago del usuario | A menudo sin solución |
+| **Rendimiento** | Blend v2, préstamos en Soroban. En Senda, la posición *on-chain* pertenece a la tesorería, mientras que la participación de cada individuo se registra dentro de Senda. Los fondos pueden retirarse. | Producto financiero propietario; el motor de rendimiento carece de transparencia |
+| **Cobros** | Enlace SEP-7. El pago en USDC es directo. Una vez enviado, la liberación de los fondos no puede quedar sujeta a condiciones. | Pago directo e irreversible. |
+| **Privacidad** | Hoja de ruta activa hacia Tokens Confidenciales / Pagos Privados en Stellar | Historial de transacciones y saldos expuestos por defecto |
 
-Familia recibiendo remesas — desde España, Italia, Chile o Estados Unidos, liquidado en pesos en Mercado Pago. Es el caso de uso acotado y demostrable del MVP.
+## Estado actual
+
+Senda se encuentra en fase de desarrollo activo en la red de pruebas (Testnet) de Stellar. En el repositorio `senda-backend`, el flujo de trabajo de WhatsApp ya es funcional a nivel de código: mensajes de texto y notas de voz, consulta de saldos, transferencias de USDC, solicitudes de pago SEP-7, registro inicial en la billetera (*onboarding*) y ahorros en Blend. El puente SEP-24 apunta al *anchor* de pruebas `testanchor.stellar.org`: el bot se autentica mediante SEP-10, inicia el flujo del *anchor* y proporciona actualizaciones de estado a través de WhatsApp. No existe un CVU (cuenta virtual) de Mercado Pago vinculado. Alfred Pay y Ripio Ramps aparecen como candidatos en el código, no como clientes activos. Blend v2 está integrado en la red de pruebas: la tesorería deposita fondos en el *pool* y la participación de cada persona se registra en Senda. Cuando se recibe un pago, el bot ofrece la opción de reservar una parte de los fondos. El siguiente hito identificado en los repositorios —que aún no se ha desarrollado— es un programa piloto que incluya una salida a pesos en el mundo real.
+
+## Repositorios
+
+**[`senda-backend`](#)** El producto —bot de WhatsApp (Cloud API v22), registro web (`web-setup`) e integraciones con Stellar— desarrollado en TypeScript. Este repositorio gestiona SEP-7 para cobros, SEP-10 para autenticación con el *anchor*, SEP-24 para retiros, USDC mediante el contrato de activos de Stellar e integración de rendimientos de Blend v2. **[`senda.app`](#)** es el *frontend*.
+
+En testnet el backend usa el Stellar Asset Contract de USDC `CDT2MY3QNV2RT2XULQWWXX2JELUWRWNXNKONCYG5MTIGZM7G5S2QNNGB` (`USDC_SAC_CONTRACT_ID`). El contrato Soroban propio (`SendaContract`, `STELLAR_CONTRACT_ID`) registra créditos y saldos (`ping`, `credit`, `balance`);
+
+## Enlaces
+
+- Aplicación en vivo: https://withsenda.site/
+- Documentación: https://withsenda.site/docs (Actualizada el 22/09 por lo que aun nos quedo un poco desactualizada a lo actual)
 
 ## Por qué ahora
 
 El objetivo es evolucionar de un servicio de remesas y pagos a un ecosistema financiero completo, integrando tecnología blockchain y stablecoins para ofrecer rapidez, transparencia y valor adicional en cada interacción. El foco no está solo en mover dinero, sino en convertir cada transacción en una oportunidad de generar servicios financieros accesibles, seguros y escalables para los usuarios en Argentina y el exterior.
 
 El futuro de las remesas no debería medirse por el número de transferencias depositadas en cuentas o pagadas directamente en efectivo. Una medida mucho más informativa es la proporción de fondos que permanecen activos dentro de los ecosistemas digitales financieros. Cada remesa digital no es un fin en sí misma, sino el inicio de un círculo virtuoso de inclusión, resiliencia y crecimiento local. La verdadera transformación ocurre cuando el dinero que llega permanece, circula y genera oportunidades.
+
+A esto se suma que Argentina ya tiene, del lado fiat, un riel interoperable maduro (Transferencias 3.0 del BCRA, con CVU/CBU/Alias intercambiables) — la pieza que falta no es velocidad de liquidación fiat, es el puente confiable y regulado entre ese riel y USDC. Eso es
+exactamente lo que un anchor SEP-24 resuelve.
 
 El ecosistema Stellar ya tiene un caso de éxito que valida este patrón a escala de mercado (WhatsApp → USDC → efectivo local), y ese jugador está expandiendo agresivamente sus corredores en Latinoamérica con capital fresco, sin haber entrado todavía a Argentina. Es una ventana de tiempo: quien construya primero la pieza de infraestructura consumer-facing de Stellar en Argentina se queda con la posición de entrada.
 
@@ -52,32 +75,64 @@ Félix Pago: unicornio (~US$1.400M), Serie C de US$200M (sept. 2026, equity lide
 
 Fuentes de contexto de mercado (no son prueba de tracción de Senda): DATAPAIS/The Dialogue vía Infobae, ONU-Banco Mundial, INE España, BBVA Research, cobertura de la Serie C de Félix (Crunchbase/LatamList, sept. 2026), sitio de Peanut, Bitwage by Paystand, y el informe "Remesas 2030" (Mastercard x CrossTech).
 
-## Estado actual del repo
+## Go-to-market
 
-Senda.App contiene la landing de marketing/pitch. El backend de producto (bot de WhatsApp, custodia invisible SEP-30, USDC sobre Stellar, retiro y rendimientos) vive en senda-backend.
+**A quién nos dirigimos primero.** Freelancers y trabajadores remotos en Argentina que cobran de
+clientes del exterior (desarrollo, diseño, traducción, consultoría) y ya usan Mercado Pago todos los
+días. Las PyMEs vienen después, con Senda Business.
 
-En testnet el backend usa el Stellar Asset Contract de USDC `CDT2MY3QNV2RT2XULQWWXX2JELUWRWNXNKONCYG5MTIGZM7G5S2QNNGB` (`USDC_SAC_CONTRACT_ID`). El contrato Soroban propio (`SendaContract`, `STELLAR_CONTRACT_ID`) registra créditos y saldos (`ping`, `credit`, `balance`); no es un Confidential Token.
+**Cómo llegamos.** Comunidades de freelancers y devs argentinos, contadores que asesoran a
+profesionales independientes, contenido con demos reales del flujo, y el ecosistema Stellar
+(BAF, Meridian). El crecimiento se apoya en los links de cobro: cada pago le muestra Senda a un
+nuevo cliente.
 
-Todo dato visible en la landing (cotización, chat) es ilustrativo, no conectado a ningún backend real.
+ **Atraer remitentes con corredores co-marcados (meses 0-3).**
+* Una vez que las solicitudes están fluyendo, pasamos a la adquisición por parte de la diáspora
+* Demos en directo de influencers en TikTok/Instagram mostrando "Mira cómo envío 50 dólares en 40 segundos."
 
-## Producto: funcionalidades previstas
+**Fases.**
+1. **Validación** (hoy, en testnet): sesiones grabadas con freelancers reales para verificar que
+   completan el flujo sin ayuda.
+2. **Beta cerrada:** montos chicos, con un socio regulado para la liquidación en pesos.
+3. **Crecimiento:** referidos, contadores y comunidades.
+4. **Senda Business:** equipos, tesorería y privacidad.
 
-| Funcionalidad | Tipo | Detalle |
-|---|---|---|
-| Bot de WhatsApp (intake) | Core | Intake del envío por chat, por texto o nota de voz |
-| Wallet no-custodial | Core | Passkey / smart wallet Soroban |
-| Máquina de estados de transacción | Core | CREADA → PENDIENTE → EN_PROCESO → COMPLETADA / FALLIDA / CANCELADA, con idempotencia |
-| Wrapper Confidential Token sobre USDC | Core | Oculta el monto; remitente y destinatario visibles |
-| Transferencia confidencial | Core | Movimiento del valor con Confidential Token |
-| Retiro / unwrap a USDC estándar | Core | Salida del wrapper a USDC |
-| Off-ramp a riel local | Core | Retiro de USDC a pesos en el CVU de Mercado Pago vía la API de Alfred Pay |
-| On-ramp | Core | Ingreso de pesos por transferencia tradicional, convertidos automáticamente a USDC sobre Stellar |
-| Rendimientos | Core | Intereses pasivos en dólares digitales mediante contratos inteligentes de Soroban |
-| Mensajes sin lenguaje cripto | Core | Copy de producto sin jerga de chain |
-| Alerta proactiva de estado | Stretch | Aviso de avance del envío |
-| Panel interno de transacciones | Stretch | Vista interna de operaciones |
+**Qué medimos.** Dólares liquidados a Mercado Pago, usuarios que completan su primer retiro y
+usuarios que vuelven.
 
-Hoy en senda-backend ya corren, sobre testnet: intake por WhatsApp (texto y nota de voz), custodia invisible SEP-30 (y wallets MPC de Privy si `USE_PRIVY_WALLETS=true`), acreditación y saldo de USDC, retiro en efectivo simulado, retiro a Mercado Pago por SEP-24, y rendimiento en el pool Blend. No hay Confidential Token, on-ramp ni integración con Alfred Pay.
+## PLAN DE COMERCIALIZACIÓN
+1. REDES SOCIALES Y MARKETING DE CONTENIDOS
+
+### Objetivo: Crear conciencia de marca y educar a los usuarios sobre las características de Senda, centrándose en las billeteras USDC, KYC y las soluciones de pago.
+* Vídeos cortos
+### Contenido:
+* Educativo (por ejemplo, "¿Qué es el USDC y por qué usarlo?").
+* Promocional (por ejemplo, "Cómo activar su billetera USDC").
+* Compromiso (por ejemplo, "Bill Splitting Challenge" para usuarios jóvenes).
+### Plataformas:
+* TikTok/Instagram Reels: clips de 15-30 segundos.
+* YouTube: tutoriales de 5-10 minutos (por ejemplo, "Completar KYC en 3 pasos").
+* Frecuencia: 3-4 vídeos por semana.
+* Publicaciones sociales y correos electrónicos quincenales
+* Publicaciones sociales: Comparta historias de usuarios, actualizaciones de funciones y consejos financieros; use encuestas y preguntas y respuestas en vivo para participar.
+* Correos electrónicos: Segmente a los usuarios (por ejemplo, estudiantes, comerciantes, ahorradores de grupo) y envíe contenido personalizado como guías de incorporación u ofertas exclusivas.
+* Frecuencia: Quincenal para ambos.
+* Publicaciones semanales de blog
+### Contenido: Guías sobre herramientas financieras, beneficios de USDC y casos de uso de Senda (por ejemplo, "Cómo los ahorros pueden ayudarle a ahorrar más").
+
+
+## 2. ESTRATEGIA DE VENTAS PARA PEQUEÑOS COMERCIANTES
+
+### Objetivo: A bordo de los comerciantes pequeños a Senda Business para la facturación y los pagos, destacando los acuerdos instantáneos y las bajas tarifas.
+## Tácticas en persona:
+* Los agentes de campo demuestran la aplicación en los mercados.
+* Cabinas emergentes en ferias comerciales para inscripciones.
+### Tácticas en línea:
+* Seminarios web quincenales sobre facturación y pagos.
+* Tutoriales en vídeo en YouTube y redes sociales.
+### Propuesta de valor:
+* Pagos instantáneos con tarifas bajas.
+* Prueba gratuita de 30 días con facturas ilimitadas para Senda Business.
 
 ## Arquitectura técnica
 
@@ -91,8 +146,6 @@ Hoy en senda-backend ya corren, sobre testnet: intake por WhatsApp (texto y nota
 | Capa blockchain | Stellar (USDC SAC) + `SendaContract` en Soroban | Settlement, crédito y saldo |
 | Rendimientos | Blend (testnet) | Supply / consulta / withdraw de USDC |
 | Off-ramp Mercado Pago | SEP-24 contra `testanchor.stellar.org` | Retiro interactivo a Mercado Pago |
-| Off-ramp efectivo | Órdenes simuladas (MoneyGram, Western Union, comercio Senda) | Código de retiro y lock de USDC |
-| On-ramp / Alfred Pay | Previsto | No está implementado en senda-backend |
 | Interfaz de chat | WhatsApp Cloud API (`v22.0`) | Canal del usuario |
 
 ### Cómo interactúan
@@ -117,11 +170,7 @@ flowchart LR
 - **Wallet:**
   - Diseño: no-custodial (passkey / smart wallet Soroban).
   - Hoy: custodia invisible SEP-30; Privy MPC solo si `USE_PRIVY_WALLETS=true`.
-- **Confidential Token:**
-  - Diseño: envoltura de USDC con Confidential Token (OpenZeppelin + verificador UltraHonk de Nethermind).
-  - Hoy: el contrato propio del backend es `SendaContract` (`ping` / `credit` / `balance`) vía `STELLAR_CONTRACT_ID`; no hay Confidential Token integrado en senda-backend.
-- **Persistencia:** el bot escribe JSON en el directorio de datos (`senda-db.json`, sesiones, órdenes de retiro). Prisma existe como referencia (`DATABASE_URL` por defecto `file:../data/senda.db`) y no está activo. Los mensajes de WhatsApp se deduplican por id; los créditos usan un claim idempotente.
-- **Off-ramp:** Mercado Pago vía SEP-10 + SEP-24 (ancla de test). El efectivo (MoneyGram, Western Union, comercio) es una orden simulada que bloquea USDC en el vault de retiro. Alfred Pay es la pasarela prevista, no un cliente en el código.
+- **Off-ramp:** Mercado Pago vía SEP-10 + SEP-24 (ancla de test).Alfred Pay es la pasarela prevista, no un cliente en el código.
 - **Relación entre senda-backend y Senda.App:** despliegues separados. La landing no llama al backend.
 
 ## Flujos
@@ -145,7 +194,6 @@ stateDiagram-v2
 
 Cada transición es idempotente: reintentar el mismo mensaje o la misma llamada no duplica la operación.
 
-Hoy: la conversación usa estados `AWAITING_*`; el retiro en efectivo usa `pending_lock` / `pending_pickup` y otros; SEP-24 usa `pending`. La persistencia es `data/senda-db.json`; Prisma en el backend no está activo.
 
 ### Flujo de retiro (Off-Ramp)
 
@@ -175,7 +223,7 @@ sequenceDiagram
     W->>U: Listo, ya tenés tus pesos en Mercado Pago
 ```
 
-Hoy: el retiro a Mercado Pago funciona por SEP-24 contra `testanchor.stellar.org`; el retiro en efectivo (MoneyGram / WU / comercio) es simulado; no hay cliente de Alfred Pay.
+Hoy: el retiro a Mercado Pago funciona por SEP-24 contra `testanchor.stellar.org`;
 
 ### Flujo de ingreso (On-Ramp)
 
@@ -289,26 +337,6 @@ npm run db:push
 npm run lint
 ```
 
-La landing queda en http://localhost:3000/es y http://localhost:3000/en.
-
-### Backend (senda-backend)
-
-Requisitos previos:
-
-- Node.js >= 22.12.0 y npm
-- Rust y Stellar CLI (para compilar y desplegar el contrato Soroban)
-- Una app de Meta con WhatsApp Cloud API (token, ID de número de teléfono, ID de cuenta de negocio y App Secret)
-- Una URL pública para el webhook (por ejemplo el deploy en Render)
-- `OPENAI_API_KEY` si vas a transcribir notas de voz
-
-```bash
-git clone https://github.com/SendaLabs/senda-backend.git
-cd senda-backend
-npm install
-cp .env.example .env    # en Windows (cmd): copy .env.example .env
-npm run dev
-```
-
 Scripts:
 
 | Script | Qué hace |
@@ -321,51 +349,26 @@ Scripts:
 | `npm run contract:build` | Compila el contrato Soroban (`stellar contract build`) |
 | `npm run contract:deploy` | Despliega el contrato (`scripts/deploy-contract.js`) |
 
-Para conectar WhatsApp, configura el webhook de la app de Meta con `https://<tu-url-publica>/webhook` y el mismo valor que pusiste en `VERIFY_TOKEN`.
-
-### Variables de entorno (`.env` del backend)
-
-Nunca se commitean valores reales. Las variables sin valor por defecto se completan con tus propias credenciales.
-
-| Variable | Obligatoria | Descripción |
+## Hoja de ruta
+ 
+| Fase | Alcance | Estado |
 |---|---|---|
-| `PORT` | No | Puerto del servidor (por defecto `3000`) |
-| `NODE_ENV` | No | Entorno (`development` en `.env.example`) |
-| `WHATSAPP_TOKEN` | Sí | Token de acceso de WhatsApp Cloud API |
-| `WHATSAPP_PHONE_NUMBER_ID` | Sí | ID del número de teléfono de WhatsApp Business |
-| `WHATSAPP_BUSINESS_ACCOUNT_ID` | No | ID de la cuenta de WhatsApp Business (está en `.env.example`; el runtime no la lee) |
-| `WHATSAPP_API_VERSION` | No | Versión de la API (por defecto `v22.0`) |
-| `VERIFY_TOKEN` | Sí | Token de verificación del webhook. En `.env.example` es `senda-verify-token`. Si está vacío, el GET `/webhook` responde 403 |
-| `WHATSAPP_APP_SECRET` | Sí | App Secret de Meta; firma `X-Hub-Signature-256` del webhook. Sin este valor el POST `/webhook` responde 403 |
-| `PUBLIC_BASE_URL` | No | URL pública del backend; Render setea `RENDER_EXTERNAL_URL` solo. Construye `/media/welcome.mp4` si no hay `WELCOME_VIDEO_URL` |
-| `WELCOME_VIDEO_URL` | No | URL absoluta del video de bienvenida. Si no está, usamos `PUBLIC_BASE_URL` o `RENDER_EXTERNAL_URL` + `/media/welcome.mp4` |
-| `STELLAR_NETWORK` | Sí | Red de Stellar (`testnet`) |
-| `STELLAR_HORIZON_URL` | Sí | Horizon (`https://horizon-testnet.stellar.org`) |
-| `STELLAR_RPC_URL` | Sí | RPC de Soroban (`https://soroban-testnet.stellar.org`) |
-| `STELLAR_FRIENDBOT_URL` | Sí (testnet) | Friendbot (`https://friendbot.stellar.org`) |
-| `STELLAR_NETWORK_PASSPHRASE` | Sí | Passphrase de la red (`Test SDF Network ; September 2015`) |
-| `STELLAR_CONTRACT_ID` | No | ID de `SendaContract`. Sin este valor no registramos el crédito en el contrato Soroban |
-| `STELLAR_PUBLIC_KEY` | No | Clave pública de la cuenta operativa (está en `.env.example`; el runtime firma con `STELLAR_SECRET_KEY`) |
-| `STELLAR_SECRET_KEY` | Sí | Clave secreta de la cuenta operativa |
-| `USDC_SAC_CONTRACT_ID` | Sí | Stellar Asset Contract de USDC (`CDT2MY3QNV2RT2XULQWWXX2JELUWRWNXNKONCYG5MTIGZM7G5S2QNNGB`) |
-| `USDC_CODE` | Sí | Código del activo (`USDC`) |
-| `USDC_ISSUER` | Sí | Emisor del USDC (`GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5`) |
-| `CUSTODY_MASTER_SECRET` | Sí | Secreto de la custodia invisible (SEP-30); distinto de `STELLAR_SECRET_KEY` |
-| `FILE_VAULT_SECRET` | Sí | Cifrado en reposo de códigos de retiro y wallets legado; distinto de los otros dos secretos |
-| `STELLAR_OFFRAMP_PUBLIC_KEY` | Sí | Cuenta `G…` del vault de retiro en efectivo; distinta de la cuenta operativa |
-| `OPENAI_API_KEY` | Para notas de voz | Clave de OpenAI para `POST /v1/audio/transcriptions` |
-| `OPENAI_TRANSCRIPTION_MODEL` | No | Modelo de transcripción (`whisper-1`) |
-| `USE_PRIVY_WALLETS` | No | `false` mantiene la custodia SEP-30; `true` usa wallets MPC de Privy |
-| `PRIVY_APP_ID` | Si `USE_PRIVY_WALLETS=true` | ID de la app de Privy |
-| `PRIVY_APP_SECRET` | Si `USE_PRIVY_WALLETS=true` | Secreto de la app de Privy |
-| `DATABASE_URL` | No | Referencia Prisma (por defecto `file:../data/senda.db`); el bot usa `data/senda-db.json` |
-| `SENDA_DATA_DIR` | No | Directorio de JSON (`senda-db.json`, sesiones, órdenes). Si no está, usamos `data/` bajo el cwd |
-| `ENABLE_PUBLIC_CREDIT` | No | El crédito automático solo corre en testnet, salvo que esta variable sea `true` en red `public` |
-| `SEP24_HOME_DOMAIN` | Sí | Dominio del ancla SEP-24 para el retiro a Mercado Pago (`testanchor.stellar.org`) |
-| `BLEND_POOL_ID` | Sí | Pool de Blend en testnet para el rendimiento de USDC |
-| `BLEND_USDC_SAC_ID` | No | SAC de USDC del pool Blend; si falta, usamos `USDC_SAC_CONTRACT_ID` |
+| Fase 1 — Senda (personas) | Onboarding invisible, wallet self-custodial, envío/recepción P2P, retiro a Mercado Pago vía SEP-24, yield vía Blend, links de cobro SEP-7| `[COMPLETAR]` |
+| Fase 2 — Senda Business | Dashboard web, tesorería con multisig (Trustless Work multi-release), pagos masivos, tarjetas corporativas, gestión de facturas | Roadmap — Meridian |
+| Fase 3 — Privacidad | Confidential Tokens / Stellar Private Payments para tesorería empresarial, selective disclosure para compliance | Roadmap técnico |
+| Fase 4 — Pagos de agentes | x402 para pagos autónomos agente-a-agente en el mercado de habilidades de Senda Business | Roadmap exploratorio |
 
-`CUSTODY_MASTER_SECRET`, `FILE_VAULT_SECRET` y `STELLAR_SECRET_KEY` deben ser tres valores distintos entre sí.
+1. Integración de MoneyGram Los usuarios pueden intercambiar instantáneamente USDC a efectivo a través de las ubicaciones de MoneyGram o efectivo en dinero fiduciario por USDC.
+
+Cómo se utiliza Stellar: Stellar USDC sirve como puente para una conversión rápida y de bajo coste entre el efectivo digital y el físico.
+
+Impacto: Mejora drásticamente la accesibilidad para usuarios no bancarizados o con pocas bancaris, impulsando un mayor volumen de transacciones y un uso repetido.
+
+2. Stellar Anchor para Argentina (ARS) Un Stellar Anchor completo que soporta programática (SEP-6) y alojamiento (SEP-24) para la rampa de acceso/salida entre Ars y USDC, incluyendo servicios de presupuesto (SEP-38) y pagos transfronterizos (SEP-31).
+
+Cómo se utiliza Stellar: Senda actúa como una pasarela de acceso y salida con licencia en la red Stellar, permitiendo que monederos y aplicaciones se conecten directamente para los flujos GHS <> USDC.
+
+Impacto: Genera ingresos significativos a través de comisiones, mientras resuelve problemas de liquidez y posiciona a Senda como un actor clave en la infraestructura del ecosistema Stellar.
 
 ## Hitos
 
@@ -430,6 +433,9 @@ Senda Ledger unifica bancos, stablecoins y tarjetas sin obligar a mover fondos a
 
 La infraestructura que estamos construyendo (bot de WhatsApp, wallet, settlement invisible sobre Stellar) es la misma pieza que después soporta pagos de negocio a través de fronteras — factura de un proveedor en otro país, pago de un freelancer, conciliación multi-moneda —, no una remesa familiar, pero el mismo riel.
 
+<img width="947" height="547" alt="image" src="https://github.com/user-attachments/assets/16007bd8-893a-495e-917b-be0fa025b23b" />
+
+
 ## Entregables
 
 Argentina Builder Challenge (Stellar × BAF)
@@ -443,10 +449,13 @@ Argentina Builder Challenge (Stellar × BAF)
 | Repositorio del backend | [SendaLabs/senda-backend](https://github.com/SendaLabs/senda-backend) |
 | Documentación | [withsenda.site/docs](https://withsenda.site/docs) |
 | Landing page | [withsenda.site/es](https://withsenda.site/es) |
-| Evidencia de pruebas con usuarios | [Documento completo con capturas anonimizadas (Google Doc)](https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-cavvZfx8FfrgcsekkwD4/edit?usp=sharing) |
+| Evidencia de pruebas con usuarios | [Documento completo con capturas anonimizadas (Google Doc)](https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-
 
 **Redes:** [X @withsenda_](https://x.com/withsenda_) · [Instagram @withsenda](https://www.instagram.com/withsenda/)
 
 ## Contacto
+* Somos un Equipo de 3 Builders trabajando entre producto,ingenieria y Blockchain, Creemos que La tecnología no es un fin, sino una
+herramienta para facilitar y mejorar la vida de las personas. Su verdadero impacto surge cuando ponemos el foco en ellas.
+<img width="780" height="347" alt="image" src="https://github.com/user-attachments/assets/c69ae117-22c5-413b-bc4e-edf1fef9a3ec" />
 
 sendanetwork@gmail.com
