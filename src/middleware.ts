@@ -1,10 +1,18 @@
 import createMiddleware from "next-intl/middleware";
+import { type NextRequest, NextResponse } from "next/server";
 
 import { routing } from "~/i18n/routing";
 
-export default createMiddleware(routing);
+const intlMiddleware = createMiddleware(routing);
+
+export default function middleware(request: NextRequest) {
+  // Cobro pages are rewritten to the WhatsApp backend — never locale-prefix them.
+  if (request.nextUrl.pathname.startsWith("/c/")) {
+    return NextResponse.next();
+  }
+  return intlMiddleware(request);
+}
 
 export const config = {
-  // /c/* proxies to the WhatsApp bot — must skip locale redirects.
-  matcher: ["/((?!api|trpc|docs|_next|_vercel|c(?:/|$)|.*\\..*).*)"],
+  matcher: ["/((?!api|trpc|docs|_next|_vercel|.*\\..*).*)"],
 };
