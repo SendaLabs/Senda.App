@@ -29,12 +29,12 @@ export const env = createEnv({
   client: {
     /**
      * Marketing primary CTA destination.
-     * - "waitlist" (default): Empezar CTAs → /lista-de-espera
-     * - "product": Empezar CTAs → PRODUCT_START_URL (WhatsApp / #empezar)
+     * - "product" (default): Empezar CTAs → PRODUCT_START_URL (WhatsApp)
+     * - "waitlist": Empezar CTAs → /lista-de-espera
      */
     NEXT_PUBLIC_MARKETING_CTA_MODE: z
       .enum(["waitlist", "product"])
-      .default("waitlist"),
+      .default("product"),
     /** Used when MARKETING_CTA_MODE=product. e.g. https://wa.me/... or #empezar */
     NEXT_PUBLIC_PRODUCT_START_URL: z.string().optional(),
   },
