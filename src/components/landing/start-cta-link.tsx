@@ -6,7 +6,9 @@ import { Link } from "~/i18n/navigation";
 import {
   getMarketingStartHref,
   isInternalMarketingPath,
+  WAITLIST_PATH,
 } from "~/lib/marketing-cta";
+import type { AppPathname } from "~/i18n/routing";
 import { cn } from "~/lib/utils";
 
 type Props = {
@@ -22,8 +24,10 @@ export const StartCtaLink = forwardRef<HTMLAnchorElement, Props>(
     const href = getMarketingStartHref();
 
     if (isInternalMarketingPath(href)) {
+      const pathname: AppPathname =
+        href === WAITLIST_PATH ? WAITLIST_PATH : "/";
       return (
-        <Link href={href} ref={ref} className={cn(className)} {...rest}>
+        <Link href={pathname} ref={ref} className={cn(className)} {...rest}>
           {children}
         </Link>
       );

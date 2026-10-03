@@ -1,12 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "~/i18n/navigation";
+import { toInternalPathname } from "~/i18n/routing";
 import { cn } from "~/lib/utils";
 
 export function LanguageSwitch({ className }: { className?: string }) {
   const locale = useLocale();
+  const pathname = toInternalPathname(usePathname());
   const t = useTranslations("nav");
 
   return (
@@ -16,7 +19,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
       aria-label={t("language")}
     >
       <Link
-        href="/"
+        href={pathname}
         locale="es"
         className={cn(
           "text-charcoal inline-flex min-h-11 min-w-11 items-center justify-center underline-offset-4 hover:underline",
@@ -29,7 +32,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
         /
       </span>
       <Link
-        href="/"
+        href={pathname}
         locale="en"
         className={cn(
           "text-charcoal inline-flex min-h-11 min-w-11 items-center justify-center underline-offset-4 hover:underline",
