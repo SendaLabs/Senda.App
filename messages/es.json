@@ -14,6 +14,7 @@
     "why": "Por qué Senda",
     "team": "Quiénes somos",
     "contact": "Contacto",
+    "business": "Empresas",
     "start": "Comenzar ahora",
     "openMenu": "Abrir menú",
     "menu": "Menú",
@@ -320,18 +321,112 @@
     }
   },
   "footer": {
-    "github": "Senda en GitHub",
     "linkedin": "Senda en LinkedIn",
     "x": "Senda en X",
     "instagram": "Senda en Instagram",
-    "company": "Company",
+    "company": "Empresa",
     "about": "Acerca de",
     "team": "Quiénes somos",
     "contact": "Contacto",
-    "resources": "Resources",
+    "resources": "Recursos",
     "how": "Cómo funciona",
-    "product": "Product",
+    "product": "Producto",
     "docs": "Docs",
-    "media": "Media"
+    "business": "Senda Business",
+    "businessDocs": "Docs Empresas",
+    "media": "Medios"
+  },
+  "business": {
+    "meta": {
+      "title": "Senda Business — Pagos de empresa a través de fronteras",
+      "description": "Factura, aprobación, pago y conciliación para pymes de LATAM. El mismo riel que las remesas, pensado para tesorería."
+    },
+    "a11y": {
+      "skip": "Saltar al contenido"
+    },
+    "hero": {
+      "kicker": "Senda Business",
+      "title": "El poder de Senda, ahora para tu empresa.",
+      "sub": "Gestión de gastos, cuentas a pagar, pagos transfronterizos y tarjetas corporativas, construido como una única plataforma. Una cuenta, un panel de control, una fuente de verdad para cada país en el que operes.",
+      "start": "Correo electrónico corporativo",
+      "waitlist": "Unirme a la lista de espera",
+      "mockLabel": "Mockup ilustrativo. Senda Business está en el roadmap: no es un producto live.",
+      "pillars": [
+        {
+          "title": "Más control",
+          "copy": "Visibilidad de tus fondos y gastos, en tiempo real."
+        },
+        {
+          "title": "Pagos más simples",
+          "copy": "Automatizá pagos masivos y ahorrá tiempo."
+        },
+        {
+          "title": "Tarjetas corporativas",
+          "copy": "Físicas y virtuales, con control total desde un solo lugar."
+        },
+        {
+          "title": "Alcance global",
+          "copy": "Operá en LATAM con la seguridad de la red Stellar."
+        }
+      ]
+    },
+    "mock": {
+      "greeting": "Hola, equipo",
+      "period": "Últimos 30 días",
+      "navHome": "Inicio",
+      "navTreasury": "Tesorería",
+      "navMass": "Pagos masivos",
+      "navCards": "Tarjetas",
+      "navSettings": "Configuración",
+      "kpiBalance": "Saldo total",
+      "kpiBalanceValue": "$ 245.320,00",
+      "kpiPayments": "Pagos realizados",
+      "kpiPaymentsValue": "128",
+      "kpiFees": "Comisión",
+      "kpiFeesValue": "$ 2.730,00",
+      "kpiFeesDelta": "2%",
+      "flow": "Flujo de fondos",
+      "mix": "Distribución de gastos",
+      "mixOps": "Operativo",
+      "mixPayroll": "Nómina",
+      "mixOther": "Otros",
+      "recent": "Pagos recientes",
+      "colDate": "Fecha",
+      "colDest": "Destinatario",
+      "colAmount": "Monto",
+      "colStatus": "Estado",
+      "row1Date": "17 ago",
+      "row1Dest": "Proveedor LATAM",
+      "row1Amount": "$ 12.360,00",
+      "row1Status": "Completado",
+      "row2Date": "10 ago",
+      "row2Dest": "Pago México",
+      "row2Amount": "$ 8.210,00",
+      "row2Status": "Completado",
+      "row3Date": "4 ago",
+      "row3Dest": "Nómina Chile",
+      "row3Amount": "$ 18.450,00",
+      "row3Status": "Completado",
+      "cardTitle": "Tarjeta corporativa",
+      "cardKind": "Virtual",
+      "cardLast4": "4587",
+      "cardNetwork": "VISA",
+      "limitsTitle": "Límites y control",
+      "limitSpend": "Gasto diario",
+      "limitSpendValue": "$ 2.000.000 / mes",
+      "limitSpendDelta": "+12",
+      "limitCards": "Tarjetas activas",
+      "limitCardsValue": "12",
+      "limitCountries": "Países habilitados",
+      "limitCountriesValue": "15",
+      "limitCountriesDelta": "+35",
+      "stellar": "Impulsado por Stellar"
+    },
+    "globe": {
+      "title": "Diseñado para equipos financieros que mueven el mundo.",
+      "sub": "Combiná la visibilidad en tiempo real con la facilidad global para controlar cada transacción, cada presupuesto, cada mercado.",
+      "cta": "Solicitar ahora",
+      "stageLabel": "Globo ilustrativo con monedas de corredores. No implica cobertura live."
+    }
   }
 }

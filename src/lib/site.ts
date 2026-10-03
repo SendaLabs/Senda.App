@@ -4,6 +4,9 @@ import {
   WHATSAPP_START_URL,
 } from "~/lib/marketing-cta";
 
+export const BUSINESS_PATH = "/empresas" as const;
+export const BUSINESS_DOCS = "https://withsenda.site/docs/business";
+
 export const site = {
   name: "Senda",
   email: "sendanetwork@gmail.com",
@@ -14,6 +17,7 @@ export const site = {
   instagram: "https://www.instagram.com/withsenda/",
   x: "https://x.com/senda_app",
   docs: "https://withsenda.site/docs",
+  businessDocs: BUSINESS_DOCS,
   challenge: "https://argentinabuilderchallenge.netlify.app/reglamento",
   whatsappHref: WHATSAPP_START_URL,
   /** @deprecated Prefer getStartHref() so the env CTA switch applies. */
@@ -24,16 +28,25 @@ export const site = {
   exampleFeeLabel: "incluida",
 } as const;
 
+export function getBusinessMailto(locale: string): string {
+  const subject =
+    locale === "en"
+      ? "I want Senda Business for my company"
+      : "Quiero Senda Business para mi empresa";
+  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}`;
+}
+
 /** Primary marketing CTA destination (waitlist or product). */
 export function getStartHref(): string {
   return getMarketingStartHref();
 }
 
 export const navItems = [
-  { href: "#como-funciona", key: "how" },
-  { href: "#por-que-senda", key: "why" },
-  { href: "#equipo", key: "team" },
-  { href: "#preguntas", key: "contact" },
+  { pathname: "/", hash: "como-funciona", key: "how" },
+  { pathname: "/", hash: "por-que-senda", key: "why" },
+  { pathname: "/", hash: "equipo", key: "team" },
+  { pathname: "/", hash: "preguntas", key: "contact" },
+  { pathname: BUSINESS_PATH, key: "business" },
 ] as const;
 
 export const team = [

@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
+import { HomeNavLink } from "~/components/landing/home-nav-link";
 import { Shell } from "~/components/landing/shell";
-import { site } from "~/lib/site";
+import { Link } from "~/i18n/navigation";
+import { BUSINESS_PATH, site } from "~/lib/site";
 
 function SocialLink({
   href,
@@ -21,18 +23,6 @@ function SocialLink({
     >
       {children}
     </a>
-  );
-}
-
-function GithubIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      className="size-3.5 fill-current"
-    >
-      <path d="M12 2.5a9.5 9.5 0 0 0-3 18.51c.48.09.65-.21.65-.46v-1.68c-2.65.58-3.21-1.13-3.21-1.13-.44-1.1-1.08-1.39-1.08-1.39-.87-.6.07-.59.07-.59.96.07 1.47.99 1.47.99.86 1.47 2.25 1.05 2.8.8.09-.62.34-1.05.61-1.29-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.89.99-2.56-.1-.24-.43-1.21.09-2.52 0 0 .81-.26 2.61.98A9.1 9.1 0 0 1 12 7.1c.82 0 1.65.11 2.42.33 1.8-1.24 2.61-.98 2.61-.98.52 1.31.19 2.28.09 2.52.62.67.99 1.52.99 2.56 0 3.67-2.24 4.48-4.37 4.72.35.3.66.87.66 1.75v2.55c0 .25.17.55.66.46A9.5 9.5 0 0 0 12 2.5Z" />
-    </svg>
   );
 }
 
@@ -77,9 +67,6 @@ export async function SiteFooter() {
             className="h-9 w-auto"
           />
           <div className="mt-4 flex gap-2">
-            <SocialLink href={site.github} label={t("github")}>
-              <GithubIcon />
-            </SocialLink>
             <SocialLink href={site.linkedin} label={t("linkedin")}>
               <LinkedinIcon />
             </SocialLink>
@@ -96,14 +83,27 @@ export async function SiteFooter() {
           <p className="text-forest text-sm">{t("company")}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a href="#equipo" className="hover:underline">
+              <HomeNavLink
+                pathname="/"
+                hash="equipo"
+                className="hover:underline"
+              >
                 {t("about")}
-              </a>
+              </HomeNavLink>
             </li>
             <li>
-              <a href="#equipo" className="hover:underline">
+              <HomeNavLink
+                pathname="/"
+                hash="equipo"
+                className="hover:underline"
+              >
                 {t("team")}
-              </a>
+              </HomeNavLink>
+            </li>
+            <li>
+              <Link href={BUSINESS_PATH} className="hover:underline">
+                {t("business")}
+              </Link>
             </li>
             <li>
               <a href={site.mailto} className="hover:underline">
@@ -117,14 +117,18 @@ export async function SiteFooter() {
           <p className="text-forest text-sm">{t("resources")}</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a href="#como-funciona" className="hover:underline">
+              <HomeNavLink
+                pathname="/"
+                hash="como-funciona"
+                className="hover:underline"
+              >
                 {t("how")}
-              </a>
+              </HomeNavLink>
             </li>
             <li>
-              <a href="#top" className="hover:underline">
+              <Link href="/" className="hover:underline">
                 {t("product")}
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -136,17 +140,22 @@ export async function SiteFooter() {
                 {t("docs")}
               </a>
             </li>
+            <li>
+              <a
+                href={site.businessDocs}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                {t("businessDocs")}
+              </a>
+            </li>
           </ul>
         </div>
 
         <div>
           <p className="text-forest text-sm">{t("media")}</p>
           <ul className="mt-3 space-y-2 text-sm">
-            <li>
-              <a href={site.github} className="hover:underline">
-                GitHub
-              </a>
-            </li>
             <li>
               <a href={site.linkedin} className="hover:underline">
                 LinkedIn
