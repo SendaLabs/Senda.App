@@ -24,11 +24,11 @@ Felix-like WhatsApp-first remittances on Stellar, localized to Argentina before 
 
 ## Operating Context
 
-Visitor arrives on `/es` or `/en` to understand the offer and act (WhatsApp or email). T3 stack (Next.js, tRPC, Prisma, NextAuth) remains in the repo and must keep compiling. No product checkout in this surface.
+Visitor arrives on `/es` or `/en` to understand the consumer offer and act (WhatsApp or email). `/es/empresas` and `/en/business` are a B2B pitch landing only. T3 stack (Next.js, tRPC, Prisma, NextAuth) remains in the repo and must keep compiling. No product checkout in this surface.
 
 ## Capabilities and Constraints
 
-- Marketing site only. Do not implement transfers, KYC, or chain writes.
+- Marketing site only. Do not implement transfers, KYC, or chain writes. Senda Business is a pitch page, not a live treasury product.
 - WhatsApp is the product channel. No new consumer app.
 - Quotes and rates on the page are illustrative unless labeled otherwise.
 - WhatsApp number is not confirmed. Contact fallback: sendanetwork@gmail.com.
