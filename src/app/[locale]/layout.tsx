@@ -4,7 +4,8 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { notFound } from "next/navigation";
 import { type Metadata } from "next";
 
-import { routing } from "~/i18n/routing";
+import { DocumentLang } from "~/components/document-lang";
+import { htmlLang, routing } from "~/i18n/routing";
 import { TRPCReactProvider } from "~/trpc/react";
 
 const geist = Geist({
@@ -55,11 +56,13 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html
-      lang={locale === "es" ? "es-AR" : "en"}
+      lang={htmlLang(locale)}
       className={`${geist.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full bg-cream font-sans text-charcoal antialiased">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <DocumentLang />
           <TRPCReactProvider>{children}</TRPCReactProvider>
         </NextIntlClientProvider>
       </body>
