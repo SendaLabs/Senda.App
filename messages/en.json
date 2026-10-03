@@ -14,6 +14,7 @@
     "why": "Why Senda",
     "team": "Who we are",
     "contact": "Contact",
+    "business": "Business",
     "start": "Start now",
     "openMenu": "Open menu",
     "menu": "Menu",
@@ -320,7 +321,6 @@
     }
   },
   "footer": {
-    "github": "Senda on GitHub",
     "linkedin": "Senda on LinkedIn",
     "x": "Senda on X",
     "instagram": "Senda on Instagram",
@@ -332,6 +332,101 @@
     "how": "How it works",
     "product": "Product",
     "docs": "Docs",
+    "business": "Senda Business",
+    "businessDocs": "Business docs",
     "media": "Media"
+  },
+  "business": {
+    "meta": {
+      "title": "Senda Business — Cross-border payments for companies",
+      "description": "Invoice, approval, payment, and reconciliation for LATAM SMEs. The same rail as remittances, built for treasury."
+    },
+    "a11y": {
+      "skip": "Skip to content"
+    },
+    "hero": {
+      "kicker": "Senda Business",
+      "title": "The power of Senda, now for your company.",
+      "sub": "Expense management, accounts payable, cross-border payments, and corporate cards, built as a single platform. One account, one dashboard, one source of truth for every country you operate in.",
+      "start": "Corporate email",
+      "waitlist": "Join the waitlist",
+      "mockLabel": "Illustrative mockup. Senda Business is on the roadmap — not a live product.",
+      "pillars": [
+        {
+          "title": "More control",
+          "copy": "Visibility over your funds and spend, in real time."
+        },
+        {
+          "title": "Simpler payments",
+          "copy": "Automate mass payouts and save time."
+        },
+        {
+          "title": "Corporate cards",
+          "copy": "Physical and virtual, with full control from one place."
+        },
+        {
+          "title": "Global reach",
+          "copy": "Operate across LATAM on the security of the Stellar network."
+        }
+      ]
+    },
+    "mock": {
+      "greeting": "Hi, team",
+      "period": "Last 30 days",
+      "navHome": "Home",
+      "navTreasury": "Treasury",
+      "navMass": "Mass payments",
+      "navCards": "Cards",
+      "navSettings": "Settings",
+      "kpiBalance": "Total balance",
+      "kpiBalanceValue": "$ 245,320.00",
+      "kpiPayments": "Payments made",
+      "kpiPaymentsValue": "128",
+      "kpiFees": "Fees",
+      "kpiFeesValue": "$ 2,730.00",
+      "kpiFeesDelta": "2%",
+      "flow": "Fund flow",
+      "mix": "Spend mix",
+      "mixOps": "Operations",
+      "mixPayroll": "Payroll",
+      "mixOther": "Other",
+      "recent": "Recent payments",
+      "colDate": "Date",
+      "colDest": "Payee",
+      "colAmount": "Amount",
+      "colStatus": "Status",
+      "row1Date": "17 Aug",
+      "row1Dest": "LATAM vendor",
+      "row1Amount": "$ 12,360.00",
+      "row1Status": "Completed",
+      "row2Date": "10 Aug",
+      "row2Dest": "Mexico payout",
+      "row2Amount": "$ 8,210.00",
+      "row2Status": "Completed",
+      "row3Date": "4 Aug",
+      "row3Dest": "Chile payroll",
+      "row3Amount": "$ 18,450.00",
+      "row3Status": "Completed",
+      "cardTitle": "Corporate card",
+      "cardKind": "Virtual",
+      "cardLast4": "4587",
+      "cardNetwork": "VISA",
+      "limitsTitle": "Limits and control",
+      "limitSpend": "Daily spend",
+      "limitSpendValue": "$ 2,000,000 / mo",
+      "limitSpendDelta": "+12",
+      "limitCards": "Active cards",
+      "limitCardsValue": "12",
+      "limitCountries": "Enabled countries",
+      "limitCountriesValue": "15",
+      "limitCountriesDelta": "+35",
+      "stellar": "Powered by Stellar"
+    },
+    "globe": {
+      "title": "Built for finance teams that move the world.",
+      "sub": "Combine real-time visibility with global ease so you can control every transaction, every budget, every market.",
+      "cta": "Request access",
+      "stageLabel": "Illustrative globe with corridor currencies. Not live coverage."
+    }
   }
 }
