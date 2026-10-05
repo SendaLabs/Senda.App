@@ -19,12 +19,13 @@ import {
 } from "~/components/ui/sheet";
 import { Link } from "~/i18n/navigation";
 import { toInternalPathname } from "~/i18n/routing";
-import { BUSINESS_PATH, navItems } from "~/lib/site";
+import { BUSINESS_LOGIN_PATH, BUSINESS_PATH, navItems } from "~/lib/site";
 import { cn } from "~/lib/utils";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
   const pathname = toInternalPathname(usePathname());
+  const onBusiness = pathname === BUSINESS_PATH;
 
   return (
     <header className="border-stone/70 sticky top-0 z-50 rounded-b-2xl border-b bg-white">
@@ -72,7 +73,11 @@ export function SiteHeader() {
             asChild
             className="hidden sm:inline-flex"
           >
-            <StartCtaLink>{t("start")}</StartCtaLink>
+            {onBusiness ? (
+              <Link href={BUSINESS_LOGIN_PATH}>{t("login")}</Link>
+            ) : (
+              <StartCtaLink>{t("start")}</StartCtaLink>
+            )}
           </Button>
 
           <Sheet>
@@ -122,7 +127,11 @@ export function SiteHeader() {
                     asChild
                     className="mt-4 min-h-11"
                   >
-                    <StartCtaLink>{t("start")}</StartCtaLink>
+                    {onBusiness ? (
+                      <Link href={BUSINESS_LOGIN_PATH}>{t("login")}</Link>
+                    ) : (
+                      <StartCtaLink>{t("start")}</StartCtaLink>
+                    )}
                   </Button>
                 </SheetClose>
               </nav>

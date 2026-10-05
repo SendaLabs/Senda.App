@@ -5,6 +5,7 @@ import {
 } from "~/lib/marketing-cta";
 
 export const BUSINESS_PATH = "/empresas" as const;
+export const BUSINESS_LOGIN_PATH = "/empresas/ingresar" as const;
 export const BUSINESS_DOCS = "https://withsenda.site/docs/business";
 
 export const site = {

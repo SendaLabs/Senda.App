@@ -15,6 +15,7 @@
     "team": "Who we are",
     "contact": "Contact",
     "business": "Business",
+    "login": "Log in",
     "start": "Start now",
     "openMenu": "Open menu",
     "menu": "Menu",
@@ -427,6 +428,46 @@
       "sub": "Combine real-time visibility with global ease so you can control every transaction, every budget, every market.",
       "cta": "Request access",
       "stageLabel": "Illustrative globe with corridor currencies. Not live coverage."
+    },
+    "login": {
+      "meta": {
+        "title": "Log in — Senda Business",
+        "description": "Log in to your Senda Business account."
+      },
+      "brandSuffix": "business",
+      "home": "Senda Business, home",
+      "panelTitle": "One platform to go further.",
+      "panelSub": "Run your global finance operation from one place. Payments, spend, accounts, and cards, in every country you operate in.",
+      "stats": [
+        { "value": "LATAM", "label": "Corridors" },
+        { "value": "", "label": "Stablecoin payments" },
+        { "value": "", "label": "Enterprise security" }
+      ],
+      "noAccount": "Don't have an account?",
+      "register": "Sign up",
+      "title": "Log in",
+      "sub": "Log in to your Senda Business account.",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "password": "Password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "remember": "Remember me",
+      "forgot": "Forgot your password?",
+      "forgotSubject": "Recover access to Senda Business",
+      "submit": "Log in",
+      "submitting": "Logging in…",
+      "divider": "or continue with",
+      "google": "Continue with Google",
+      "errors": {
+        "email": "Enter a valid email.",
+        "password": "Enter your password."
+      },
+      "notice": {
+        "title": "Senda Business is in early access.",
+        "copy": "There are no active accounts yet. Join the waitlist and we will let you know when access opens.",
+        "cta": "Join the waitlist"
+      }
     }
   }
 }

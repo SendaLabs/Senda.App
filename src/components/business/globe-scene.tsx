@@ -22,7 +22,29 @@ function useSpherePoints(count: number, radius: number) {
   }, [count, radius]);
 }
 
-function DottedGlobe({ reduced }: { reduced: boolean }) {
+export type GlobePalette = {
+  sphere: string;
+  wire: string;
+  wireOpacity: number;
+  points: string;
+};
+
+const DEFAULT_PALETTE: GlobePalette = {
+  sphere: "#171918",
+  wire: "#6d6f6e",
+  wireOpacity: 0.42,
+  points: "#c8c6be",
+};
+
+function DottedGlobe({
+  reduced,
+  palette,
+  spin,
+}: {
+  reduced: boolean;
+  palette: GlobePalette;
+  spin: number;
+}) {
   const group = useRef<Group>(null);
   const points = useSpherePoints(2200, 1.62);
   const geometry = useMemo(() => {
@@ -34,27 +56,27 @@ function DottedGlobe({ reduced }: { reduced: boolean }) {
   useFrame((_, delta) => {
     const node = group.current;
     if (!node || reduced) return;
-    node.rotation.y += delta * SPIN_RAD_PER_SEC;
+    node.rotation.y += delta * spin;
   });
 
   return (
     <group ref={group} rotation={[0.42, 0.55, 0.06]}>
       <mesh>
         <sphereGeometry args={[1.54, 64, 64]} />
-        <meshBasicMaterial color="#171918" />
+        <meshBasicMaterial color={palette.sphere} />
       </mesh>
       <mesh>
         <icosahedronGeometry args={[1.585, 3]} />
         <meshBasicMaterial
-          color="#6d6f6e"
+          color={palette.wire}
           wireframe
           transparent
-          opacity={0.42}
+          opacity={palette.wireOpacity}
         />
       </mesh>
       <points geometry={geometry}>
         <pointsMaterial
-          color="#c8c6be"
+          color={palette.points}
           size={0.018}
           sizeAttenuation
           transparent
@@ -66,7 +88,15 @@ function DottedGlobe({ reduced }: { reduced: boolean }) {
   );
 }
 
-export function GlobeScene({ reduced }: { reduced: boolean }) {
+export function GlobeScene({
+  reduced,
+  palette = DEFAULT_PALETTE,
+  spin = SPIN_RAD_PER_SEC,
+}: {
+  reduced: boolean;
+  palette?: GlobePalette;
+  spin?: number;
+}) {
   return (
     <Canvas
       className="absolute inset-0 !h-full !w-full"
@@ -80,7 +110,7 @@ export function GlobeScene({ reduced }: { reduced: boolean }) {
       camera={{ position: [0, 0, 8.2], fov: 32 }}
       frameloop={reduced ? "demand" : "always"}
     >
-      <DottedGlobe reduced={reduced} />
+      <DottedGlobe reduced={reduced} palette={palette} spin={spin} />
     </Canvas>
   );
 }

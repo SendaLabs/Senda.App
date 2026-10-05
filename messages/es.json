@@ -15,6 +15,7 @@
     "team": "Quiénes somos",
     "contact": "Contacto",
     "business": "Empresas",
+    "login": "Iniciar sesión",
     "start": "Comenzar ahora",
     "openMenu": "Abrir menú",
     "menu": "Menú",
@@ -427,6 +428,46 @@
       "sub": "Combiná la visibilidad en tiempo real con la facilidad global para controlar cada transacción, cada presupuesto, cada mercado.",
       "cta": "Solicitar ahora",
       "stageLabel": "Globo ilustrativo con monedas de corredores. No implica cobertura live."
+    },
+    "login": {
+      "meta": {
+        "title": "Iniciar sesión — Senda Business",
+        "description": "Ingresá a tu cuenta de Senda Business."
+      },
+      "brandSuffix": "business",
+      "home": "Senda Business, inicio",
+      "panelTitle": "Una plataforma para ir más lejos.",
+      "panelSub": "Gestioná tu operación financiera global desde un solo lugar. Pagos, gastos, cuentas y tarjetas, en todos los países donde operes.",
+      "stats": [
+        { "value": "LATAM", "label": "Corredores" },
+        { "value": "", "label": "Pagos en stablecoins" },
+        { "value": "", "label": "Seguridad empresarial" }
+      ],
+      "noAccount": "¿No tenés una cuenta?",
+      "register": "Registrate",
+      "title": "Iniciar sesión",
+      "sub": "Ingresá a tu cuenta de Senda Business.",
+      "email": "Email",
+      "emailPlaceholder": "tu@empresa.com",
+      "password": "Contraseña",
+      "showPassword": "Mostrar contraseña",
+      "hidePassword": "Ocultar contraseña",
+      "remember": "Recordarme",
+      "forgot": "¿Olvidaste tu contraseña?",
+      "forgotSubject": "Recuperar acceso a Senda Business",
+      "submit": "Iniciar sesión",
+      "submitting": "Ingresando…",
+      "divider": "o continuá con",
+      "google": "Continuar con Google",
+      "errors": {
+        "email": "Ingresá un email válido.",
+        "password": "Ingresá tu contraseña."
+      },
+      "notice": {
+        "title": "Senda Business está en acceso anticipado.",
+        "copy": "Todavía no hay cuentas activas. Sumate a la lista de espera y te avisamos cuando abramos el acceso.",
+        "cta": "Unirme a la lista de espera"
+      }
     }
   }
 }

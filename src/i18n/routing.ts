@@ -12,6 +12,10 @@ export const routing = defineRouting({
       es: "/empresas",
       en: "/business",
     },
+    "/empresas/ingresar": {
+      es: "/empresas/ingresar",
+      en: "/business/login",
+    },
   },
 });
 
@@ -26,6 +30,9 @@ export function toInternalPathname(pathname: string): AppPathname {
   const stripped = pathname.replace(/^\/(es|en)(?=\/|$)/, "") || "/";
   if (stripped === "/empresas" || stripped === "/business") {
     return "/empresas";
+  }
+  if (stripped === "/empresas/ingresar" || stripped === "/business/login") {
+    return "/empresas/ingresar";
   }
   if (stripped === "/lista-de-espera") {
     return "/lista-de-espera";
