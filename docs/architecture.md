@@ -70,8 +70,9 @@ Transversales en `src/common` y `src/config`:
 
 ## Base de datos (`packages/database`)
 
-PostgreSQL con Prisma. El schema reúne los modelos del frontend (Auth.js, waitlist) y los corporativos:
+PostgreSQL con Prisma. Tablas y columnas en snake_case:
 
+- `waitlist_signups`: altas a la lista de espera de la landing.
 - `business_users`: usuarios corporativos con `password_hash`.
 - `companies`: razón social, identificación fiscal y país (ISO 3166-1).
 - `company_memberships`: relación usuario-empresa con rol `OWNER | ADMIN | MEMBER`.

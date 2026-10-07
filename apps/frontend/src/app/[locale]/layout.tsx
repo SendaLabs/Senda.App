@@ -6,7 +6,6 @@ import { type Metadata } from "next";
 
 import { DocumentLang } from "~/components/document-lang";
 import { htmlLang, routing } from "~/i18n/routing";
-import { TRPCReactProvider } from "~/trpc/react";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -63,7 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="min-h-full bg-cream font-sans text-charcoal antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <DocumentLang />
-          <TRPCReactProvider>{children}</TRPCReactProvider>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
