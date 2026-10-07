@@ -9,6 +9,8 @@
   "scripts": {
     "dev:frontend": "npm run dev --workspace @senda/frontend",
     "build:frontend": "npm run build --workspace @senda/frontend",
+    "dev:backend": "npm run dev --workspace @senda/backend-business",
+    "build:backend": "npm run build --workspace @senda/backend-business",
     "db:up": "npm run db:up --workspace @senda/database",
     "db:down": "npm run db:down --workspace @senda/database",
     "db:migrate:dev": "npm run db:migrate:dev --workspace @senda/database",
