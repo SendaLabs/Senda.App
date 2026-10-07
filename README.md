@@ -316,25 +316,38 @@ La landing usa Next.js/React/Tailwind/next-intl. Prisma/tRPC/NextAuth están dis
 
 ## Cómo correr el proyecto
 
-### Landing (Senda.App)
+### Monorepo (Senda.App)
+
+Este repositorio es un monorepo con npm workspaces. La estructura y las decisiones están en [`docs/architecture.md`](docs/architecture.md) y la guía completa de desarrollo en [`docs/development.md`](docs/development.md).
+
+| Carpeta | Contenido |
+|---|---|
+| `apps/frontend` | Landing, Senda Business y docs públicas (Next.js) |
+| `apps/backend-business` | API corporativa de Senda Business (NestJS) |
+| `packages/database` | Schema Prisma, migraciones y cliente PostgreSQL compartido |
+| `packages/shared` | DTOs (zod), códigos de error y tipos compartidos |
+| `contracts` | Contratos Soroban (workspace de Cargo) |
+| `docs` | Arquitectura, API y decisiones (ADR) |
 
 ```bash
 git clone https://github.com/SendaLabs/Senda.App.git
 cd Senda.App
 npm install
-cp .env.example .env    # en Windows (cmd): copy .env.example .env
-npm run dev
+cp apps/frontend/.env.example apps/frontend/.env    # en Windows (cmd): copy ...
+npm run dev:frontend
 ```
 
-`DATABASE_URL` es obligatorio al arrancar (Next valida el entorno al cargar la config) aunque la landing no la use en runtime. En `.env.example` el valor de desarrollo es `file:./db.sqlite`.
+`DATABASE_URL` es obligatorio al arrancar el frontend (Next valida el entorno al cargar la config) aunque la landing no la use en runtime.
 
-Otros scripts:
+Otros scripts desde la raíz:
 
 ```bash
-npm run build
-npm start
-npm run db:push
+npm run dev:backend      # API corporativa en http://localhost:4000/v1
+npm run db:up            # PostgreSQL local con Docker
+npm run db:migrate:dev   # aplica migraciones
+npm run typecheck
 npm run lint
+npm test
 ```
 
 Scripts:

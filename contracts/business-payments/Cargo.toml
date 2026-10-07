@@ -1,0 +1,17 @@
+[package]
+name = "business-payments"
+version = "0.1.0"
+description = "Idempotent settlement of corporate payments in a single Stellar asset."
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
