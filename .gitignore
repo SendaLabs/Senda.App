@@ -49,8 +49,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# idea files
+# editor and local agent settings
 .idea
+.codex/
 
 # fetched community component dumps
 /tmp-21st
