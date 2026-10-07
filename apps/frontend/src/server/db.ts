@@ -1,8 +1,9 @@
+import { createDatabaseClient } from "@senda/database";
+
 import { env } from "~/env";
-import { PrismaClient } from "../../generated/prisma";
 
 const createPrismaClient = () =>
-  new PrismaClient({
+  createDatabaseClient({
     log:
       env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
   });

@@ -1,0 +1,155 @@
+// Single source of truth for the Senda database schema.
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Public site (frontend)
+// ---------------------------------------------------------------------------
+
+model Post {
+    id        Int      @id @default(autoincrement())
+    name      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    createdBy   User   @relation(fields: [createdById], references: [id])
+    createdById String
+
+    @@index([name])
+}
+
+// Required by the Auth.js Prisma adapter
+model Account {
+    id                       String  @id @default(cuid())
+    userId                   String
+    type                     String
+    provider                 String
+    providerAccountId        String
+    refresh_token            String? @db.Text
+    access_token             String? @db.Text
+    expires_at               Int?
+    token_type               String?
+    scope                    String?
+    id_token                 String? @db.Text
+    session_state            String?
+    user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    refresh_token_expires_in Int?
+
+    @@unique([provider, providerAccountId])
+}
+
+model Session {
+    id           String   @id @default(cuid())
+    sessionToken String   @unique
+    userId       String
+    expires      DateTime
+    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+    id            String    @id @default(cuid())
+    name          String?
+    email         String?   @unique
+    emailVerified DateTime?
+    image         String?
+    accounts      Account[]
+    sessions      Session[]
+    posts         Post[]
+}
+
+model VerificationToken {
+    identifier String
+    token      String   @unique
+    expires    DateTime
+
+    @@unique([identifier, token])
+}
+
+model WaitlistSignup {
+    id        String   @id @default(cuid())
+    email     String   @unique
+    name      String?
+    locale    String?
+    source    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Business (backend-business)
+// ---------------------------------------------------------------------------
+
+enum CompanyRole {
+    OWNER
+    ADMIN
+    MEMBER
+}
+
+model BusinessUser {
+    id           String   @id @default(cuid())
+    email        String   @unique
+    passwordHash String   @map("password_hash")
+    fullName     String?  @map("full_name")
+    createdAt    DateTime @default(now()) @map("created_at")
+    updatedAt    DateTime @updatedAt @map("updated_at")
+
+    memberships CompanyMembership[]
+    sessions    BusinessSession[]
+
+    @@map("business_users")
+}
+
+model Company {
+    id        String   @id @default(cuid())
+    legalName String   @map("legal_name")
+    taxId     String?  @map("tax_id")
+    /// ISO 3166-1 alpha-2
+    country   String   @db.Char(2)
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    memberships CompanyMembership[]
+
+    @@unique([country, taxId])
+    @@map("companies")
+}
+
+model CompanyMembership {
+    id        String      @id @default(cuid())
+    companyId String      @map("company_id")
+    userId    String      @map("user_id")
+    role      CompanyRole @default(MEMBER)
+    createdAt DateTime    @default(now()) @map("created_at")
+
+    company Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    user    BusinessUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([companyId, userId])
+    @@index([userId])
+    @@map("company_memberships")
+}
+
+model BusinessSession {
+    id        String    @id @default(cuid())
+    userId    String    @map("user_id")
+    /// SHA-256 of the opaque session token; the raw token is never stored.
+    tokenHash String    @unique @map("token_hash")
+    expiresAt DateTime  @map("expires_at")
+    revokedAt DateTime? @map("revoked_at")
+    createdAt DateTime  @default(now()) @map("created_at")
+
+    user BusinessUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+    @@map("business_sessions")
+}

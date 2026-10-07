@@ -1,0 +1,24 @@
+# Local PostgreSQL for development only. Credentials here are not secrets;
+# never reuse them outside a developer machine.
+name: senda-database
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: senda
+      POSTGRES_PASSWORD: senda
+      POSTGRES_DB: senda
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - senda-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U senda -d senda"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  senda-postgres-data:
