@@ -468,6 +468,129 @@
         "copy": "Todavía no hay cuentas activas. Sumate a la lista de espera y te avisamos cuando abramos el acceso.",
         "cta": "Unirme a la lista de espera"
       }
+    },
+    "dashboard": {
+      "meta": {
+        "title": "Panel — Senda Business",
+        "description": "Demostración del panel de Senda Business con datos de ejemplo."
+      },
+      "skip": "Saltar al contenido",
+      "home": "Senda Business, inicio",
+      "brandSuffix": "business",
+      "demoBadge": "Demo",
+      "demoNote": "Datos de ejemplo. Montos en USD.",
+      "nav": {
+        "aria": "Secciones del panel",
+        "home": "Inicio",
+        "payments": "Pagos",
+        "payables": "Cuentas a pagar",
+        "expenses": "Gastos",
+        "cards": "Tarjetas",
+        "treasury": "Tesorería",
+        "reports": "Reportes",
+        "integrations": "Integraciones",
+        "soon": "Pronto",
+        "openMenu": "Abrir menú del panel",
+        "menu": "Menú del panel"
+      },
+      "company": {
+        "countries": "{count} países"
+      },
+      "user": {
+        "role": "Admin",
+        "signOut": "Cerrar sesión"
+      },
+      "header": {
+        "greeting": "Buenas, {name}.",
+        "sub": "Acá tenés el resumen de tu operación.",
+        "regionLabel": "Filtrar por país",
+        "regionGlobal": "Global · Todos los países",
+        "periodLabel": "Período",
+        "newPayment": "Nuevo pago"
+      },
+      "kpi": {
+        "aria": "Indicadores principales",
+        "balance": "Saldo total",
+        "payable": "Por pagar",
+        "spend": "Gastos este mes",
+        "international": "Pagos internacionales",
+        "vsPrevious": "{change} vs. mes anterior",
+        "invoices": "{count} facturas · próximo vencimiento",
+        "payments": "{count} pagos procesados"
+      },
+      "cashFlow": {
+        "title": "Flujo de caja",
+        "rangeLabel": "Rango del gráfico",
+        "range12": "Últimos 12 meses",
+        "range6": "Últimos 6 meses",
+        "income": "Ingresos",
+        "expenses": "Gastos",
+        "tableCaption": "Ingresos y gastos por mes",
+        "month": "Mes"
+      },
+      "categories": {
+        "title": "Gastos por categoría",
+        "periodLabel": "Período de gastos",
+        "current": "Este mes",
+        "previous": "Mes anterior",
+        "category": "Categoría",
+        "share": "Porcentaje",
+        "items": {
+          "software": "Software",
+          "services": "Servicios",
+          "marketing": "Marketing",
+          "operations": "Operaciones",
+          "people": "RRHH",
+          "other": "Otros"
+        }
+      },
+      "cards": {
+        "title": "Tarjetas corporativas",
+        "seeAll": "Ver todas",
+        "number": "Tarjeta terminada en {last4}",
+        "active": "{active}/{total} tarjetas activas"
+      },
+      "upcoming": {
+        "title": "Próximos pagos",
+        "seeAll": "Ver todos",
+        "supplier": "Proveedor",
+        "amount": "Monto",
+        "date": "Fecha",
+        "status": "Estado",
+        "today": "Hoy",
+        "empty": "No hay pagos programados para este país.",
+        "statuses": {
+          "pending": "Pendiente",
+          "scheduled": "Programado",
+          "approved": "Aprobado"
+        }
+      },
+      "activity": {
+        "title": "Actividad reciente",
+        "seeAll": "Ver todo",
+        "description": "Descripción",
+        "amount": "Monto",
+        "date": "Fecha",
+        "empty": "No hay movimientos recientes para este país.",
+        "route": "De {from} a {to}",
+        "today": "Hoy",
+        "kinds": {
+          "supplierPayment": "Pago a proveedor",
+          "internationalTransfer": "Transferencia internacional",
+          "fundsReceived": "Fondos recibidos",
+          "cardSpend": "Consumo con tarjeta"
+        }
+      },
+      "countries": {
+        "title": "Operación por país",
+        "seeDetail": "Ver detalle"
+      },
+      "demoAction": {
+        "title": "Disponible con el acceso anticipado.",
+        "copy": "Este panel es una demostración con datos de ejemplo.",
+        "cta": "Unirme a la lista de espera",
+        "dismiss": "Cerrar aviso"
+      }
     }
   }
 }

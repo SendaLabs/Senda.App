@@ -16,6 +16,10 @@ export const routing = defineRouting({
       es: "/empresas/ingresar",
       en: "/business/login",
     },
+    "/empresas/panel": {
+      es: "/empresas/panel",
+      en: "/business/dashboard",
+    },
   },
 });
 
@@ -33,6 +37,9 @@ export function toInternalPathname(pathname: string): AppPathname {
   }
   if (stripped === "/empresas/ingresar" || stripped === "/business/login") {
     return "/empresas/ingresar";
+  }
+  if (stripped === "/empresas/panel" || stripped === "/business/dashboard") {
+    return "/empresas/panel";
   }
   if (stripped === "/lista-de-espera") {
     return "/lista-de-espera";

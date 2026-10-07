@@ -468,6 +468,129 @@
         "copy": "There are no active accounts yet. Join the waitlist and we will let you know when access opens.",
         "cta": "Join the waitlist"
       }
+    },
+    "dashboard": {
+      "meta": {
+        "title": "Dashboard — Senda Business",
+        "description": "Senda Business dashboard demo with sample data."
+      },
+      "skip": "Skip to content",
+      "home": "Senda Business, home",
+      "brandSuffix": "business",
+      "demoBadge": "Demo",
+      "demoNote": "Sample data. Amounts in USD.",
+      "nav": {
+        "aria": "Dashboard sections",
+        "home": "Home",
+        "payments": "Payments",
+        "payables": "Accounts payable",
+        "expenses": "Expenses",
+        "cards": "Cards",
+        "treasury": "Treasury",
+        "reports": "Reports",
+        "integrations": "Integrations",
+        "soon": "Soon",
+        "openMenu": "Open dashboard menu",
+        "menu": "Dashboard menu"
+      },
+      "company": {
+        "countries": "{count} countries"
+      },
+      "user": {
+        "role": "Admin",
+        "signOut": "Log out"
+      },
+      "header": {
+        "greeting": "Hi, {name}.",
+        "sub": "Here's an overview of your operation.",
+        "regionLabel": "Filter by country",
+        "regionGlobal": "Global · All countries",
+        "periodLabel": "Period",
+        "newPayment": "New payment"
+      },
+      "kpi": {
+        "aria": "Key metrics",
+        "balance": "Total balance",
+        "payable": "To pay",
+        "spend": "Spend this month",
+        "international": "International payments",
+        "vsPrevious": "{change} vs. last month",
+        "invoices": "{count} invoices · next due",
+        "payments": "{count} payments processed"
+      },
+      "cashFlow": {
+        "title": "Cash flow",
+        "rangeLabel": "Chart range",
+        "range12": "Last 12 months",
+        "range6": "Last 6 months",
+        "income": "Income",
+        "expenses": "Expenses",
+        "tableCaption": "Income and expenses by month",
+        "month": "Month"
+      },
+      "categories": {
+        "title": "Spend by category",
+        "periodLabel": "Spend period",
+        "current": "This month",
+        "previous": "Last month",
+        "category": "Category",
+        "share": "Share",
+        "items": {
+          "software": "Software",
+          "services": "Services",
+          "marketing": "Marketing",
+          "operations": "Operations",
+          "people": "People",
+          "other": "Other"
+        }
+      },
+      "cards": {
+        "title": "Corporate cards",
+        "seeAll": "See all",
+        "number": "Card ending in {last4}",
+        "active": "{active}/{total} cards active"
+      },
+      "upcoming": {
+        "title": "Upcoming payments",
+        "seeAll": "See all",
+        "supplier": "Supplier",
+        "amount": "Amount",
+        "date": "Date",
+        "status": "Status",
+        "today": "Today",
+        "empty": "No payments scheduled for this country.",
+        "statuses": {
+          "pending": "Pending",
+          "scheduled": "Scheduled",
+          "approved": "Approved"
+        }
+      },
+      "activity": {
+        "title": "Recent activity",
+        "seeAll": "See all",
+        "description": "Description",
+        "amount": "Amount",
+        "date": "Date",
+        "empty": "No recent activity for this country.",
+        "route": "From {from} to {to}",
+        "today": "Today",
+        "kinds": {
+          "supplierPayment": "Supplier payment",
+          "internationalTransfer": "International transfer",
+          "fundsReceived": "Funds received",
+          "cardSpend": "Card spend"
+        }
+      },
+      "countries": {
+        "title": "Operations by country",
+        "seeDetail": "See details"
+      },
+      "demoAction": {
+        "title": "Available with early access.",
+        "copy": "This dashboard is a demo with sample data.",
+        "cta": "Join the waitlist",
+        "dismiss": "Dismiss notice"
+      }
     }
   }
 }

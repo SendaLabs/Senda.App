@@ -2,10 +2,10 @@
 
 import { ArrowRight, Eye, EyeOff, Info, Lock, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { type FormEvent, useId, useState } from "react";
+import { type FormEvent, useId, useState, useTransition } from "react";
 
-import { Link } from "~/i18n/navigation";
-import { site } from "~/lib/site";
+import { Link, useRouter } from "~/i18n/navigation";
+import { BUSINESS_DASHBOARD_PATH, site } from "~/lib/site";
 import { cn } from "~/lib/utils";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,6 +21,8 @@ export function LoginForm() {
   const [remember, setRemember] = useState(true);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [showNotice, setShowNotice] = useState(false);
+  const [isNavigating, startNavigation] = useTransition();
+  const router = useRouter();
 
   const emailId = `${id}-email`;
   const passwordId = `${id}-password`;
@@ -32,7 +34,12 @@ export function LoginForm() {
     if (!EMAIL_PATTERN.test(email.trim())) next.email = t("errors.email");
     if (!password) next.password = t("errors.password");
     setErrors(next);
-    setShowNotice(Object.keys(next).length === 0);
+    setShowNotice(false);
+    if (Object.keys(next).length > 0) return;
+
+    // Demo only: credentials are never sent or stored anywhere.
+    setPassword("");
+    startNavigation(() => router.push(BUSINESS_DASHBOARD_PATH));
   }
 
   return (
@@ -66,7 +73,8 @@ export function LoginForm() {
               value={email}
               onChange={(event) => {
                 setEmail(event.target.value);
-                if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+                if (errors.email)
+                  setErrors((prev) => ({ ...prev, email: undefined }));
               }}
               aria-invalid={errors.email ? true : undefined}
               aria-describedby={errors.email ? `${emailId}-error` : undefined}
@@ -155,9 +163,11 @@ export function LoginForm() {
 
         <button
           type="submit"
-          className="bg-forest text-cream hover:bg-forest-soft focus-visible:ring-forest/40 flex min-h-12 w-full items-center justify-center gap-2 rounded-xl text-[0.95rem] font-medium transition-colors outline-none focus-visible:ring-3"
+          disabled={isNavigating}
+          aria-busy={isNavigating || undefined}
+          className="bg-forest text-cream hover:bg-forest-soft focus-visible:ring-forest/40 flex min-h-12 w-full items-center justify-center gap-2 rounded-xl text-[0.95rem] font-medium transition-colors outline-none focus-visible:ring-3 disabled:cursor-wait disabled:opacity-80"
         >
-          {t("submit")}
+          {isNavigating ? t("submitting") : t("submit")}
           <ArrowRight className="size-4" aria-hidden />
         </button>
       </form>
