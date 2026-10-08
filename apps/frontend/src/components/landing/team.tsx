@@ -30,7 +30,7 @@ export async function Team() {
             {t("label")}
           </p>
 
-          <ul className="mx-auto mt-5 grid max-w-xl gap-5 sm:grid-cols-3">
+          <ul className="mx-auto mt-5 grid max-w-sm gap-5 sm:grid-cols-2">
             {team.map((person) => (
               <li key={person.name} className="text-center">
                 <Image

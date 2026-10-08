@@ -36,7 +36,7 @@ Visitor arrives on `/es` or `/en` to understand the consumer offer and act (What
 
 ## Brand Commitments
 
-- Reuse Senda landing identity: cream/forest/charcoal, Geist + Georgia italic, logoverde / logoblanco / favicon, team integrantes (Emilio Alfaro CPO, Delfina Corradini CEO, Nicolas Bustelo CTO) and portraits, LatAm map.
+- Reuse Senda landing identity: cream/forest/charcoal, Geist + Georgia italic, logoverde / logoblanco / favicon, team integrantes (Emilio Alfaro CPO, Delfina Corradini CEO) and portraits, LatAm map.
 - Voice: Spanish Rioplatense, professional, warm. Voseo.
 - Header structure close to Felix Pago (logo left, nav, primary CTA).
 - Binding references: senda-landing.vercel.app, felixpago.com, useazza.com cross-border page.

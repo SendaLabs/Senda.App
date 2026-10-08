@@ -68,12 +68,4 @@ export const team = [
     x: "https://x.com/Delfiicorradini",
     linkedin: "https://www.linkedin.com/in/delfina-luna-corradini-668795224/",
   },
-  {
-    name: "Nicolas Bustelo",
-    role: "Co-Founder & CTO",
-    image: "/images/P_Nicolas.png.svg",
-    telegram: "https://t.me/nicobustelo",
-    x: "https://x.com/nicobustelo__",
-    linkedin: "https://ar.linkedin.com/in/nicolas-bustelo",
-  },
 ] as const;

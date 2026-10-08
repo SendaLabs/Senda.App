@@ -17,7 +17,8 @@ import { Label } from "~/components/ui/label";
 import { site } from "~/lib/site";
 import { cn } from "~/lib/utils";
 
-export type WaitlistFormStatus = "idle" | "loading" | "success" | "duplicate" | "error";
+export type WaitlistFormStatus =
+  "idle" | "loading" | "success" | "duplicate" | "error";
 
 type ComingSoon1Props = {
   title: string;
@@ -117,7 +118,7 @@ export function ComingSoon1({
               value={name}
               disabled={busy}
               onChange={(event) => onNameChange(event.target.value)}
-              className="border-stone bg-white text-charcoal h-12 rounded-xl px-4 text-base"
+              className="border-stone text-charcoal h-12 rounded-xl bg-white px-4 text-base"
             />
           </div>
           <div className="flex flex-col gap-1.5">
@@ -140,7 +141,7 @@ export function ComingSoon1({
                 status === "error" ? "waitlist-error" : "waitlist-privacy"
               }
               onChange={(event) => onEmailChange(event.target.value)}
-              className="border-stone bg-white text-charcoal h-12 rounded-xl px-4 text-base"
+              className="border-stone text-charcoal h-12 rounded-xl bg-white px-4 text-base"
             />
           </div>
           <Button
@@ -169,19 +170,17 @@ export function ComingSoon1({
 
       <div className="flex items-center gap-3">
         <div className="flex -space-x-2">
-          {["/images/P_Emilio.svg", "/images/P_Delfina.svg", "/images/P_Nicolas.png.svg"].map(
-            (src) => (
-              <Image
-                key={src}
-                src={src}
-                alt=""
-                width={28}
-                height={28}
-                aria-hidden="true"
-                className="border-cream size-7 rounded-full border-2 object-cover"
-              />
-            ),
-          )}
+          {["/images/P_Emilio.svg", "/images/P_Delfina.svg"].map((src) => (
+            <Image
+              key={src}
+              src={src}
+              alt=""
+              width={28}
+              height={28}
+              aria-hidden="true"
+              className="border-cream size-7 rounded-full border-2 object-cover"
+            />
+          ))}
         </div>
         <span className="text-forest/75 text-xs">{socialProof}</span>
       </div>
