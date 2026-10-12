@@ -383,15 +383,6 @@ Cómo se utiliza Stellar: Senda actúa como una pasarela de acceso y salida con 
 
 Impacto: Genera ingresos significativos a través de comisiones, mientras resuelve problemas de liquidez y posiciona a Senda como un actor clave en la infraestructura del ecosistema Stellar.
 
-## Hitos
-
-| Fecha | Hito | Criterio de listo |
-|---|---|---|
-| 20/09 | Hito 1 | Contrato en testnet responde aprobar/rechazar con datos de prueba |
-| 24/09 | Hito 2 | Mensaje real de WhatsApp dispara el flujo completo hasta pago o rechazo |
-| 27/09 | Entrega final | Todo estable + pitch deck + demo |
-
-Riesgos: el Confidential Token previsto depende de SDKs en Developer Preview (alcance en testnet); la custodia SEP-30 y los secretos de vault son superficie nueva para nosotros; el off-ramp a Mercado Pago depende del ancla SEP-24 de test; el efectivo es simulado; el on-ramp y Alfred Pay todavía no están en el backend.
 
 ## Validación con usuarios externos
 
@@ -426,10 +417,7 @@ Wallets creadas:
 
 Documento completo con capturas anonimizadas: [Google Doc](https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-cavvZfx8FfrgcsekkwD4/edit?usp=sharing)
 
-## Documentación
-Pitch (Argentina Builder Challenge): https://docs.google.com/document/d/1Q49nLCfl-VOjWNQluKXtgg08m6D_J819PBCLaIwA4A0/edit?tab=t.0
-Pitch Deck (Argentina Builder Challenge): https://docs.google.com/presentation/d/1do1UYuHVPNFeT5q73hg-zqoBYkwjHBqfkWqDd4CdV1U/edit?usp=sharing
-Evidencia de usuarios externos (Argentina Builder Challenge): https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-cavvZfx8FfrgcsekkwD4/edit?usp=sharing
+
 
 ## Roadmap global
 
@@ -449,26 +437,11 @@ La infraestructura que estamos construyendo (bot de WhatsApp, wallet, settlement
 <img width="947" height="547" alt="image" src="https://github.com/user-attachments/assets/16007bd8-893a-495e-917b-be0fa025b23b" />
 
 
-## Entregables
-
-Argentina Builder Challenge (Stellar × BAF)
-
-| Entregable | Enlace |
-|---|---|
-| Pitch Deck | [Ver presentación](https://docs.google.com/presentation/d/1do1UYuHVPNFeT5q73hg-zqoBYkwjHBqfkWqDd4CdV1U/edit?usp=sharing) |
-| Pitch en español | [Ver en Loom](https://www.loom.com/share/f49dcb2f559e46049c2841b44a46394c) |
-| Pitch en inglés | [Ver en Loom](https://www.loom.com/share/f49dcb2f559e46049c2841b44a46394c) |
-| Demo |[Drive](https://drive.google.com/file/d/16b2xh-XVnimUs5UVwJ8RRL_bijepgNPM/view?usp=sharing) |
-| Repositorio del backend | [SendaLabs/senda-backend](https://github.com/SendaLabs/senda-backend) |
-| Documentación | [withsenda.site/docs](https://withsenda.site/docs) |
-| Landing page | [withsenda.site/es](https://withsenda.site/es) |
-| Evidencia de pruebas con usuarios | [Documento completo con capturas anonimizadas (Google Doc)](https://docs.google.com/document/d/11j4aj7V71qWfGHbjxLrVte-
-
 **Redes:** [X @withsenda_](https://x.com/withsenda_) · [Instagram @withsenda](https://www.instagram.com/withsenda/)
 
 ## Contacto
-* Somos un Equipo de 3 Builders trabajando entre producto,ingenieria y Blockchain, Creemos que La tecnología no es un fin, sino una
+* Somos un Equipo de 2 Builders trabajando entre producto,ingenieria y Blockchain, Creemos que La tecnología no es un fin, sino una
 herramienta para facilitar y mejorar la vida de las personas. Su verdadero impacto surge cuando ponemos el foco en ellas.
-<img width="780" height="347" alt="image" src="https://github.com/user-attachments/assets/c69ae117-22c5-413b-bc4e-edf1fef9a3ec" />
+
 
 sendanetwork@gmail.com
