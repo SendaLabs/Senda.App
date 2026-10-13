@@ -7,7 +7,6 @@ export const routing = defineRouting({
   localeDetection: false,
   pathnames: {
     "/": "/",
-    "/lista-de-espera": "/lista-de-espera",
     "/empresas": {
       es: "/empresas",
       en: "/business",
@@ -40,9 +39,6 @@ export function toInternalPathname(pathname: string): AppPathname {
   }
   if (stripped === "/empresas/panel" || stripped === "/business/dashboard") {
     return "/empresas/panel";
-  }
-  if (stripped === "/lista-de-espera") {
-    return "/lista-de-espera";
   }
   return "/";
 }

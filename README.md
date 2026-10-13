@@ -337,7 +337,7 @@ cp apps/frontend/.env.example apps/frontend/.env    # en Windows (cmd): copy ...
 npm run dev:frontend
 ```
 
-`DATABASE_URL` es obligatorio al arrancar el frontend (Next valida el entorno al cargar la config) aunque la landing no la use en runtime.
+El frontend no usa base de datos; las variables opcionales están en `apps/frontend/.env.example`.
 
 Otros scripts desde la raíz:
 

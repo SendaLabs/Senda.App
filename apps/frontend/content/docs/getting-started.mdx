@@ -9,22 +9,17 @@ description: Setup local de la landing (Senda.App) y del backend (senda-backend)
 git clone https://github.com/SendaLabs/Senda.App.git
 cd Senda.App
 npm install
-cp .env.example .env    # en Windows (cmd): copy .env.example .env
-npm run dev
+cp apps/frontend/.env.example apps/frontend/.env    # en Windows (cmd): copy ...
+npm run dev:frontend
 ```
 
-`DATABASE_URL` es obligatorio al arrancar (Next valida el entorno al cargar la config) aunque la landing no la use en runtime. En `.env.example` el valor de desarrollo es:
+La landing no usa base de datos. Las variables opcionales (formulario de contacto y destino del botón de inicio) están en `apps/frontend/.env.example`.
 
-```
-DATABASE_URL=file:./db.sqlite
-```
-
-Otros scripts:
+Otros scripts desde la raíz:
 
 ```bash
-npm run build
-npm start
-npm run db:push
+npm run build:frontend
+npm run typecheck
 npm run lint
 ```
 

@@ -1,8 +1,4 @@
-import {
-  getMarketingStartHref,
-  WAITLIST_PATH,
-  WHATSAPP_START_URL,
-} from "~/lib/marketing-cta";
+import { getMarketingStartHref, WHATSAPP_START_URL } from "~/lib/marketing-cta";
 
 export const BUSINESS_PATH = "/empresas" as const;
 export const BUSINESS_LOGIN_PATH = "/empresas/ingresar" as const;
@@ -24,7 +20,6 @@ export const site = {
   whatsappHref: WHATSAPP_START_URL,
   /** @deprecated Prefer getStartHref() so the env CTA switch applies. */
   startHref: WHATSAPP_START_URL,
-  waitlistPath: WAITLIST_PATH,
   howHref: "#como-funciona",
   exampleUsdToArs: 1350,
   exampleFeeLabel: "incluida",
@@ -38,7 +33,7 @@ export function getBusinessMailto(locale: string): string {
   return `mailto:${site.email}?subject=${encodeURIComponent(subject)}`;
 }
 
-/** Primary marketing CTA destination (waitlist or product). */
+/** Primary marketing CTA destination. */
 export function getStartHref(): string {
   return getMarketingStartHref();
 }

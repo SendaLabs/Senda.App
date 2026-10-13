@@ -7,7 +7,6 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DATABASE_URL: z.string().url(),
     RESEND_API_KEY: z.string().optional(),
     RESEND_FROM_EMAIL: z.string().email().optional(),
     NODE_ENV: z
@@ -21,15 +20,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    /**
-     * Marketing primary CTA destination.
-     * - "product" (default): Empezar CTAs → PRODUCT_START_URL (WhatsApp)
-     * - "waitlist": Empezar CTAs → /lista-de-espera
-     */
-    NEXT_PUBLIC_MARKETING_CTA_MODE: z
-      .enum(["waitlist", "product"])
-      .default("product"),
-    /** Used when MARKETING_CTA_MODE=product. e.g. https://wa.me/... or #empezar */
+    /** Primary "Empezar" CTA destination, e.g. https://wa.me/... or #empezar */
     NEXT_PUBLIC_PRODUCT_START_URL: z.string().optional(),
   },
 
@@ -38,12 +29,9 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    DATABASE_URL: process.env.DATABASE_URL,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     RESEND_FROM_EMAIL: process.env.RESEND_FROM_EMAIL,
     NODE_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_MARKETING_CTA_MODE:
-      process.env.NEXT_PUBLIC_MARKETING_CTA_MODE,
     NEXT_PUBLIC_PRODUCT_START_URL: process.env.NEXT_PUBLIC_PRODUCT_START_URL,
   },
   /**
