@@ -5,19 +5,6 @@ CREATE SCHEMA IF NOT EXISTS "public";
 CREATE TYPE "CompanyRole" AS ENUM ('OWNER', 'ADMIN', 'MEMBER');
 
 -- CreateTable
-CREATE TABLE "waitlist_signups" (
-    "id" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
-    "name" TEXT,
-    "locale" TEXT,
-    "source" TEXT,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "waitlist_signups_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "business_users" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
@@ -63,12 +50,6 @@ CREATE TABLE "business_sessions" (
 
     CONSTRAINT "business_sessions_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "waitlist_signups_email_key" ON "waitlist_signups"("email");
-
--- CreateIndex
-CREATE INDEX "waitlist_signups_created_at_idx" ON "waitlist_signups"("created_at");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "business_users_email_key" ON "business_users"("email");

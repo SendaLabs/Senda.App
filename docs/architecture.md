@@ -25,8 +25,8 @@ Este repositorio contiene la cara web de Senda (landing, Senda Business y docume
 
 ```mermaid
 flowchart LR
-    FE["apps/frontend"] --> DB["packages/database"]
-    BE["apps/backend-business"] --> DB
+    FE["apps/frontend"]
+    BE["apps/backend-business"] --> DB["packages/database"]
     BE --> SH["packages/shared"]
     BE -. "Soroban RPC (futuro)" .-> CT["contracts/business-payments"]
     DB --> PG[("PostgreSQL")]
@@ -36,7 +36,7 @@ Reglas:
 
 - Las apps dependen de los paquetes; los paquetes nunca dependen de las apps.
 - `packages/shared` no tiene dependencias de runtime salvo `zod`, así puede usarse también en el frontend.
-- Solo `packages/database` conoce Prisma. Las apps importan desde `@senda/database`.
+- Solo `packages/database` conoce Prisma. El backend importa desde `@senda/database`; el frontend no usa base de datos.
 
 ## Backend corporativo (`apps/backend-business`)
 
@@ -72,7 +72,6 @@ Transversales en `src/common` y `src/config`:
 
 PostgreSQL con Prisma. Tablas y columnas en snake_case:
 
-- `waitlist_signups`: altas a la lista de espera de la landing.
 - `business_users`: usuarios corporativos con `password_hash`.
 - `companies`: razón social, identificación fiscal y país (ISO 3166-1).
 - `company_memberships`: relación usuario-empresa con rol `OWNER | ADMIN | MEMBER`.
