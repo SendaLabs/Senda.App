@@ -350,7 +350,7 @@
       "title": "The power of Senda, now for your company.",
       "sub": "Expense management, accounts payable, cross-border payments, and corporate cards, built as a single platform. One account, one dashboard, one source of truth for every country you operate in.",
       "start": "Corporate email",
-      "waitlist": "Join the waitlist",
+      "requestAccess": "Request access",
       "mockLabel": "Illustrative mockup. Senda Business is on the roadmap — not a live product.",
       "pillars": [
         {
@@ -465,8 +465,8 @@
       },
       "notice": {
         "title": "Senda Business is in early access.",
-        "copy": "There are no active accounts yet. Join the waitlist and we will let you know when access opens.",
-        "cta": "Join the waitlist"
+        "copy": "There are no active accounts yet. Access opens soon.",
+        "cta": "Request access"
       }
     },
     "dashboard": {
@@ -588,7 +588,7 @@
       "demoAction": {
         "title": "Available with early access.",
         "copy": "This dashboard is a demo with sample data.",
-        "cta": "Join the waitlist",
+        "cta": "Request access",
         "dismiss": "Dismiss notice"
       }
     }

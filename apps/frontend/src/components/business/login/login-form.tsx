@@ -4,7 +4,7 @@ import { ArrowRight, Eye, EyeOff, Info, Lock, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { type FormEvent, useId, useState, useTransition } from "react";
 
-import { Link, useRouter } from "~/i18n/navigation";
+import { useRouter } from "~/i18n/navigation";
 import { BUSINESS_DASHBOARD_PATH, site } from "~/lib/site";
 import { cn } from "~/lib/utils";
 
@@ -183,12 +183,12 @@ export function LoginForm() {
             <div className="text-sm leading-relaxed">
               <p className="font-medium">{t("notice.title")}</p>
               <p className="text-charcoal/70 mt-1">{t("notice.copy")}</p>
-              <Link
-                href="/lista-de-espera"
-                className="mt-2 inline-flex font-medium underline underline-offset-4 hover:no-underline"
+              <button
+                type="button"
+                className="mt-2 inline-flex cursor-pointer font-medium underline underline-offset-4 hover:no-underline"
               >
                 {t("notice.cta")}
-              </Link>
+              </button>
             </div>
           </div>
         ) : null}

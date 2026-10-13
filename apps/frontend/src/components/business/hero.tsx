@@ -1,10 +1,16 @@
-import { ArrowRight, CreditCard, Globe2, Mail, Shield, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  CreditCard,
+  Globe2,
+  Mail,
+  Shield,
+  Zap,
+} from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { BusinessHeroStage } from "~/components/business/hero-stage";
 import { Shell } from "~/components/landing/shell";
 import { Button } from "~/components/ui/button";
-import { Link } from "~/i18n/navigation";
 import { getBusinessMailto } from "~/lib/site";
 
 const pillarIcons = [Shield, Zap, CreditCard, Globe2] as const;
@@ -17,7 +23,7 @@ export async function BusinessHero() {
 
   return (
     <section id="top" className="relative isolate">
-      <div className="relative -mt-[4.5rem] overflow-x-clip bg-[#061f1b] pt-[4.5rem] text-cream">
+      <div className="text-cream relative -mt-[4.5rem] overflow-x-clip bg-[#061f1b] pt-[4.5rem]">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_72%_42%,rgba(28,92,74,0.55),transparent_58%)]"
           aria-hidden
@@ -51,15 +57,13 @@ export async function BusinessHero() {
                 </a>
               </Button>
               <Button
+                type="button"
                 variant="ghostForest"
                 size="cta"
-                asChild
                 className="min-h-11 px-5 text-[0.95rem]"
               >
-                <Link href="/lista-de-espera">
-                  {t("waitlist")}
-                  <ArrowRight data-icon="inline-end" aria-hidden />
-                </Link>
+                {t("requestAccess")}
+                <ArrowRight data-icon="inline-end" aria-hidden />
               </Button>
             </div>
           </div>
@@ -73,9 +77,12 @@ export async function BusinessHero() {
           {pillars.map((pillar, index) => {
             const Icon = pillarIcons[index] ?? Shield;
             return (
-              <div key={pillar.title} className="flex flex-col items-center text-center">
+              <div
+                key={pillar.title}
+                className="flex flex-col items-center text-center"
+              >
                 <span
-                  className="mb-3 flex size-10 items-center justify-center rounded-full border border-forest/15 text-forest"
+                  className="border-forest/15 text-forest mb-3 flex size-10 items-center justify-center rounded-full border"
                   aria-hidden
                 >
                   <Icon className="size-4" strokeWidth={1.6} />

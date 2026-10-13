@@ -350,7 +350,7 @@
       "title": "El poder de Senda, ahora para tu empresa.",
       "sub": "Gestión de gastos, cuentas a pagar, pagos transfronterizos y tarjetas corporativas, construido como una única plataforma. Una cuenta, un panel de control, una fuente de verdad para cada país en el que operes.",
       "start": "Correo electrónico corporativo",
-      "waitlist": "Unirme a la lista de espera",
+      "requestAccess": "Solicitar acceso",
       "mockLabel": "Mockup ilustrativo. Senda Business está en el roadmap: no es un producto live.",
       "pillars": [
         {
@@ -465,8 +465,8 @@
       },
       "notice": {
         "title": "Senda Business está en acceso anticipado.",
-        "copy": "Todavía no hay cuentas activas. Sumate a la lista de espera y te avisamos cuando abramos el acceso.",
-        "cta": "Unirme a la lista de espera"
+        "copy": "Todavía no hay cuentas activas. El acceso abre pronto.",
+        "cta": "Solicitar acceso"
       }
     },
     "dashboard": {
@@ -588,7 +588,7 @@
       "demoAction": {
         "title": "Disponible con el acceso anticipado.",
         "copy": "Este panel es una demostración con datos de ejemplo.",
-        "cta": "Unirme a la lista de espera",
+        "cta": "Solicitar acceso",
         "dismiss": "Cerrar aviso"
       }
     }

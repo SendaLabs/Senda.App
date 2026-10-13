@@ -74,12 +74,12 @@ export async function BusinessLoginPage() {
           <LanguageSwitch />
           <p className="text-charcoal/65 text-sm">
             {t("noAccount")}{" "}
-            <Link
-              href="/lista-de-espera"
-              className="text-forest font-medium underline underline-offset-4 hover:no-underline"
+            <button
+              type="button"
+              className="text-forest cursor-pointer font-medium underline underline-offset-4 hover:no-underline"
             >
               {t("register")}
-            </Link>
+            </button>
           </p>
         </div>
 

@@ -10,7 +10,6 @@ import {
   useState,
 } from "react";
 
-import { Link } from "~/i18n/navigation";
 import { cn } from "~/lib/utils";
 
 type DemoNoticeLabels = {
@@ -61,12 +60,12 @@ export function DemoNoticeProvider({
             <div className="min-w-0 flex-1 text-sm leading-relaxed">
               <p className="font-medium">{labels.title}</p>
               <p className="text-charcoal/70 mt-0.5">{labels.copy}</p>
-              <Link
-                href="/lista-de-espera"
-                className="mt-1.5 inline-flex font-medium underline underline-offset-4 hover:no-underline"
+              <button
+                type="button"
+                className="mt-1.5 inline-flex cursor-pointer font-medium underline underline-offset-4 hover:no-underline"
               >
                 {labels.cta}
-              </Link>
+              </button>
             </div>
             <button
               type="button"
